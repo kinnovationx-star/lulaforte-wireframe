@@ -76,17 +76,30 @@ ol.blocks li b{display:block;font-size:15px}
 .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .links a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:99px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14px}
 .links a.o{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.menu{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin:10px 0 6px}
+.mcol{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px}
+.mcol.cta{background:var(--ac);border-color:var(--ac)}.mcol.cta a,.mcol.cta li{color:#fff}
+.mh{margin:0 0 6px;font-weight:900;font-size:14px}.mh a{color:inherit;text-decoration:none}
+.mcol ul,.tree ul{list-style:none;padding:0;margin:0}.mcol li{font-size:12px;margin:3px 0}.mcol li a{color:var(--sub);text-decoration:none}
+.tree{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.tcol{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px}
+.th{margin:0 0 6px;font-weight:900}.th a{color:var(--ink);text-decoration:none}
+.th span,.tree li span{display:block;font-size:10px;color:#9a9a9a;font-weight:400;word-break:break-all}
+.tree li{font-size:12.5px;margin:6px 0}.tree li a{color:var(--ac2);text-decoration:none}
+.tree li.d1{padding-left:12px}.tree li.d2{padding-left:24px}
+.note{font-size:12px;color:var(--sub)}
+@media (max-width:900px){.menu{grid-template-columns:repeat(2,minmax(0,1fr))}.tree{grid-template-columns:repeat(2,minmax(0,1fr))}}
 footer{padding:40px 0 90px;color:var(--sub);font-size:12px;text-align:center}
 @media (max-width:640px){.map .row{grid-template-columns:1fr 1fr}h2{font-size:20px}body{font-size:14px}.hero{padding:40px 0 24px}section{padding:36px 0}header.top nav{gap:12px}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><a href="index.html"><img src="images/logo-black.png" alt="Lu Laforte"></a><nav><a href="index.html">デザイン一覧</a><a href="#map">サイトマップ</a><a href="#flow">動線</a><a href="#ask">確認したいこと</a></nav></div></header>
+<header class="top"><div class="wrap"><a href="index.html"><img src="images/logo-black.png" alt="Lu Laforte"></a><nav><a href="index.html">デザイン一覧</a><a href="#map">サイトマップ</a><a href="#flow">動線</a><a href="hearing.html">ヒアリング項目</a></nav></div></header>
 
 <div class="wrap hero">
   <div class="en">SITE STRUCTURE</div>
   <h1>サイト構成の考え方と、<br>確認させていただきたいこと</h1>
-  <p class="lead">現行のGoogleサイトの内容をすべて読み込み、「誰が・何を知りたくて来るか」から10ページに整理し直しました。各ページの文章・数字は仮のものです。赤い<span data-kari></span>ラベルが付いた箇所が、こちらで仮に考えた部分です。最後の「確認したいこと」にお答えいただければ、仮の部分を本番用の内容に差し替えます。</p>
+  <p class="lead">現行のGoogleサイトの内容をすべて読み込み、「誰が・何を知りたくて来るか」から整理し直しました。各ページの文章・数字は仮のものです。トップの赤い<span data-kari></span>ラベル、下層ページの赤い点線枠・「テスト文」ラベルが、こちらで仮に考えた部分です。ヒアリング項目にお答えいただければ、本番用の内容に差し替えます。</p>
   <div class="links"><a href="index.html">トップ10案を見る</a><a class="o" href="top-01.html">サイトを開く（A案から）</a></div>
 </div>
 
@@ -103,39 +116,13 @@ footer{padding:40px 0 90px;color:var(--sub);font-size:12px;text-align:center}
 </div></section>
 
 <section id="map"><div class="wrap">
-  <h2><span class="no">02</span>新しいサイトマップ（全10ページ）</h2>
-  <p>訪問者を4種類に分け、それぞれの「知りたい」に1ページずつ答える形にしました。ページ数と名前はこの10ページで固定します。</p>
-  <div class="map">
-    <div class="root"><span class="node t"><small>TOP</small>トップ</span></div>
-    <div class="stem"></div>
-    <div class="row">
-      <span class="node c"><small>ABOUT</small>私たちについて</span>
-      <span class="node b"><small>SERVICE</small>事業内容</span>
-      <span class="node b"><small>WORKS</small>制作実績</span>
-      <span class="node m"><small>ACADEMY</small>アニメーター育成</span>
-      <span class="node m"><small>SUPPORT</small>子育て支援</span>
-      <span class="node c"><small>COMMUNITY</small>地域活動</span>
-      <span class="node m"><small>RECRUIT</small>採用情報</span>
-      <span class="node c"><small>NEWS</small>お知らせ</span>
-      <span class="node x"><small>CONTACT</small>お問い合わせ</span>
-    </div>
-    <div class="legend"><span><i style="background:#fde8e3"></i>発注を検討する企業向け</span><span><i style="background:var(--mint)"></i>はたらきたい人・学びたい人向け</span><span><i style="background:var(--sand)"></i>全員向け（信頼・地域・最新情報）</span><span><i style="background:var(--ac)"></i>すべての動線のゴール</span></div>
-  </div>
-
-  <h3>現行ページ → 新しいページの対応</h3>
-  <div class="tbl"><table>
-    <tr><th>新しいページ</th><th>まとめた現行ページ</th><th>まとめた理由</th></tr>
-    <tr><td><b>トップ</b></td><td>ホーム</td><td>全訪問者の入口。目的別の3つの入口を最初に置き、迷わせない。</td></tr>
-    <tr><td><b>私たちについて</b></td><td>企業概要、メディア</td><td>理念「五増多幸」・代表の想い・会社情報・受賞歴を1か所に集め、信頼を一度に伝える。</td></tr>
-    <tr><td><b>事業内容</b></td><td>キャパシティ、ママキャパシティ、海外支社、ポスター制作</td><td>発注者が知りたい「何を・どれだけ・どの体制で」を1ページで判断できるようにする。</td></tr>
-    <tr><td><b>制作実績</b></td><td>制作実績</td><td>発注者にとって最大の判断材料。独立させて目立たせる。</td></tr>
-    <tr><td><b>アニメーター育成</b></td><td>アニメーター育成プロジェクト、卒業生インタビュー（10名分）</td><td>申し込みに必要な情報（対象・内容・費用・返還制度・流れ・声・FAQ）を1本の流れで読めるようにする。</td></tr>
-    <tr><td><b>子育て支援</b></td><td>子育て支援金</td><td>ラフォート最大の個性。採用・育成の両方の決め手になるので独立ページに。</td></tr>
-    <tr><td><b>地域活動</b></td><td>ワークショップ、イベント各ページ、東大和グルメ（要約）</td><td>自治体・学校・メディアからの依頼や取材につなげる。地域とのつながりを実績として見せる。</td></tr>
-    <tr><td><b>採用情報</b></td><td>採用情報、アニメーター募集</td><td>経験者向け。未経験者はアニメーター育成へ案内し、行き先を分ける。</td></tr>
-    <tr><td><b>お知らせ</b></td><td>トップのお知らせ、スタッフブログ、主婦がアニメスタジオに行ってみた、東大和グルメ各記事</td><td>読み物はカテゴリ（お知らせ／イベント／育成／メディア／ブログ）で1か所に。メニューをすっきりさせつつ、親しみやすい記事は残す。</td></tr>
-    <tr><td><b>お問い合わせ</b></td><td>各種Googleフォーム、メール、LINE</td><td>「目的を選ぶ → 入力」の1つの窓口に統一。メール・LINEも同じページに並べる。</td></tr>
-  </table></div>
+  <h2><span class="no">02</span>新しいサイトマップ（全43ページ）</h2>
+  <p>現行サイトの全ページ（40ページ）を残らず新しい構成に入れ、「お知らせ」「お問い合わせ」の2ページを新しく加えました（トップ＋下層42ページ）。グローバルメニューは現行サイトと同じ6項目にまとめ、残りのページはプルダウンの中に整理しています。各ページの右の灰色の文字は、元になった現行ページです。</p>
+  <h3>グローバルメニュー（全ページ共通）</h3>
+  <div class="menu"><div class="mcol"><p class="mh"><a href="top-01.html">ホーム</a></p></div><div class="mcol"><p class="mh">アニメーター育成プロジェクト ▾</p><ul><li><a href="academy.html">育成プロジェクト</a></li><li><a href="academy-voice.html">卒業生インタビュー</a></li></ul></div><div class="mcol"><p class="mh"><a href="about.html">企業概要</a></p></div><div class="mcol"><p class="mh"><a href="works.html">制作実績</a></p></div><div class="mcol"><p class="mh">採用情報 ▾</p><ul><li><a href="recruit.html">採用情報</a></li><li><a href="recruit-animator.html">デジタル作画アニメーター募集</a></li><li><a href="support.html">子育て支援</a></li></ul></div><div class="mcol"><p class="mh">その他 ▾</p><ul><li><a href="service.html">事業内容・キャパシティ</a></li><li><a href="service-mama.html">ママクリエーターの制作体制</a></li><li><a href="service-overseas.html">海外拠点 MONICHI Pictures</a></li><li><a href="service-poster.html">ポスター制作</a></li><li><a href="community.html">地域活動・ワークショップ</a></li><li><a href="community-gourmet.html">東大和グルメ</a></li><li><a href="news.html">お知らせ</a></li><li><a href="news-visit.html">主婦がアニメスタジオに行ってみた</a></li><li><a href="news-blog.html">スタッフブログ</a></li><li><a href="about-media.html">メディア掲載・受賞</a></li></ul></div><div class="mcol cta"><p class="mh"><a href="contact.html">お問い合わせ</a></p><ul><li>ボタン（常に表示）</li></ul></div></div>
+  <h3>全ページの階層</h3>
+  <div class="tree"><div class="tcol top"><p class="th"><a href="top-01.html">トップ（10案）</a><span>home</span></p></div><div class="tcol"><p class="th"><a href="about.html">企業概要</a><span>kigyougaiyou</span></p><ul><li class="d0"><a href="about-media.html">メディア掲載・受賞</a><span>media</span></li><li class="d1"><a href="about-media-tama.html">第20回 多摩ブルー・グリーン賞 受賞</a><span>media/tama_bluegreen</span></li></ul></div><div class="tcol"><p class="th"><a href="service.html">事業内容</a><span>capacity</span></p><ul><li class="d0"><a href="service-mama.html">ママクリエーターの制作体制</a><span>mama_capacity</span></li><li class="d0"><a href="service-overseas.html">海外拠点 MONICHI Pictures</a><span>teikei</span></li><li class="d0"><a href="service-poster.html">ポスター制作</a><span>poster</span></li></ul></div><div class="tcol"><p class="th"><a href="works.html">制作実績</a><span>jisseki</span></p><ul></ul></div><div class="tcol"><p class="th"><a href="academy.html">アニメーター育成プロジェクト</a><span>ikusei</span></p><ul><li class="d0"><a href="academy-voice.html">卒業生インタビュー</a><span>ikusei/interview2</span></li><li class="d1"><a href="academy-voice-01.html">松井美穂さん（1期生）</a><span>ikusei/interview2/matsuimiho</span></li><li class="d1"><a href="academy-voice-02.html">向山真由美さん（2期生）</a><span>ikusei/interview2/mukouyama</span></li><li class="d1"><a href="academy-voice-03.html">蕪山ゆりさん（3期生）</a><span>ikusei/interview2/yuri</span></li><li class="d1"><a href="academy-voice-04.html">福川有輝乃さん（4期生）</a><span>ikusei/interview2/fukukawayukino</span></li><li class="d1"><a href="academy-voice-05.html">香取ゆりさん（4期生）</a><span>ikusei/interview2/katori</span></li><li class="d1"><a href="academy-voice-06.html">浅芭むぎさん（5期生）</a><span>ikusei/interview2/asabamugi</span></li><li class="d1"><a href="academy-voice-07.html">えもじの子さん（5期生）</a><span>ikusei/interview2/emojinoko</span></li><li class="d1"><a href="academy-voice-08.html">Mさん（5期生）</a><span>ikusei/interview2/M</span></li><li class="d1"><a href="academy-voice-09.html">S.M.さん（7期生）</a><span>ikusei/interview2/s-m</span></li><li class="d1"><a href="academy-voice-10.html">yossyさん（7期生）</a><span>ikusei/interview2/yossy</span></li></ul></div><div class="tcol"><p class="th"><a href="support.html">子育て支援</a><span>saport_mama</span></p><ul></ul></div><div class="tcol"><p class="th"><a href="community.html">地域活動・ワークショップ</a><span>workshop</span></p><ul><li class="d0"><a href="community-0928.html">イベントレポート：作画体験・業界交流会</a><span>workshop/0928</span></li><li class="d0"><a href="community-gourmet.html">東大和グルメ</a><span>Gourmet</span></li><li class="d1"><a href="community-gourmet-01.html">クリカ食堂（ベーグル）</a><span>Gourmet/kurika</span></li><li class="d1"><a href="community-gourmet-02.html">ラーメン 狼煙屋</a><span>Gourmet/noroshiya</span></li><li class="d1"><a href="community-gourmet-03.html">洋食屋 パンドラ（PANDORA）</a><span>Gourmet/PANDORA</span></li><li class="d1"><a href="community-gourmet-04.html">パン屋 Lazalee（ラザレ）</a><span>Gourmet/Lazalee</span></li><li class="d1"><a href="community-gourmet-05.html">ステーキ＆ハンバーグ テキサス</a><span>Gourmet/texas</span></li><li class="d1"><a href="community-gourmet-06.html">貯水池 鳥山</a><span>Gourmet/toriyama</span></li><li class="d1"><a href="community-gourmet-07.html">イタリア料理＆総菜 coloritura</a><span>Gourmet/coloritura</span></li><li class="d1"><a href="community-gourmet-08.html">浦川のお肉屋さん</a><span>Gourmet/urakawa</span></li></ul></div><div class="tcol"><p class="th"><a href="recruit.html">採用情報</a><span>saiyo</span></p><ul><li class="d0"><a href="recruit-animator.html">デジタル作画アニメーター募集</a><span>saiyo/animator</span></li></ul></div><div class="tcol"><p class="th"><a href="news.html">お知らせ・読みもの</a><span>新規</span></p><ul><li class="d0"><a href="news-visit.html">特集：主婦がアニメスタジオに行ってみた</a><span>seisaku</span></li><li class="d1"><a href="news-visit-01.html">第1弾 ゆめたカンパニー様</a><span>seisaku/yumeta</span></li><li class="d1"><a href="news-visit-02.html">第2弾 Voil様</a><span>seisaku/voil</span></li><li class="d1"><a href="news-visit-03.html">第3弾 ダンデライオンアニメーションスタジオ様</a><span>seisaku/第3弾ダンデライオンアニメーションスタジオ様</span></li><li class="d0"><a href="news-blog.html">スタッフブログ</a><span>STAFF_blog</span></li><li class="d1"><a href="news-blog-stove.html">カフェ Stove</a><span>STAFF_blog/stove</span></li></ul></div><div class="tcol"><p class="th"><a href="contact.html">お問い合わせ</a><span>新規</span></p><ul></ul></div></div>
+  <p class="note">下層ページは現在ワイヤーフレーム（画像なし・グレーの箱）です。赤い点線枠と「テスト文」ラベルは、現行サイトに無い内容をこちらで追加した提案です。</p>
 </div></section>
 
 <section id="flow"><div class="wrap">
@@ -177,69 +164,21 @@ footer{padding:40px 0 90px;color:var(--sub);font-size:12px;text-align:center}
   </ol>
 </div></section>
 
-<section><div class="wrap">
-  <h2><span class="no">05</span>各ページの役割と中身</h2>
-  <div class="grid g3">
-    <div class="card"><h4>私たちについて</h4><p>理念「五増多幸」／代表メッセージ<span data-kari></span>／3つの約束<span data-kari></span>／会社概要／沿革<span data-kari></span>／メディア・受賞</p></div>
-    <div class="card"><h4>事業内容</h4><p>9つの対応工程／制作体制（国内在宅＋モンゴル）／月間キャパシティ<span data-kari></span>／依頼の流れ<span data-kari></span>／海外拠点／ポスター制作／発注者向けFAQ<span data-kari></span></p></div>
-    <div class="card"><h4>制作実績</h4><p>参加作品13件を作品名で掲載（作品画像は権利確認後）／種別での絞り込み／担当工程<span data-kari></span></p></div>
-    <div class="card"><h4>アニメーター育成</h4><p>募集状況／こんな方に／4つの特徴／カリキュラム<span data-kari></span>／受講料<span data-kari></span>と返還制度／流れ／卒業生の声<span data-kari></span>／FAQ</p></div>
-    <div class="card"><h4>子育て支援</h4><p>育児支援金／パートナーシップ契約／完全在宅／隙間時間での就業／1日の例<span data-kari></span>／認定・宣言</p></div>
-    <div class="card"><h4>地域活動</h4><p>活動の3分類<span data-kari></span>／開催実績の年表（2024〜2026）／出張ワークショップのご依頼<span data-kari></span>／東大和のまち</p></div>
-    <div class="card"><h4>採用情報</h4><p>デジタル作画アニメーター（LO・作監・原画・動画）／募集要項（雇用形態・報酬<span data-kari></span>）／選考の流れ<span data-kari></span>／未経験の方は育成へ</p></div>
-    <div class="card"><h4>お知らせ</h4><p>カテゴリ別の一覧（お知らせ／イベント／育成／メディア／ブログ）。ブログ・グルメ・スタジオ訪問記の移設先。</p></div>
-    <div class="card"><h4>お問い合わせ</h4><p>目的を選んで送れる1つのフォーム／メール・LINE・X・営業時間／返信の目安<span data-kari></span></p></div>
-  </div>
-</div></section>
-
 <section id="ask"><div class="wrap">
-  <h2><span class="no">06</span>確認させていただきたいこと</h2>
-  <p>「売れる」サイトにするために、仮の部分を本当の情報に差し替えたい項目です。<span class="pri">優先</span>は申し込み・発注の決め手になるもの、<span class="pri l">任意</span>はあればより良くなるものです。（チェックはこの画面上のメモ用で、保存はされません）</p>
-
-  <div class="ask"><h4>全体</h4>
-    <label><input type="checkbox"><span class="pri">優先</span>正式な所在地（番地まで載せるか）・最寄り駅・電話番号の公開可否</label>
-    <label><input type="checkbox"><span class="pri">優先</span>写真素材（スタッフ・事務所・イベント）の有無と、顔が写った写真の掲載許可</label>
-    <label><input type="checkbox"><span class="pri">優先</span>10案のうち方向性として近いもの（色・雰囲気）</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>ロゴの元データ（ベクター形式）とコーポレートカラーの指定</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>キャッチコピーで一番伝えたいこと（「ママが活躍する会社」か「品質と体制」か）</label>
-  </div>
-  <div class="ask"><h4>私たちについて <a href="about.html">ページを見る</a></h4>
-    <label><input type="checkbox"><span class="pri">優先</span>代表メッセージ：創業のきっかけ、この会社で実現したいこと</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>会長のひとこと、沿革（育成プロジェクト開始・MONICHI Pictures 設立の年月）</label>
-  </div>
-  <div class="ask"><h4>事業内容 <a href="service.html">ページを見る</a></h4>
-    <label><input type="checkbox"><span class="pri">優先</span>工程ごとの月間の対応枚数（動画・仕上 など）とスタッフ人数</label>
-    <label><input type="checkbox"><span class="pri">優先</span>使用ソフト（CLIP STUDIO PAINT／RETAS／TVPaint など）、紙とデジタルの比率</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>料金の目安を載せるか、納期の目安、ポスター制作の実績</label>
-  </div>
-  <div class="ask"><h4>制作実績 <a href="works.html">ページを見る</a></h4>
-    <label><input type="checkbox"><span class="pri">優先</span>各作品の担当工程と、作品名を掲載してよいかの確認</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>作品画像・ロゴを使える作品があるか</label>
-  </div>
-  <div class="ask"><h4>アニメーター育成 <a href="academy.html">ページを見る</a></h4>
-    <label><input type="checkbox"><span class="pri">優先</span>受講料、次期（第11期）の開講時期・説明会の日程、定員</label>
-    <label><input type="checkbox"><span class="pri">優先</span>卒業生の人数・在宅デビューした人数</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>全10回の内容、卒業生インタビューの掲載許可（名前・写真）</label>
-  </div>
-  <div class="ask"><h4>子育て支援 <a href="support.html">ページを見る</a></h4>
-    <label><input type="checkbox"><span class="pri">優先</span>育児支援金の金額の決まり方と条件（子どもの人数・年齢など）</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>スタッフの1日の過ごし方の実例、事務所のキッズスペースの有無、保育所構想の状況</label>
-  </div>
-  <div class="ask"><h4>地域活動 <a href="community.html">ページを見る</a></h4>
-    <label><input type="checkbox"><span class="pri">優先</span>出張ワークショップの対象・所要時間・費用、依頼を受けたい相手（自治体・学校・商業施設）</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>イベント写真（子どもの顔を含む）の掲載許可、協力先の名前の掲載可否</label>
-  </div>
-  <div class="ask"><h4>採用情報 <a href="recruit.html">ページを見る</a></h4>
-    <label><input type="checkbox"><span class="pri">優先</span>雇用形態と報酬（単価・出来高など）、選考の流れ</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>求める人物像、常時募集か期間限定か</label>
-  </div>
-  <div class="ask"><h4>お知らせ・お問い合わせ <a href="news.html">お知らせ</a> <a href="contact.html">お問い合わせ</a></h4>
-    <label><input type="checkbox"><span class="pri">優先</span>フォームの送信先メールアドレス、返信までの目安</label>
-    <label><input type="checkbox"><span class="pri l">任意</span>スタッフブログ・東大和グルメ記事を新サイトに移すか、終了するか／更新の担当</label>
-  </div>
+  <h2><span class="no">05</span>各ページの中身と、確認したいこと</h2>
+  <p>下層ページには、現行サイトの内容をすべて整理して入れたうえで、アニメ制作会社25社のサイト調査（発注元が見る項目、応募者が見る項目）をもとに「あった方がいい項目」を追加提案として入れています。追加した項目とその理由、ヒアリングで聞くことは、一覧にまとめました。</p>
+  <div class="links"><a href="hearing.html">ヒアリング項目一覧を見る（124項目）</a></div>
+  <h3>調査で分かったこと（要点）</h3>
+  <ul class="pl">
+    <li><b>発注元が知りたい情報は、ほぼどの会社も載せていない。</b>月間キャパ・納期の目安・納品形式は25社中0社、使用ソフトは2社、品質チェック体制は3社、情報セキュリティ方針は5社。Lu Laforteはキャパを公開しているので、ここを整えるだけで大きく差別化できます。</li>
+    <li><b>制作実績は「作品名＋担当工程・話数」が基本。</b>下請け中心の会社はこの形。各作品の担当工程の確認が必要です。</li>
+    <li><b>採用で他社が書いていないのは「必要な機材・ソフト」「1日の流れ」「在宅勤務」。</b>在宅で働く応募者が一番気にする所なので、採用・育成ページの目玉にできます。</li>
+    <li><b>育児支援金や子育て専用のページを持つ会社は0社。</b>Lu Laforteだけの強みとして独立ページにしています。</li>
+    <li><b>お問い合わせは種別を選ばせる形が一般的（8社）。</b>制作依頼のときは工程・物量・納期・素材形式を入力できるようにしています。</li>
+  </ul>
 </div></section>
 
 <footer>© Lu Laforte Inc. ／ このページはサイト制作のための確認用です</footer>
-<div class="kari-note"><b>仮</b>文章・数字は仮のものです（内容確認後に差し替え）</div>
+<div class="kari-note"><b>仮</b>文章・数字は仮です</div>
 </body>
 </html>

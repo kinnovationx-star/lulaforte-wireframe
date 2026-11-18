@@ -2,7 +2,7 @@
    使い方：仮の文章・数字を含む要素に data-kari を付ける → 文末に小さな「仮」ラベルが付く
    画面左下には「仮の文章で作成中」の小さな表示が出る（.kari-note） */
 [data-kari]::after{content:"仮";display:inline-block;margin-left:.45em;padding:3px 5px 2px;border-radius:3px;background:#e5484d;color:#fff !important;font:700 10px/1 'Noto Sans JP',sans-serif !important;letter-spacing:0 !important;vertical-align:.2em;text-shadow:none;-webkit-text-fill-color:#fff;writing-mode:horizontal-tb;text-transform:none;font-style:normal}
-.kari-note{position:fixed;left:12px;bottom:12px;z-index:9998;display:flex;align-items:center;gap:6px;max-width:calc(100vw - 110px);padding:7px 12px;border-radius:999px;background:rgba(20,20,20,.86);color:#fff;font:500 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.02em;pointer-events:none}
+.kari-note{position:fixed;left:10px;bottom:10px;z-index:9998;display:flex;align-items:center;gap:5px;padding:4px 9px 4px 5px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font:500 10px/1.3 'Noto Sans JP',sans-serif;letter-spacing:.02em;pointer-events:none;opacity:.9}
 .kari-note b{display:inline-block;padding:2px 5px;border-radius:3px;background:#e5484d;font-size:10px;line-height:1}
 @media (max-width:768px){.kari-note{left:8px;bottom:8px;max-width:calc(100vw - 96px);padding:5px 9px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}.kari-note b{margin-right:4px}}
 @media print{.kari-note{display:none}}
