@@ -72,7 +72,7 @@ code{{font-size:11px;background:#f3ece1;padding:0 4px;border-radius:3px}}
 <p class="en">HEARING LIST</p>
 <h1>ヒアリング項目一覧</h1>
 <p class="lead">下層ページのワイヤーフレームで「追加提案（テスト文）」として足した項目と、その理由（アニメ制作会社25社の調査結果）、ヒアリングで聞くことの一覧です。全{len(rows)}項目。チェック欄は画面上のメモ用で保存されません。最初に「現行サイトで見つかった食い違い」をご確認ください。</p>
-<div class="links"><a href="index.html">デザイン一覧へ</a><a href="structure.html">サイト構成の考え方</a></div>
+<div class="links"><a href="index.html">デザイン一覧へ</a><a href="structure.html">サイト構成の考え方</a><a href="needs.html">完成に必要な情報</a></div>
 <h2>現行サイトで見つかった食い違い・要確認<small>まず確認したいこと</small></h2>
 {check}
 <div class="toc">{toc}</div>
