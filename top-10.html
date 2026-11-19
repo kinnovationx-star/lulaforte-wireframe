@@ -23,7 +23,7 @@ ul{list-style:none;margin:0;padding:0}
 h1,h2,h3,p{margin:0}
 .svgdefs{position:absolute;width:0;height:0;overflow:hidden}
 
-/* ---------- ローディング（参考サイトの .loading を再現） ---------- */
+/* ---------- ローディング（ .loading を再現） ---------- */
 .loading{position:fixed;inset:0;z-index:10000;background:#fefef6;display:grid;place-items:center;animation:ldOut .6s ease .9s forwards;pointer-events:none}
 .loading svg{width:64px;height:64px;animation:ldSpin .9s ease-out both}
 @keyframes ldOut{to{opacity:0;visibility:hidden}}
@@ -49,7 +49,7 @@ h1,h2,h3,p{margin:0}
 .hero__fig{position:absolute;left:3%;bottom:0;height:min(50vh,470px);z-index:2;pointer-events:none;mix-blend-mode:multiply}
 .hero__fig img{height:100%;width:auto;clip-path:inset(9% 3% 0 0)}
 
-/* グローバルナビ（右下の白い箱：参考サイトの #faf8ed / 角丸5px） */
+/* グローバルナビ（右下の白い箱： #faf8ed / 角丸5px） */
 .gnav{position:absolute;right:56px;bottom:56px;z-index:5;background:var(--cream);border-radius:5px;padding:14px 26px 16px}
 .gnav__top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px dashed #d8d3bd}
 .gnav__logo img{height:40px;width:auto}
@@ -86,7 +86,7 @@ a:hover .roll>span,a:focus-visible .roll>span{transform:translateY(-100%)}
 .btn-contact .roll{font-size:14px}
 .btn-contact .roll>span+span{color:#fff}
 
-/* スクロール後の固定ナビ（参考サイトでは右上に移動） */
+/* スクロール後の固定ナビ（右上に移動） */
 .snav{position:fixed;top:14px;right:18px;z-index:50;display:flex;align-items:center;gap:22px;background:rgba(250,248,237,.94);border-radius:5px;padding:8px 10px 8px 18px;transform:translateY(-140%);transition:transform .45s cubic-bezier(.6,0,.2,1);box-shadow:0 2px 0 rgba(0,0,0,.03)}
 .snav.is-show{transform:none}
 .snav__logo img{height:40px;width:auto}
@@ -146,7 +146,7 @@ a:hover .roll>span,a:focus-visible .roll>span{transform:translateY(-100%)}
 .about__il--l img{object-position:40% 50%}
 .about__il--r img{object-position:55% 50%}
 
-/* 入口：左が追従、右に大きな輪（参考サイトの「どこで？だれが？なにを？」） */
+/* 入口：左が追従、右に大きな輪（「どこで？だれが？なにを？」） */
 .entry{position:relative;background:#fff;padding:60px 0 120px}
 .entry__in{display:grid;grid-template-columns:minmax(300px,440px) 1fr;gap:40px;width:min(1250px,100% - 120px);margin:0 auto}
 .entry__side{position:sticky;top:160px;align-self:start;padding-top:120px}

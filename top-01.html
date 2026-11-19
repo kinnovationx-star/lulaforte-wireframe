@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="assets/kari.css">
 <script>document.documentElement.classList.add('js');</script>
 <style>
-/* ===== base (参考: egaco の配色・文字組) ===== */
+/* ===== base  ===== */
 :root{
   --bg:#f5f5f5; --ink:#222; --sub:#a5a5a5;
   --purple:#6c5ded; --red:#ef3e4c; --blue:#33b6dd; --green:#2cc697; --navy:#272dca;
@@ -27,7 +27,7 @@
 html{background:var(--bg);-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 main{display:block;overflow:hidden}
 body{margin:0;font-family:"Noto Sans JP",sans-serif;color:var(--ink);font-size:16px;line-height:1.875;letter-spacing:.05em;overflow-x:hidden;
-  /* 参考サイトの縦の細い罫線（160px間隔） */
+  /* 縦の細い罫線（160px間隔） */
   background:linear-gradient(90deg,rgba(0,0,0,.028) 1px,transparent 1px) 50% 0/160px 100% repeat-x,var(--bg)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -51,7 +51,7 @@ h1,h2,h3,h4,p{margin:0}
 .gnav__link:hover,.gnav__item:focus-within>.gnav__link,.gnav__item:hover>.gnav__link{color:var(--purple)}
 .gnav__link[aria-current]{color:var(--purple)}
 .caret{display:inline-block;width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg)}
-/* プルダウン（参考サイトの白いカード：角丸10px＋やわらかい影） */
+/* プルダウン（白いカード：角丸10px＋やわらかい影） */
 .gnav__sub{position:absolute;z-index:5;top:100%;left:50%;min-width:230px;padding:10px;background:#fff;border-radius:10px;box-shadow:0 6px 30px rgba(90,90,90,.2);opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s}
 .gnav__sub::before{content:"";position:absolute;left:50%;top:-7px;margin-left:-7px;border-style:solid;border-width:0 7px 7px;border-color:transparent transparent #fff}
 .has-sub:hover>.gnav__sub,.has-sub:focus-within>.gnav__sub{opacity:1;visibility:visible;transform:translate(-50%,0)}
