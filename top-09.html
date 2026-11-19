@@ -30,16 +30,17 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--jp);fon
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 ul,ol{list-style:none;margin:0;padding:0}
-h1,h2,h3,p{margin:0}
+h1,h2,h3,p,figure{margin:0}
+[hidden]{display:none!important}
 .en{font-family:var(--en);font-weight:700;letter-spacing:-.02em}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+section[id]{scroll-margin-top:96px}
 
 /* ---------- フェードイン（JSが動かない時は常に表示） ---------- */
 .js .sd{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .sd.appear{opacity:1;transform:none}
 
 /* ---------- ボタン（黒・4px角丸・点線区切り＋矢印） ---------- */
-.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:space-between;gap:14px;min-width:204px;height:48px;padding:0 16px;border-radius:4px;background:var(--ink);color:#fff;font-weight:700;font-size:16px;line-height:1;letter-spacing:-.02em;transition:background .3s var(--ease)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:space-between;gap:14px;min-width:204px;height:48px;padding:0 16px;border-radius:4px;background:var(--ink);color:#fff;font-weight:700;font-size:16px;line-height:1;letter-spacing:-.02em;transition:background .3s var(--ease),color .3s var(--ease)}
 .btn .tail{display:flex;align-items:center;gap:14px}
 .btn .dots{width:2px;height:12px;background:radial-gradient(circle,currentColor 0 1px,transparent 1.2px) 0 0/2px 4px repeat-y;opacity:.8}
 .btn .arw{width:10px;height:10px;transition:transform .3s var(--ease)}
@@ -47,14 +48,18 @@ h1,h2,h3,p{margin:0}
 .btn:hover .arw{transform:translateX(3px)}
 .btn.white{background:#fff;color:var(--ink)}
 .btn.white:hover{background:var(--paper)}
+.btn.alt{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.alt:hover{background:var(--mist)}
+.btn.line{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
+.btn.line:hover{background:rgba(255,255,255,.12)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
 
 /* ---------- ヘッダー（固定・白いピル型ナビ） ---------- */
 .hd{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;gap:20px;padding:40px var(--gut) 0;pointer-events:none}
 .hd > *{pointer-events:auto}
-.hd-logo{flex:none;display:block;height:44px;margin-top:-4px}
+.hd-logo{flex:none;display:block;height:44px;margin-top:-4px;position:relative}
 .hd-logo img{height:44px;width:auto;transition:opacity .3s}
 .hd-logo .w{position:absolute;top:0;left:0;opacity:0}
-.hd-logo{position:relative}
 .hd.on-dark .hd-logo .b{opacity:0}
 .hd.on-dark .hd-logo .w{opacity:1}
 .gnav{margin:0 auto;height:48px;display:flex;align-items:center;padding:0 24px;background:#fff;border-radius:4px;box-shadow:0 0 0 1px rgba(34,34,34,0);transition:box-shadow .3s}
@@ -94,8 +99,8 @@ h1,h2,h3,p{margin:0}
 .drawer-info{margin-top:28px;font-size:13px;line-height:1.9;color:var(--ink-80)}
 .fab{display:none}
 
-/* ---------- メインビジュアル ---------- */
-.mv{position:relative;height:100vh;height:100svh;min-height:620px;max-height:1100px;background:var(--ink);overflow:hidden}
+/* ---------- 1. ファーストビュー ---------- */
+.mv{position:relative;height:100vh;height:100svh;min-height:680px;max-height:1100px;background:var(--ink);overflow:hidden}
 .scene{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;opacity:0;transition:opacity 1.2s var(--ease)}
 .scene.is-on{opacity:1}
 .scene .panel{position:relative;overflow:hidden}
@@ -106,171 +111,201 @@ h1,h2,h3,p{margin:0}
 .scene-b .panel{order:2}
 .scene-a .photo img{object-position:50% 55%}
 .scene-b .photo img{object-position:50% 50%}
-.mv-copy{position:absolute;z-index:2;left:14.5%;top:64%;color:#fff;transition:opacity .6s var(--ease)}
-.mv[data-scene="b"] .mv-copy{left:57.7%;top:50%}
+.mv-copy{position:absolute;z-index:2;left:9%;bottom:14%;width:min(520px,38%);color:#fff;transition:opacity .6s var(--ease)}
+.mv[data-scene="b"] .mv-copy{left:56%}
 .mv-copy.fade{opacity:0}
-.mv-copy h1{font-weight:700;font-size:clamp(22px,2.4vw,36px);line-height:1.6;letter-spacing:-.02em}
-.mv-copy p{margin-top:18px;font-size:clamp(13px,1.1vw,16px);line-height:1.9;color:#ffffffd9}
+.mv-copy h1{font-weight:700;font-size:clamp(28px,3vw,44px);line-height:1.5;letter-spacing:-.02em;word-break:keep-all}
+.mv-copy p{margin-top:20px;font-size:15px;line-height:1.9;color:#ffffffe0}
+.mv-copy .btns{margin-top:30px}
+.mv-copy .btn{min-width:0;height:46px;padding:0 14px;font-size:15px;gap:12px}
+.mv-copy .btn .tail{gap:10px}
 .mv-sp{display:none}
 
-/* ---------- ビジョン（白） ---------- */
-.vision{background:#fff;padding:120px var(--gut) 120px}
-.vision h2{font-weight:700;font-size:32px;line-height:1.5;letter-spacing:-.02em}
-.vision h2 small{font-size:20px;font-weight:700}
-.vision .txt{margin-top:52px;font-size:20px;line-height:2.2}
-.vision .txt p + p{margin-top:43px}
-.v-row{margin-top:56px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
-.v-row .lead{font-size:20px;line-height:1.6}
-.v-row .btn{margin-top:62px}
-.v-sign{text-align:right}
-.v-sign .tag{font-weight:700;font-size:13px;line-height:1.6}
-.v-sign img{height:84px;width:auto;margin:16px 0 0 auto}
-/* 数字 */
-.nums{margin-top:120px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
-.num{padding:28px 0 36px;border-bottom:1px solid var(--line)}
-.num:not(:nth-child(3n+1)){padding-left:32px;border-left:1px solid var(--line)}
-.num dt{font-weight:700;font-size:15px}
-.num dd{margin:14px 0 0;font-family:var(--en);font-weight:700;font-size:64px;line-height:1;letter-spacing:-.03em}
-.num dd small{font-family:var(--jp);font-size:18px;font-weight:700;margin-left:6px;letter-spacing:0}
-.num dd.nt{margin-top:10px;font-family:var(--jp);font-size:13px;font-weight:500;line-height:1.6;letter-spacing:0;color:var(--ink-80)}
-.nums-hd{margin-top:120px;display:flex;align-items:flex-end;justify-content:space-between}
-.nums-hd + .nums{margin-top:40px}
-
-/* ---------- 写真のループ帯 ---------- */
-.strip{background:#fff;overflow:hidden;height:468px;position:relative}
-.strip-track{display:flex;height:100%;will-change:transform}
-.strip-track img{flex:none;width:720px;height:468px;object-fit:cover}
-.strip-track img.n{width:470px}
-
 /* ---------- セクション見出し ---------- */
-.sec{padding:200px var(--gut) 0}
+.sec{padding:180px var(--gut) 0}
 .ttl .en{display:block;font-size:64px;line-height:1;letter-spacing:-.01em}
 .ttl .ja{display:block;margin-top:4px;font-weight:700;font-size:18px;line-height:32.4px}
 .sec-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:56px}
 .sec-hd .note{font-size:16px;line-height:1.8;max-width:520px}
 
-/* ---------- 目的別の入口 ---------- */
-.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.door{display:flex;flex-direction:column;background:#fff;border-radius:24px;padding:20px 20px 28px;transition:transform .5s var(--ease)}
-.door:hover{transform:translateY(-4px)}
-.door figure{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:16/10}
-.door figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-.door:hover figure img{transform:scale(1.04)}
-.door .who{margin:28px 8px 0;display:flex;align-items:center;gap:10px;font-family:var(--en);font-weight:700;font-size:13px}
-.door .who::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink)}
-.door h3{margin:10px 8px 0;font-weight:700;font-size:24px;line-height:1.5}
-.door p{margin:12px 8px 0;font-size:16px;line-height:1.8;flex:1}
-.door .btn{margin:28px 8px 0;align-self:flex-start}
+/* ---------- 2. 私たちについて（白） ---------- */
+.vision{background:#fff;padding:140px var(--gut) 120px}
+.v-grid{margin-top:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:80px;align-items:center}
+.v-h{font-weight:700;font-size:32px;line-height:1.5;letter-spacing:-.02em}
+.v-h small{font-size:20px;font-weight:700}
+.vision .txt{margin-top:40px;font-size:19px;line-height:2.1}
+.vision .txt p + p{margin-top:28px}
+.vision .btn{margin-top:48px}
+/* 五増多幸の図（5つの「増やす」） */
+.gozo{position:relative;aspect-ratio:1;border-radius:50%;background:var(--paper)}
+.gozo::before{content:"";position:absolute;inset:22%;border-radius:50%;background:var(--ink)}
+.gozo .c{position:absolute;inset:22%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.gozo .c b{font-size:clamp(22px,2.4vw,34px);line-height:1.3;letter-spacing:.04em}
+.gozo .c span{margin-top:4px;font-size:13px;color:#ffffffcc}
+.gozo li{position:absolute;width:23%;aspect-ratio:1;margin:-11.5% 0 0 -11.5%;border-radius:50%;background:#fff;box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:700;font-size:clamp(13px,1.2vw,17px);line-height:1.25}
+.gozo li small{display:block;font-size:.72em;font-weight:500;color:var(--ink-80)}
+.gozo li:nth-child(1){left:50%;top:9%}
+.gozo li:nth-child(2){left:89%;top:37%}
+.gozo li:nth-child(3){left:74%;top:83%}
+.gozo li:nth-child(4){left:26%;top:83%}
+.gozo li:nth-child(5){left:11%;top:37%}
 
-/* ---------- 大きな白カード（左に縦の側帯） ---------- */
-.card{position:relative;margin:0 12px;background:#fff;border-radius:40px;display:grid;grid-template-columns:100px minmax(0,1fr);overflow:hidden}
-.card + .card{margin-top:24px}
-.rail{background:var(--mist);display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:48px 0 48px}
-.rail span{writing-mode:vertical-rl;text-orientation:sideways;font-family:var(--en);font-weight:700;font-size:13px;line-height:1;letter-spacing:-.01em}
-.rail .rt{display:flex;flex-direction:column;align-items:center;gap:14px}
-.rail .rt i{width:10px;height:10px;border-radius:50%;background:var(--ink)}
-.sec .card{margin-left:calc(12px - var(--gut));margin-right:calc(12px - var(--gut))}
-.card-in{padding:72px 80px 80px}
-.card-name{display:flex;align-items:baseline;gap:16px;font-family:var(--en);font-weight:700;font-size:44px;line-height:1;letter-spacing:-.02em}
-.card-name small{font-family:var(--jp);font-size:16px;letter-spacing:0}
-.card-body{margin-top:64px;display:grid;grid-template-columns:546px 1fr;gap:64px;align-items:start}
-.card-body figure{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:546/372}
-.card-body figure img{width:100%;height:100%;object-fit:cover}
-.card-body figure.fit{background:#fff;border:1px solid var(--line)}
-.card-body figure.fit img{object-fit:contain;padding:10px}
-.card-body .cap{margin-top:12px;font-size:13px;line-height:1.7;color:var(--ink-80)}
-.card-body h3{font-weight:700;font-size:30px;line-height:1.5;letter-spacing:-.02em}
-.card-body .p{margin-top:16px;font-size:16px;line-height:1.8}
-.card-body .btn{margin-top:36px}
-.pillars{margin-top:28px;border-top:1px solid var(--line)}
-.pillars li{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:16px 0;border-bottom:1px solid var(--line)}
-.pillars .no{font-family:var(--en);font-weight:700;font-size:13px;line-height:28px}
-.pillars b{display:block;font-size:17px;line-height:1.6}
-.pillars span{font-size:14px;line-height:1.8;color:var(--ink-80)}
-/* 制作実績＝ロゴ帯の代わりに作品名の流れる帯 */
-.works{margin:72px -80px 0 -80px;overflow:hidden;position:relative}
-.works-lbl{display:flex;justify-content:space-between;align-items:center;padding:0 80px 20px;font-size:14px}
-.works-lbl .en{font-size:13px}
+/* ---------- 写真のループ帯 ---------- */
+.strip{background:#fff;overflow:hidden;height:420px;position:relative}
+.strip-track{display:flex;height:100%;will-change:transform}
+.strip-track img{flex:none;width:640px;height:420px;object-fit:cover}
+.strip-track img.n{width:420px}
+
+/* ---------- 3. 強み ---------- */
+.strs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.str{display:flex;flex-direction:column;background:#fff;border-radius:24px;padding:20px 20px 32px}
+.str figure{border-radius:16px;overflow:hidden;aspect-ratio:16/10;background:var(--mist)}
+.str figure img{width:100%;height:100%;object-fit:cover}
+.str figure.fit img{object-fit:contain;padding:10px}
+.str .no{margin:28px 8px 0;font-family:var(--en);font-weight:700;font-size:44px;line-height:1;letter-spacing:-.03em}
+.str h3{margin:16px 8px 0;font-weight:700;font-size:22px;line-height:1.55}
+.str p{margin:14px 8px 0;font-size:15px;line-height:1.9}
+
+/* ---------- 4. 事業内容（目的別の3列） ---------- */
+.doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.door{display:flex;flex-direction:column;background:#fff;border-radius:24px;padding:20px 20px 28px}
+.door .who{margin:8px 8px 0;display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px}
+.door .who::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.door h3{margin:8px 8px 0;font-weight:700;font-size:26px;line-height:1.5}
+.door figure{margin-top:20px;border-radius:16px;overflow:hidden;aspect-ratio:16/10}
+.door figure img{width:100%;height:100%;object-fit:cover}
+.door p{margin:20px 8px 0;font-size:15px;line-height:1.9;flex:1}
+.door .btns{margin:28px 8px 0;display:grid;gap:8px}
+.door .btn{width:100%}
+.others{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding:18px 24px;border-radius:12px;background:#fff;font-size:15px}
+.others b{font-size:14px}
+.others a{display:inline-flex;align-items:center;gap:8px;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.others a svg{width:9px;height:9px}
+
+/* ---------- 5. お知らせ ---------- */
+.news-box{background:#fff;border-radius:24px;padding:40px 48px 44px}
+.ntabs{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:24px;border-bottom:1px solid var(--ink)}
+.ntab{height:36px;padding:0 16px;border:0;border-radius:20px;background:var(--mist);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);font:700 14px/1 var(--jp);letter-spacing:-.01em;cursor:pointer;transition:background .25s,color .25s}
+.ntab:hover{background:var(--paper)}
+.ntab.is-on{background:var(--ink);color:#fff;box-shadow:none}
+.nlist li{border-bottom:1px solid var(--line)}
+.nlist a{display:grid;grid-template-columns:104px 104px minmax(0,1fr) 12px;gap:20px;align-items:center;padding:24px 4px}
+.nlist time{font-family:var(--en);font-weight:700;font-size:14px}
+.ncat{justify-self:start;display:inline-block;padding:0 12px;border:1.5px solid var(--ink);border-radius:20px;font-weight:700;font-size:13px;line-height:24px;white-space:nowrap}
+.nttl{font-size:17px;line-height:1.6}
+.nlist a::after{content:"";width:8px;height:8px;border-top:1.6px solid currentColor;border-right:1.6px solid currentColor;transform:rotate(45deg);transition:transform .3s var(--ease)}
+.nlist a:hover .nttl{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.nlist a:hover::after{transform:translateX(3px) rotate(45deg)}
+.news-ft{margin-top:32px;display:flex;justify-content:flex-end}
+
+/* ---------- 6. 制作実績（流れる作品バナー） ---------- */
+.works{margin:0 calc(-1 * var(--gut));overflow:hidden;position:relative}
 .wrow{overflow:hidden}
 .wrow + .wrow{margin-top:28px}
 .wtrack{display:flex;width:max-content;will-change:transform}
 .wtrack li{flex:none;width:344px;padding:0 12px}
-.wtrack figure{margin:0;border-radius:12px;overflow:hidden;aspect-ratio:512/269;background:var(--ink)}
+.wtrack figure{border-radius:12px;overflow:hidden;aspect-ratio:512/269;background:var(--ink)}
 .wtrack img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .wtrack li:hover img{transform:scale(1.04)}
 .wtrack span{display:block;margin-top:12px;font-weight:700;font-size:15px;line-height:1.5}
-.works-ft{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 80px 0}
-.works-ft small{font-size:13px;color:var(--ink-80)}
-/* 育成の3ポイント */
+.works-ft{margin-top:40px;display:flex;justify-content:flex-end}
+
+/* ---------- 7・8. 大きな白カード（左に縦の側帯） ---------- */
+.card{position:relative;margin:0 calc(12px - var(--gut));background:#fff;border-radius:40px;display:grid;grid-template-columns:100px minmax(0,1fr);overflow:hidden}
+.rail{background:var(--mist);display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:48px 0 48px}
+.rail span{writing-mode:vertical-rl;text-orientation:sideways;font-family:var(--en);font-weight:700;font-size:13px;line-height:1;letter-spacing:-.01em}
+.rail .rt{display:flex;flex-direction:column;align-items:center;gap:14px}
+.rail .rt i{width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.card-in{padding:72px 80px 80px}
+.card-name{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;font-family:var(--en);font-weight:700;font-size:44px;line-height:1.1;letter-spacing:-.02em}
+.card-name small{font-family:var(--jp);font-size:18px;letter-spacing:0}
+.card-body{margin-top:56px;display:grid;grid-template-columns:minmax(0,546px) minmax(0,1fr);gap:64px;align-items:start}
+.card-body figure{border-radius:16px;overflow:hidden;aspect-ratio:546/372}
+.card-body figure img{width:100%;height:100%;object-fit:cover}
+.card-body h3{font-weight:700;font-size:30px;line-height:1.5;letter-spacing:-.02em}
+.card-body .btns{margin-top:36px}
 .points{margin-top:28px;counter-reset:pt}
 .points li{counter-increment:pt;position:relative;padding:16px 0 16px 56px;border-top:1px solid var(--line);font-size:16px;line-height:1.7}
 .points li:last-child{border-bottom:1px solid var(--line)}
 .points li::before{content:"0" counter(pt);position:absolute;left:0;top:16px;font-family:var(--en);font-weight:700;font-size:13px;line-height:27px}
-.status{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:14px 18px;border-radius:8px;background:var(--mist);font-size:15px;line-height:1.6}
-.status b{display:inline-block;padding:0 10px;border:2px solid var(--ink);border-radius:20px;font-family:var(--en);font-size:12px;line-height:20px}
-/* 子育て支援の4制度 */
-.perks{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.perks li{padding:18px 18px 16px;border-radius:12px;background:var(--mist)}
-.perks b{display:block;font-size:17px;line-height:1.5}
-.perks span{display:block;margin-top:4px;font-size:13px;line-height:1.6;color:var(--ink-80)}
+.status{margin-top:28px;display:flex;align-items:flex-start;gap:14px;padding:14px 18px;border-radius:8px;background:var(--mist);font-size:15px;line-height:1.7}
+.status b{flex:none;margin-top:2px;padding:0 10px;border:2px solid var(--ink);border-radius:20px;font-family:var(--en);font-size:12px;line-height:20px}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.perks li{padding:20px 20px 18px;border-radius:12px;background:var(--mist)}
+.perks small{display:block;font-family:var(--en);font-weight:700;font-size:12px;color:var(--ink-60)}
+.perks b{display:block;margin-top:2px;font-size:18px;line-height:1.5}
+.perks span{display:block;margin-top:4px;font-size:15px;line-height:1.6}
 .certs{margin-top:24px}
 .certs p{font-size:13px;color:var(--ink-80)}
+.certs .chips{margin-top:8px}
 
-/* ---------- ニュース型リスト（地域活動・メディア・お知らせ） ---------- */
-.list-sec{display:grid;grid-template-columns:400px minmax(0,1fr);padding:200px var(--gut) 0}
-.list-sec .side .btn{margin-top:54px}
-.list-sec .side .desc{margin-top:28px;font-size:15px;line-height:1.9;max-width:280px}
-.rows li{border-bottom:1px solid var(--line)}
-.rows li:first-child .row{padding-top:0}
-.row{display:grid;grid-template-columns:204px 1fr auto;gap:24px;padding:30px 0 24px;align-items:start}
-.thumb{width:204px;aspect-ratio:204/115;border-radius:8px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center}
-.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-.row:hover .thumb img{transform:scale(1.05)}
-.thumb.fit{background:var(--mist);border:1px solid var(--line)}
-.thumb.fit img{object-fit:contain;padding:6px}
-.thumb.t{padding:12px;font-weight:700;font-size:15px;line-height:1.45}
-.thumb.t.dark{background:var(--ink);color:#fff}
-.thumb.t .en{display:block;font-size:11px;margin-bottom:6px;opacity:.7}
-.row time{display:block;font-family:var(--en);font-weight:700;font-size:13px;line-height:13px;margin-top:6px}
-.row .tt{display:block;margin-top:14px;font-size:18px;line-height:1.5;max-width:560px}
-.row .sm{display:block;margin-top:6px;font-size:14px;color:var(--ink-80)}
-.row:hover .tt{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-.pill{justify-self:end;display:inline-block;padding:0 12px;border:2px solid #fff;border-radius:20px;background:transparent;font-family:var(--en);font-weight:700;font-size:13px;line-height:24px;white-space:nowrap}
+/* ---------- 9. はたらくアニメーターの声 ---------- */
+.voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.voice{display:flex;flex-direction:column;background:#fff;border-radius:24px;padding:36px 32px 32px;transition:transform .5s var(--ease)}
+.voice:hover{transform:translateY(-4px)}
+.voice .top{display:flex;align-items:center;gap:16px}
+.ini{flex:none;width:72px;height:72px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--en);font-weight:700;font-size:26px;letter-spacing:-.02em;position:relative}
+.voice .top{position:relative;isolation:isolate}
+.voice .gen{font-family:var(--en);font-weight:700;font-size:13px;line-height:1.4}
+.voice .gen span{display:block;font-family:var(--jp);font-size:16px;margin-top:2px}
+.voice h3{margin-top:28px;font-weight:700;font-size:22px;line-height:1.6;flex:1}
+.voice .who{margin-top:16px;font-size:14px;line-height:1.7;color:var(--ink-80)}
+.voice .more{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px}
+.voice .more svg{width:10px;height:10px;transition:transform .3s var(--ease)}
+.voice:hover .more svg{transform:translateX(3px)}
+.voice-ft{margin-top:40px;display:flex;justify-content:flex-end}
 
-/* ---------- 採用バナー（写真の大きな角丸カード） ---------- */
-.recruit{padding:200px 0 0}
-.rc{position:relative;display:block;margin:0 12px;border-radius:40px;overflow:hidden;min-height:480px;color:#fff;isolation:isolate}
+/* ---------- 10. 採用情報（写真の大きな角丸カード） ---------- */
+.recruit{padding:180px 0 0}
+.rc{position:relative;margin:0 12px;border-radius:40px;overflow:hidden;color:#fff;isolation:isolate}
 .rc-bg{position:absolute;inset:0;z-index:-1}
 .rc-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 1.4s var(--ease)}
 .rc.appear .rc-bg img,.no-js .rc-bg img{transform:scale(1)}
-.rc-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.78),rgba(20,20,20,.55))}
-.rc:hover .rc-bg img{transform:scale(1.03)}
-.rc-in{display:grid;grid-template-columns:504px 1fr 64px;gap:0;padding:120px 104px 104px;align-items:start}
+.rc-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.82),rgba(20,20,20,.62))}
+.rc-in{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:48px;padding:112px 104px 104px;align-items:start}
 .rc .ttl .en{color:#fff}
-.faces{display:flex;margin-top:56px;width:278px;border-radius:8px;overflow:hidden;background:#fff}
-.faces img{width:33.333%;aspect-ratio:92/97;object-fit:cover;object-position:50% 50%}
-.faces img + img{border-left:2px solid #fff}
-.rc-copy .big{font-weight:700;font-size:48px;line-height:1.5;letter-spacing:-.02em}
-.rc-copy .mid{margin-top:20px;font-size:24px;line-height:1.8}
-.circle{width:64px;height:64px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;transition:background .3s var(--ease),color .3s}
-.circle svg{width:12px;height:12px}
-.rc:hover .circle{background:#fff;color:var(--ink)}
+.rc-copy h3{font-weight:700;font-size:44px;line-height:1.45;letter-spacing:-.02em}
+.tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+.tags span{display:inline-block;padding:0 12px;border:1.5px solid rgba(255,255,255,.85);border-radius:20px;font-weight:700;font-size:14px;line-height:28px}
+.rc-copy p{margin-top:24px;font-size:18px;line-height:1.9;max-width:560px}
+.rc-copy .btns{margin-top:40px}
 
-/* ---------- お問い合わせ（黒＋曲線） ---------- */
+/* ---------- 11. お問い合わせフォーム（黒＋曲線） ---------- */
 .contact{padding:24px 0 160px}
-.ct{position:relative;margin:0 12px;border-radius:40px;overflow:hidden;background:var(--ink);color:#fff;min-height:560px;display:grid;grid-template-columns:1fr 1fr}
-.ct-shape{position:absolute;inset:0;pointer-events:none}
+.ct{position:relative;margin:0 12px;border-radius:40px;overflow:hidden;background:var(--ink);color:#fff;padding:104px 104px 72px}
+.ct-shape{position:absolute;inset:0 0 auto 0;height:560px;pointer-events:none}
 .ct-shape svg{width:100%;height:100%}
-.ct-in{position:relative;padding:104px 0 104px 104px}
+.ct-in{position:relative;max-width:640px}
 .ct-in .ttl .en{color:#fff}
-.ct-in .lead{margin-top:40px;font-weight:700;font-size:32px;line-height:1.6}
-.ct-in .btn{margin-top:44px;min-width:260px}
-.ct-info{position:relative;align-self:end;margin:0 104px 104px 0;justify-self:end;width:min(420px,100%);background:#fff;color:var(--ink);border-radius:16px;padding:28px 32px}
-.ct-info dl{margin:0;display:grid;grid-template-columns:88px 1fr;row-gap:0}
-.ct-info dt,.ct-info dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.6}
-.ct-info dt{font-weight:700;font-size:13px}
-.ct-info dl > :nth-last-child(-n+2){border-bottom:0}
-.ct-info a{text-decoration:underline;text-underline-offset:3px;word-break:break-all}
+.ct-in .lead{margin-top:32px;font-size:17px;line-height:1.9;color:#ffffffe0}
+.cf{position:relative;margin-top:56px;background:#fff;color:var(--ink);border-radius:24px;padding:56px 64px 64px}
+.cf-blk{margin:0;padding:0;border:0;min-width:0}
+.cf-blk + .cf-blk{margin-top:48px}
+.cf-h{display:flex;align-items:center;gap:10px;padding:0 0 14px;border-bottom:1px solid var(--ink);font-weight:700;font-size:20px;line-height:1.5;width:100%}
+.cf-req{display:inline-block;padding:0 8px;border-radius:3px;background:var(--ink);color:#fff;font-weight:700;font-size:11px;line-height:20px;letter-spacing:0;vertical-align:.1em}
+.cf-purpose{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cf-opt{position:relative;display:flex;gap:12px;align-items:flex-start;padding:18px 18px 16px;border-radius:12px;background:var(--mist);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;transition:box-shadow .25s,background .25s}
+.cf-opt:hover{background:var(--paper)}
+.cf-opt:has(input:checked){background:#fff;box-shadow:inset 0 0 0 2px var(--ink)}
+.cf-opt input{flex:none;margin:5px 0 0;width:18px;height:18px;accent-color:var(--ink)}
+.cf-opt b{display:block;font-size:17px;line-height:1.5}
+.cf-opt-b span{display:block;margin-top:4px;font-size:13px;line-height:1.7;color:var(--ink-80)}
+.cf-row{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+.cf-l{padding-top:10px;font-weight:700;font-size:15px;line-height:1.6}
+.cf-f input[type=text],.cf-f input[type=email],.cf-f input[type=tel],.cf-f input[type=url],.cf-f input[type=date],.cf-f select,.cf-f textarea{width:100%;max-width:100%;min-height:48px;padding:10px 14px;border:1px solid #c9c4c2;border-radius:6px;background:var(--mist);color:var(--ink);font:500 16px/1.6 var(--jp);letter-spacing:0}
+.cf-f textarea{resize:vertical}
+.cf-f input:focus,.cf-f select:focus,.cf-f textarea:focus{outline:2px solid var(--ink);outline-offset:1px;background:#fff}
+.cf-checks{display:flex;flex-wrap:wrap;gap:8px 10px;padding-top:4px}
+.cf-checks label{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:20px;background:var(--mist);box-shadow:inset 0 0 0 1px var(--line);font-size:15px;line-height:1.4;cursor:pointer}
+.cf-checks input{margin:0;width:16px;height:16px;accent-color:var(--ink)}
+.cf-note{margin-top:16px;padding:14px 18px;border-radius:8px;background:var(--mist);font-size:14px;line-height:1.8;color:var(--ink-80)}
+.cf-note a,.cf-agree a{text-decoration:underline;text-underline-offset:3px}
+.cf-agree{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:16px}
+.cf-agree label{display:inline-flex;align-items:center;gap:10px;cursor:pointer}
+.cf-agree input{margin:0;width:18px;height:18px;accent-color:var(--ink)}
+.cf-submit{margin-top:32px}
+.cf-btn{display:inline-flex;align-items:center;justify-content:center;min-width:320px;height:56px;padding:0 28px;border:0;border-radius:4px;background:var(--ink);color:#fff;font:700 16px/1 var(--jp);cursor:pointer;transition:background .3s}
+.cf-btn:hover{background:#3d3d3d}
 
 /* ---------- フッター ---------- */
 .ft{background:#fff;padding:48px var(--gut) 56px}
@@ -305,38 +340,42 @@ h1,h2,h3,p{margin:0}
   .menu-btn{display:block;height:48px;padding:0 18px;border-radius:4px}
   .card-in{padding:64px 56px 64px}
   .card-body{grid-template-columns:1fr 1fr;gap:48px}
-  .works{margin:56px -56px 0}
-  .works-lbl,.works-ft{padding-left:56px;padding-right:56px}
-  .rc-in{grid-template-columns:1fr 1fr 64px;padding:96px 64px;gap:32px}
-  .rc-copy .big{font-size:40px}
-  .ct-in{padding:88px 0 88px 64px}
-  .ct-info{margin:0 64px 88px 0}
+  .rc-in{padding:96px 64px;gap:40px;grid-template-columns:minmax(0,300px) minmax(0,1fr)}
+  .rc-copy h3{font-size:38px}
+  .ct{padding:88px 64px}
+  .cf{padding:48px 44px 52px}
   .ft-top{grid-template-columns:1fr 164px;gap:48px}
   .ft-logo{grid-column:1/-1;justify-self:start;text-align:left}
 }
 @media (max-width:1100px){
   :root{--gut:32px}
-  .doors{grid-template-columns:1fr 1fr}
-  .doors .door:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;column-gap:32px}
-  .doors .door:last-child figure{grid-row:1/6}
-  .doors .door:last-child .who{margin-top:8px}
+  .mv-copy{left:5%;width:44%;bottom:10%}
+  .mv-copy h1{font-size:32px}
+  .mv-copy p{font-size:14px;margin-top:16px}
+  .mv-copy .btns{margin-top:24px}
+  .v-grid{grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:48px}
+  .vision .txt{font-size:17px}
+  .strs,.doors,.voices{gap:16px}
+  .str,.door{padding:14px 14px 24px}
+  .str h3{font-size:19px}
+  .str p,.door p{font-size:14px}
+  .door h3{font-size:21px}
+  .door .btn{font-size:15px;padding:0 14px}
+  .voice{padding:28px 22px 24px}
+  .voice h3{font-size:19px}
+  .ini{width:60px;height:60px;font-size:22px}
   .card-body{grid-template-columns:1fr}
   .card-body figure{max-width:620px}
-  .list-sec{grid-template-columns:1fr;gap:40px}
-  .list-sec .side{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
-  .list-sec .side .btn{margin-top:0}
-  .rc-in{grid-template-columns:1fr 64px}
-  .rc-copy{grid-column:1/2}
-  .rc .circle{grid-row:1;grid-column:2}
-  .ct{grid-template-columns:1fr}
-  .ct-info{justify-self:start;margin:0 0 72px 64px}
-  .nums{grid-template-columns:repeat(2,1fr)}
-  .num:not(:nth-child(3n+1)){padding-left:0;border-left:0}
-  .num:nth-child(2n){padding-left:28px;border-left:1px solid var(--line)}
+  .news-box{padding:32px 32px 36px}
+  .nlist a{grid-template-columns:96px 96px minmax(0,1fr) 10px;gap:16px}
+  .rc-in{grid-template-columns:1fr;gap:40px}
+  .cf-purpose{grid-template-columns:1fr 1fr}
+  .cf-row{grid-template-columns:200px minmax(0,1fr);gap:16px}
 }
 @media (max-width:768px){
   :root{--gut:16px}
   body{font-size:15px}
+  section[id]{scroll-margin-top:72px}
   .hd{padding:20px 16px 0}
   .hd-logo,.hd-logo img{height:34px}
   .hd-logo{margin-top:0}
@@ -346,97 +385,97 @@ h1,h2,h3,p{margin:0}
   .drawer-grid .h{font-size:16px}
   .drawer-grid{gap:22px 16px}
   .drawer-grid .s{font-size:15px;line-height:2}
-  /* MV：上に黒い面＋キャッチ、下に写真 */
+  .btn{min-width:0}
+  /* FV：上に黒い面＋キャッチとボタン、下に写真 */
   .mv{height:auto;min-height:0;max-height:none;background:var(--ink)}
   .scene{position:relative;display:block;opacity:1}
   .scene-b{display:none}
-  .scene .panel{height:420px}
+  .scene .panel{height:480px}
   .scene .panel svg.pc{display:none}
   .mv-sp{display:block}
-  .scene .photo{height:360px}
+  .scene .photo{height:300px}
   .scene .photo img{transform:none}
-  .mv-copy,.mv[data-scene="b"] .mv-copy{left:24px;right:24px;top:216px}
-  .mv-copy h1{font-size:25px;line-height:1.55}
-  .mv-copy p{margin-top:12px;font-size:13px;line-height:1.8}
-  .vision{padding:80px 16px 80px}
-  .vision h2{font-size:21px}
-  .vision h2 small{font-size:15px}
-  .vision .txt{margin-top:36px;font-size:15px;line-height:2}
-  .vision .txt p + p{margin-top:28px}
-  .v-row{flex-direction:column;align-items:stretch;gap:48px}
-  .v-row .lead{font-size:16px}
-  .v-row .btn{margin-top:28px}
-  .v-sign{text-align:left}
-  .v-sign img{height:64px;margin:12px 0 0}
-  .nums-hd{margin-top:80px}
-  .nums-hd + .nums{margin-top:28px}
-  .num dd{font-size:44px}
-  .num dd small{font-size:14px}
-  .num:nth-child(2n){padding-left:16px}
-  .num{padding:20px 0 24px}
-  .num dt{font-size:13px}
-  .strip{height:240px}
-  .strip-track img{width:370px;height:240px}
-  .strip-track img.n{width:240px}
-  .sec{padding:120px 16px 0}
+  .mv-copy,.mv[data-scene="b"] .mv-copy{left:20px;right:20px;width:auto;top:132px;bottom:auto}
+  .mv-copy h1{font-size:29px;line-height:1.5}
+  .mv-copy p{margin-top:14px;font-size:14px;line-height:1.85}
+  .mv-copy .btns{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .mv-copy .btns .btn:first-child{grid-column:1/-1}
+  .mv-copy .btn{height:48px;font-size:14px;padding:0 12px}
+  .sec{padding:110px 16px 0}
   .ttl .en{font-size:44px}
   .ttl .ja{font-size:15px;line-height:26px}
-  .sec-hd{flex-direction:column;align-items:flex-start;margin-bottom:36px}
+  .sec-hd{flex-direction:column;align-items:flex-start;margin-bottom:32px}
   .sec-hd .note{font-size:14px}
-  .doors{grid-template-columns:1fr;gap:16px}
-  .doors .door:last-child{display:flex;grid-column:auto}
-  .door{border-radius:20px;padding:12px 12px 22px}
-  .door h3{font-size:20px}
-  .door p{font-size:14px}
-  .card{border-radius:20px;grid-template-columns:36px minmax(0,1fr)}
-  .rail{padding:28px 0}
-  .rail span{font-size:11px}
-  .card-in{padding:36px 20px 40px 20px}
-  .card-name{font-size:32px;flex-wrap:wrap;gap:4px 12px}
-  .card-name small{font-size:14px}
-  .card-body{margin-top:32px;gap:28px}
-  .card-body h3{font-size:22px}
-  .card-body .p{font-size:14px}
-  .card-body .btn{width:100%}
-  .works{margin:40px -20px 0 -20px}
-  .works-lbl,.works-ft{padding-left:20px;padding-right:20px}
-  .works-ft{flex-direction:column;align-items:stretch}
+  .vision{padding:96px 16px 80px}
+  .v-grid{margin-top:40px;grid-template-columns:1fr;gap:48px}
+  .v-h{font-size:22px}
+  .v-h small{font-size:15px}
+  .vision .txt{margin-top:24px;font-size:15px;line-height:2}
+  .vision .txt p + p{margin-top:20px}
+  .vision .btn{margin-top:32px;width:100%}
+  .gozo{width:min(100%,340px);margin:0 auto}
+  .gozo li{font-size:13px}
+  .strip{height:220px}
+  .strip-track img{width:330px;height:220px}
+  .strip-track img.n{width:220px}
+  .strs,.doors,.voices{grid-template-columns:1fr;gap:16px}
+  .str,.door{border-radius:20px;padding:12px 12px 24px}
+  .str .no{font-size:36px;margin-top:22px}
+  .str h3{font-size:19px}
+  .door h3{font-size:22px}
+  .others{padding:16px;font-size:14px}
+  .news-box{border-radius:20px;padding:20px 16px 24px;margin:0 -4px}
+  .ntabs{gap:6px;padding-bottom:18px}
+  .ntab{height:34px;padding:0 13px;font-size:13px}
+  .nlist a{grid-template-columns:auto minmax(0,1fr) 10px;grid-template-rows:auto auto;gap:8px 12px;padding:18px 2px}
+  .nlist time{grid-column:1;grid-row:1}
+  .ncat{grid-column:2;grid-row:1}
+  .nttl{grid-column:1/3;grid-row:2;font-size:15px}
+  .nlist a::after{grid-column:3;grid-row:1/3}
+  .news-ft,.works-ft,.voice-ft{margin-top:28px}
+  .news-ft .btn,.works-ft .btn,.voice-ft .btn{width:100%}
   .wtrack li{width:232px;padding:0 8px}
   .wrow + .wrow{margin-top:20px}
   .wtrack span{font-size:13px;margin-top:8px}
+  .card{border-radius:20px;grid-template-columns:36px minmax(0,1fr);margin:0 -12px}
+  .rail{padding:28px 0}
+  .rail span{font-size:11px}
+  .card-in{padding:36px 20px 40px 20px}
+  .card-name{font-size:32px}
+  .card-name small{font-size:15px}
+  .card-body{margin-top:28px;gap:28px}
+  .card-body h3{font-size:21px}
+  .card-body .btns{display:grid}
+  .card-body .btn{width:100%}
   .perks{grid-template-columns:1fr}
   .points li{padding-left:44px;font-size:14px}
-  .status{font-size:14px}
-  .list-sec{padding:120px 16px 0;gap:32px}
-  .list-sec .side{display:block}
-  .list-sec .side .desc{font-size:14px;margin-top:20px}
-  .list-sec .side .btn{display:none}
-  .list-sec .more{display:flex!important;margin-top:36px;width:fit-content;margin-left:auto}
-  .row{grid-template-columns:1fr auto;gap:14px 12px;padding:24px 0}
-  .row .meta{grid-column:1/-1;grid-row:1}
-  .row .thumb{grid-row:2;width:174px}
-  .row .pill{grid-row:2;align-self:end}
-  .row .tt{font-size:16px;margin-top:10px}
-  .recruit{padding-top:120px}
-  .rc{margin:0 4px;border-radius:20px;min-height:0}
-  .rc-in{display:flex;flex-direction:column;padding:36px 28px 40px;gap:0}
-  .rc-l{display:contents}
-  .rc .ttl{order:1}
-  .rc-copy{order:2;margin-top:64px;padding-right:56px}
-  .rc-copy .big{font-size:24px}
-  .rc-copy .mid{margin-top:14px;font-size:15px}
-  .rc .circle{position:absolute;right:24px;top:198px;width:48px;height:48px}
-  .faces{order:3;margin-top:36px;width:100%;max-width:290px}
+  .status{font-size:14px;flex-direction:column;gap:8px}
+  .voice{border-radius:20px;padding:26px 22px 22px}
+  .voice h3{margin-top:20px;font-size:19px}
+  .recruit{padding-top:110px}
+  .rc{margin:0 4px;border-radius:20px}
+  .rc-in{padding:44px 24px 40px;gap:28px}
+  .rc-copy h3{font-size:26px}
+  .rc-copy p{font-size:15px}
+  .rc-copy .btns{display:grid;margin-top:28px}
+  .rc-copy .btn{width:100%}
   .contact{padding:16px 0 100px}
-  .ct{margin:0 4px;border-radius:20px;min-height:0}
+  .ct{margin:0 4px;border-radius:20px;padding:48px 12px 12px}
   .ct-shape{inset:-90px -90px auto auto;width:230px;height:230px;border-radius:50%;border:56px solid var(--stone)}
   .ct-shape svg{display:none}
-  .ct-in{padding:44px 24px 0}
-  .ct-in .lead{font-size:20px;margin-top:24px}
-  .ct-in .btn{width:100%;min-width:0;margin-top:28px}
-  .ct-info{margin:28px 16px 16px;width:auto;justify-self:stretch;padding:12px 18px}
-  .ct-info dl{grid-template-columns:70px 1fr}
-  .ct-info dt,.ct-info dd{font-size:13px}
+  .ct-in{padding:0 12px}
+  .ct-in .lead{font-size:15px;margin-top:20px}
+  .cf{margin-top:36px;border-radius:14px;padding:28px 16px 32px}
+  .cf-blk + .cf-blk{margin-top:36px}
+  .cf-h{font-size:17px}
+  .cf-purpose{grid-template-columns:1fr;gap:8px;margin-top:16px}
+  .cf-opt{padding:14px}
+  .cf-opt b{font-size:16px}
+  .cf-row{grid-template-columns:1fr;gap:8px;padding:14px 0}
+  .cf-l{padding-top:0;font-size:14px}
+  .cf-checks label{font-size:14px;padding:7px 12px}
+  .cf-agree{font-size:15px}
+  .cf-btn{width:100%;min-width:0}
   .ft{padding:44px 16px 110px}
   .ft-top{grid-template-columns:1fr;gap:36px}
   .ft-nav{grid-template-columns:1fr 1fr;gap:24px 16px}
@@ -481,8 +520,8 @@ h1,h2,h3,p{margin:0}
     </ul>
   </nav>
   <div class="hd-r">
-    <a class="btn cbtn" href="contact.html">お問い合わせ<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer">Menu</button>
+    <a class="btn cbtn" href="#contact">お問い合わせ<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="drawer">Menu</button>
   </div>
 </header>
 
@@ -495,26 +534,26 @@ h1,h2,h3,p{margin:0}
     <div class="wide"><a class="h" href="recruit.html">採用情報</a><div class="s s2"><a href="recruit.html">採用情報</a><a href="recruit-animator.html">デジタル作画アニメーター募集</a><a href="support.html">子育て支援</a></div></div>
     <div class="wide"><span class="h">その他</span><div class="s s2"><a href="service.html">事業内容・キャパシティ</a><a href="service-mama.html">ママクリエーターの制作体制</a><a href="service-overseas.html">海外拠点 MONICHI Pictures</a><a href="service-poster.html">ポスター制作</a><a href="community.html">地域活動・ワークショップ</a><a href="community-gourmet.html">東大和グルメ</a><a href="news.html">お知らせ</a><a href="news-visit.html">主婦がアニメスタジオに行ってみた</a><a href="news-blog.html">スタッフブログ</a><a href="about-media.html">メディア掲載・受賞</a></div></div>
   </div>
-  <a class="btn" href="contact.html">お問い合わせ<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+  <a class="btn" href="#contact">お問い合わせ<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
   <p class="drawer-info">home.lulaforte@gmail.com<br>営業時間 平日9:00〜23:00</p>
 </div>
 
-<a class="fab" href="contact.html">お問い<br>合わせ</a>
+<a class="fab" href="#contact">お問い<br>合わせ</a>
 
 <main>
-<!-- ===== 1. メインビジュアル ===== -->
-<section class="mv" id="mv" data-scene="a" aria-label="メインビジュアル">
+<!-- ===== 1. ファーストビュー ===== -->
+<section class="mv" id="fv" data-scene="a" aria-label="ファーストビュー">
   <div class="scene scene-a is-on">
     <div class="panel">
       <svg class="pc" viewBox="0 0 720 900" preserveAspectRatio="none" aria-hidden="true">
         <rect width="720" height="900" fill="#dfdad9"/>
         <circle cx="950" cy="1050" r="1128" fill="#222"/>
-        <circle cx="1000" cy="950" r="508" fill="#dfdad9"/>
+        <circle cx="1020" cy="1000" r="420" fill="#dfdad9"/>
       </svg>
-      <svg class="mv-sp" viewBox="0 0 390 420" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%">
-        <rect width="390" height="420" fill="#dfdad9"/>
-        <circle cx="560" cy="700" r="760" fill="#222"/>
-        <circle cx="540" cy="520" r="230" fill="#dfdad9"/>
+      <svg class="mv-sp" viewBox="0 0 390 600" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%">
+        <rect width="390" height="600" fill="#dfdad9"/>
+        <circle cx="600" cy="980" r="1000" fill="#222"/>
+        <circle cx="450" cy="640" r="110" fill="#dfdad9"/>
       </svg>
     </div>
     <div class="photo"><img src="images/real/photo-lighttable.jpg" alt="トレス台で動画を描く手元"></div>
@@ -523,54 +562,53 @@ h1,h2,h3,p{margin:0}
     <div class="panel">
       <svg viewBox="0 0 720 900" preserveAspectRatio="none" aria-hidden="true">
         <rect width="720" height="900" fill="#222"/>
-        <ellipse cx="790" cy="330" rx="390" ry="215" fill="#dfdad9"/>
-        <circle cx="-100" cy="1100" r="340" fill="#dfdad9"/>
+        <ellipse cx="790" cy="230" rx="390" ry="215" fill="#dfdad9"/>
+        <circle cx="-100" cy="1100" r="300" fill="#dfdad9"/>
       </svg>
     </div>
     <div class="photo"><img src="images/real/photo-digital-tablet.jpg" alt="" loading="lazy"></div>
   </div>
   <div class="mv-copy" id="mvCopy">
     <h1 data-kari>子育ても、アニメも、<br>あきらめない。</h1>
-    <p data-kari>主婦・主夫が中心のアニメ制作会社。<br>7か月の育成で、自宅から本物の現場へ。</p>
+    <p>主婦・主夫のクリエイターが中心の、在宅のアニメ制作会社です。動画・仕上・2原・LO・作監を、全国の在宅スタッフとモンゴルの提携スタジオで受けています。</p>
+    <div class="btns">
+      <a class="btn white" href="service.html">制作のご依頼<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      <a class="btn line" href="academy.html">アニメーター育成<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      <a class="btn line" href="recruit.html">採用情報<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+    </div>
   </div>
 </section>
 
-<!-- ===== 3. 私たちについて（ビジョン）＋ 4. 数字 ===== -->
+<!-- ===== 2. 私たちについて ===== -->
 <section class="vision" id="about">
-  <h2 class="sd">「五増多幸<small>（ごぞうたこう）</small>」<br>これが私たちの理念です。</h2>
-  <div class="txt sd">
-    <p>子育て環境を整えることで、<br>GDPを増やし、雇用を増やし、賃金を増やし、支援を増やし、幸せを増やす。</p>
-    <p>私たちは、主婦で構成されたアニメ会社です。<br>育児中の人が、環境に縛られずに実力を発揮できる場をつくります。</p>
-  </div>
-  <div class="v-row">
+  <h2 class="ttl sd"><span class="en">About</span><span class="ja">私たちについて</span></h2>
+  <div class="v-grid">
     <div class="sd">
-      <p class="lead">作画はデータでやり取りし、全国・海外のスタッフが自宅から制作に参加しています。</p>
-      <a class="btn" href="about.html">企業概要<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      <h3 class="v-h">企業理念「五増多幸<small>（ごぞうたこう）</small>」</h3>
+      <div class="txt">
+        <p>子育て環境を整えることで、GDPを増やし、雇用を増やし、賃金を増やし、支援を増やし、幸せを増やす。</p>
+        <p>育児中でも実力を活かせるよう、子どもの急な病気や行事があっても、すき間の時間で作業できる完全在宅のしくみをつくっています。</p>
+      </div>
+      <a class="btn" href="about.html">企業概要を見る<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
     </div>
-    <div class="v-sign sd">
-      <p class="tag">アニメ制作会社<br>2021年4月設立</p>
-      <img src="images/logo-black.png" alt="Lu Laforte" width="323" height="84">
+    <div class="gozo sd" role="img" aria-label="五増多幸の図：GDP・雇用・賃金・支援・幸せの5つを増やす">
+      <div class="c" aria-hidden="true"><b>五増多幸</b><span>ごぞうたこう</span></div>
+      <ul aria-hidden="true">
+        <li>GDP<small>を増やす</small></li>
+        <li>雇用<small>を増やす</small></li>
+        <li>賃金<small>を増やす</small></li>
+        <li>支援<small>を増やす</small></li>
+        <li>幸せ<small>を増やす</small></li>
+      </ul>
     </div>
   </div>
-
-  <div class="nums-hd sd">
-    <h2 class="ttl"><span class="en">Numbers</span><span class="ja">数字で見るラフォート</span></h2>
-  </div>
-  <dl class="nums sd">
-    <div class="num"><dt>設立</dt><dd>2021<small>年4月</small></dd></div>
-    <div class="num"><dt>スタッフ</dt><dd>17<small>名</small></dd></div>
-    <div class="num"><dt>育成プロジェクト</dt><dd><small style="margin:0 6px 0 0">第</small>10<small>期</small></dd></div>
-    <div class="num"><dt>対応工程</dt><dd>9<small>工程</small></dd></div>
-    <div class="num"><dt>受講料</dt><dd>20<small>万円</small></dd><dd class="nt">卒業後2年の業務委託で返還</dd></div>
-    <div class="num"><dt>国内キャパ</dt><dd><small style="margin:0 6px 0 0">動画</small>800<small>枚</small></dd><dd class="nt">1週間〜10日間あたり</dd></div>
-  </dl>
 </section>
 
 <!-- 写真のループ帯（各画像1回ずつ・JSで並べ替え） -->
 <div class="strip" aria-hidden="true">
   <div class="strip-track" id="strip">
     <img src="images/real/photo-visit-dandelion-office.jpg" alt="" loading="lazy">
-    <img class="n" src="images/real/photo-paper-closeup.jpg" alt="" loading="lazy">
+    <img class="n" src="images/real/photo-desk-tablet.jpg" alt="" loading="lazy">
     <img src="images/real/photo-anime-building.jpg" alt="" loading="lazy">
     <img class="n" src="images/real/photo-ws8.jpg" alt="" loading="lazy">
     <img src="images/real/photo-visit-dandelion-room.jpg" alt="" loading="lazy">
@@ -579,224 +617,304 @@ h1,h2,h3,p{margin:0}
   </div>
 </div>
 
-<!-- ===== 2. 目的別の入口 ===== -->
-<section class="sec" id="entrance">
+<!-- ===== 3. ラフォートの3つの強み ===== -->
+<section class="sec" id="strength">
   <div class="sec-hd sd">
-    <h2 class="ttl"><span class="en">For you</span><span class="ja">目的別の入口</span></h2>
+    <h2 class="ttl"><span class="en">Strength</span><span class="ja">ラフォートの3つの強み</span></h2>
   </div>
-  <div class="doors">
-    <a class="door sd" href="service.html">
-      <figure><img src="images/real/photo-visit-dandelion-talk.jpg" alt="制作会社さまとの打ち合わせ" loading="lazy"></figure>
-      <span class="who">企業の方へ</span>
-      <h3>制作をご依頼の企業さま</h3>
-      <p>国内で動画800枚・仕上1000枚（1週間〜10日間）。モンゴルの MONICHI Pictures でもお受けします。</p>
-      <span class="btn">事業内容<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></span>
-    </a>
-    <a class="door sd" href="academy.html">
-      <figure><img src="images/real/photo-class-collage.jpg" alt="育成講座の授業風景（トレス台・教室）" loading="lazy"></figure>
-      <span class="who">未経験の方へ</span>
-      <h3>アニメーターを目指す方</h3>
-      <p>紙作画から始めて7か月。受講料20万円は、卒業後2年の業務委託で返還されます。</p>
-      <span class="btn">育成プロジェクト<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></span>
-    </a>
-    <a class="door sd" href="recruit.html">
-      <figure><img src="images/real/photo-tablet-closeup.jpg" alt="液晶タブレットで線画を描く手元" loading="lazy"></figure>
-      <span class="who">経験者の方へ</span>
-      <h3>経験のあるアニメーターの方</h3>
-      <p>LO・作監・原画・動画を完全在宅で。子育て中の方には育児支援金 月2万円〜。</p>
-      <span class="btn">採用情報<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></span>
-    </a>
+  <div class="strs">
+    <article class="str sd">
+      <figure class="fit"><img src="images/real/table-capacity.jpg" alt="キャパシティの表（1週間〜10日間あたりの国内・海外の目安）" loading="lazy"></figure>
+      <p class="no">01</p>
+      <h3 data-kari>量と納期を、先にお伝えできます</h3>
+      <p>1週間〜10日間で、国内 動画800枚・仕上1000枚、海外 動画2000枚・仕上1800枚が目安。ご依頼の前に、受けられる量が分かります。</p>
+    </article>
+    <article class="str sd">
+      <figure><img src="images/real/photo-home-study3.jpg" alt="トレス台で作業する受講生" loading="lazy"></figure>
+      <p class="no">02</p>
+      <h3 data-kari>自社でアニメーターを育てています</h3>
+      <p>業界歴20年の現役アニメーターがマンツーマンで指導する7か月の育成プロジェクト。第10期まで続け、卒業生が在宅で制作に参加しています。</p>
+    </article>
+    <article class="str sd">
+      <figure><img src="images/real/photo-baby-hand.jpg" alt="赤ちゃんの手" loading="lazy"></figure>
+      <p class="no">03</p>
+      <h3 data-kari>子育てと両立できるから、長く続けられます</h3>
+      <p>完全在宅・パートナーシップ契約と、子育て中のスタッフへの育児支援金。テレワーク東京ルール宣言企業として、ブランクのある人も戻ってこられる環境です。</p>
+    </article>
   </div>
 </section>
 
-<!-- ===== 5. 事業内容 ＋ 6. 制作実績 ===== -->
+<!-- ===== 4. 事業内容 ===== -->
 <section class="sec" id="service">
   <div class="sec-hd sd">
     <h2 class="ttl"><span class="en">Service</span><span class="ja">事業内容</span></h2>
   </div>
+  <div class="doors">
+    <article class="door sd">
+      <span class="who">制作をご依頼の企業さま</span>
+      <h3>アニメーション制作</h3>
+      <figure><img src="images/real/photo-paper-closeup.jpg" alt="動画用紙に描かれた作画のアップ" loading="lazy"></figure>
+      <p>LO・第一原画・第二原画・作画監督・動画・動画検査・仕上・色指定検査・線撮の9工程に対応。国内のママクリエーターと、モンゴルの提携スタジオ MONICHI Pictures の2つの体制で受けています。</p>
+      <div class="btns"><a class="btn" href="service.html">事業内容・キャパシティ<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a><a class="btn alt" href="#contact" data-purpose="work">制作のご相談<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+    </article>
+    <article class="door sd">
+      <span class="who">アニメーターを目指す方</span>
+      <h3>アニメーター育成</h3>
+      <figure><img src="images/real/photo-class-collage.jpg" alt="育成プロジェクトの授業風景（トレス台・教室）" loading="lazy"></figure>
+      <p>未経験から7か月で在宅アニメーターへ。紙の作画から学び、デジタルに移ります。卒業後に業務委託でお仕事をすると、受講料が返ってくる制度があります。</p>
+      <div class="btns"><a class="btn" href="academy.html">育成プロジェクト<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a><a class="btn alt" href="academy-voice.html">卒業生インタビュー<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+    </article>
+    <article class="door sd">
+      <span class="who">経験のあるアニメーターの方</span>
+      <h3>在宅でアニメーターとして働く</h3>
+      <figure><img src="images/real/photo-tablet-closeup.jpg" alt="液晶タブレットで線画を描く手元" loading="lazy"></figure>
+      <p>LO・作監・原画・動画のデジタル作画アニメーターを募集しています。完全在宅で、子育て中の方には育児支援金があります。</p>
+      <div class="btns"><a class="btn" href="recruit-animator.html">募集要項を見る<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a><a class="btn alt" href="support.html">子育て支援<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+    </article>
+  </div>
+  <p class="others sd"><b>そのほかの事業</b><a href="service-overseas.html">海外拠点 MONICHI Pictures<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><a href="service-poster.html">ポスター制作<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><a href="community.html">地域活動・ワークショップ<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></p>
+</section>
+
+<!-- ===== 5. お知らせ ===== -->
+<section class="sec" id="news">
+  <div class="sec-hd sd">
+    <h2 class="ttl"><span class="en">News</span><span class="ja">お知らせ</span></h2>
+  </div>
+  <div class="news-box sd">
+<div class="ntabs" role="tablist" aria-label="お知らせのカテゴリ">
+<button type="button" class="ntab is-on" role="tab" data-tab="all" aria-selected="true">すべて</button><button type="button" class="ntab" role="tab" data-tab="info" aria-selected="false">お知らせ</button><button type="button" class="ntab" role="tab" data-tab="ikusei" aria-selected="false">育成</button><button type="button" class="ntab" role="tab" data-tab="event" aria-selected="false">イベント</button><button type="button" class="ntab" role="tab" data-tab="media" aria-selected="false">メディア</button><button type="button" class="ntab" role="tab" data-tab="feature" aria-selected="false">特集</button><button type="button" class="ntab" role="tab" data-tab="blog" aria-selected="false">ブログ</button>
+</div>
+<ul class="nlist" id="news-list">
+<li data-cat="info"><a href="news.html#n-20261009"><time datetime="2026-10-09">2026.10.09</time><span class="ncat">お知らせ</span><span class="nttl">【求人募集】パート・アルバイト（経理）（募集終了）</span></a></li>
+<li data-cat="info"><a href="news.html#n-20260915"><time datetime="2026-09-15">2026.09.15</time><span class="ncat">お知らせ</span><span class="nttl">シルバーウィーク期間の休業のお知らせ（9月19日〜9月23日）</span></a></li>
+<li data-cat="ikusei"><a href="news.html#n-20260901"><time datetime="2026-09-01">2026.09.01</time><span class="ncat">育成</span><span class="nttl">アニメーター育成プロジェクト 10期生募集スタート</span></a></li>
+<li data-cat="event"><a href="news.html#n-20260701"><time datetime="2026-07-01">2026.07.01</time><span class="ncat">イベント</span><span class="nttl">【武蔵村山市×Lu Laforte】アニメ作画体験授業 開催のお知らせ（募集終了）</span></a></li>
+<li data-cat="event"><a href="news.html#n-20260615"><time datetime="2026-06-15">2026.06.15</time><span class="ncat">イベント</span><span class="nttl">甲州アニメーションワークショップ 開催のお知らせ（募集終了）</span></a></li>
+<li data-cat="ikusei"><a href="news.html#n-20260514"><time datetime="2026-05-14">2026.05.14</time><span class="ncat">育成</span><span class="nttl">アニメーター育成プロジェクト オンライン説明会・体験会（締切）</span></a></li>
+<li data-cat="event"><a href="news.html#n-20260203"><time datetime="2026-02-03">2026.02.03</time><span class="ncat">イベント</span><span class="nttl">都内の小学校で『プロに教わる授業 “アニメ編”』を行いました</span></a></li>
+<li data-cat="ikusei"><a href="news.html#n-202511"><time datetime="2025-11">2025.11</time><span class="ncat">育成</span><span class="nttl">制作会社見学ツアー／ルラフォート動画部 オフ会レポート</span></a></li>
+<li data-cat="blog"><a href="news-blog-stove.html"><time datetime="2024-02-06">2024.02.06</time><span class="ncat">ブログ</span><span class="nttl">いけつけCAFEでほっと一息（カフェ Stove）</span></a></li>
+<li data-cat="feature"><a href="news-visit-03.html"><time datetime="2023-08-18">2023.08.18</time><span class="ncat">特集</span><span class="nttl">主婦が制作会社に行ってみた！第3弾 ダンデライオンアニメーションスタジオ様</span></a></li>
+<li data-cat="media"><a href="about-media.html"><time datetime="2023-02-19">2023.02.19</time><span class="ncat">メディア</span><span class="nttl">読売新聞 多摩 朝刊で紹介されました</span></a></li>
+<li data-cat="feature"><a href="news-visit-02.html"><time datetime="2023-01-25">2023.01.25</time><span class="ncat">特集</span><span class="nttl">主婦が制作会社に行ってみた！第2弾 Voil様</span></a></li>
+<li data-cat="media"><a href="about-media-tama.html"><time datetime="2022-12-14">2022.12.14</time><span class="ncat">メディア</span><span class="nttl">第20回 多摩ブルー・グリーン賞で「みらい賞」を受賞しました</span></a></li>
+<li data-cat="media"><a href="about-media.html"><time datetime="2022-09-28">2022.09.28</time><span class="ncat">メディア</span><span class="nttl">J:COM TV「つながるnews」で紹介されました</span></a></li>
+</ul>
+
+    <div class="news-ft"><a class="btn" id="news-more" href="news.html"><span class="t">お知らせ一覧へ</span><span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+  </div>
+</section>
+
+<!-- ===== 6. 制作実績 ===== -->
+<section class="sec" id="works">
+  <div class="sec-hd sd">
+    <h2 class="ttl"><span class="en">Works</span><span class="ja">制作実績</span></h2>
+  </div>
+  <div class="works sd" id="worksRows">
+    <div class="wrow"><ul class="wtrack">
+      <li><figure><img src="images/real/work-yaiba.jpg" alt="真･侍伝 YAIBA" loading="lazy"></figure><span>真･侍伝 YAIBA</span></li>
+      <li><figure><img src="images/real/work-honzuki.jpg" alt="本好きの下剋上 領主の養女" loading="lazy"></figure><span>本好きの下剋上 領主の養女</span></li>
+      <li><figure><img src="images/real/work-chi.jpg" alt="チ。―地球の運動について―" loading="lazy"></figure><span>チ。―地球の運動について―</span></li>
+      <li><figure><img src="images/real/work-shinchan.jpg" alt="クレヨンしんちゃん" loading="lazy"></figure><span>クレヨンしんちゃん</span></li>
+      <li><figure><img src="images/real/work-hathaway.jpg" alt="機動戦士ガンダム 閃光のハサウェイ キルケーの魔女" loading="lazy"></figure><span>機動戦士ガンダム 閃光のハサウェイ</span></li>
+      <li><figure><img src="images/real/work-chiikawa.jpg" alt="ちいかわ" loading="lazy"></figure><span>ちいかわ</span></li>
+      <li><figure><img src="images/real/work-kirio.jpg" alt="霧尾ファンクラブ" loading="lazy"></figure><span>霧尾ファンクラブ</span></li>
+    </ul></div>
+    <div class="wrow rev"><ul class="wtrack">
+      <li><figure><img src="images/real/work-ragnarok.jpg" alt="終末のワルキューレⅢ" loading="lazy"></figure><span>終末のワルキューレⅢ</span></li>
+      <li><figure><img src="images/real/work-pokemon.jpg" alt="ポケットモンスター" loading="lazy"></figure><span>ポケットモンスター</span></li>
+      <li><figure><img src="images/real/work-shunkashuto.jpg" alt="春夏秋冬代行者" loading="lazy"></figure><span>春夏秋冬代行者</span></li>
+      <li><figure><img src="images/real/work-sakamoto.jpg" alt="SAKAMOTO DAYS" loading="lazy"></figure><span>SAKAMOTO DAYS</span></li>
+      <li><figure><img src="images/real/work-hanarokusho.jpg" alt="花緑青が明ける日に" loading="lazy"></figure><span>花緑青が明ける日に</span></li>
+      <li><figure><img src="images/real/work-kozame.jpg" alt="おでかけ子ザメ" loading="lazy"></figure><span>おでかけ子ザメ</span></li>
+    </ul></div>
+  </div>
+  <div class="works-ft sd"><a class="btn" href="works.html">制作実績をすべて見る<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+</section>
+
+<!-- ===== 7. アニメーター育成プロジェクト ===== -->
+<section class="sec" id="sec-academy">
   <article class="card sd">
-    <div class="rail"><div class="rt"><i></i><span>Service</span></div><span>Works</span></div>
-    <div class="card-in">
-      <p class="card-name">Animation<small>アニメーション制作・育成・地域</small></p>
-      <div class="card-body">
-        <div><figure class="fit"><img src="images/real/table-capacity.jpg" alt="キャパシティ表（1週間〜10日間あたり）国内：動画800枚・仕上1000枚・2原10cut／海外（MONICHI）：動画2000枚・仕上1800枚・2原15cut・作監は要相談" loading="lazy"></figure><p class="cap">キャパシティ（1週間〜10日間あたり）<br>国内：動画800枚・仕上1000枚・2原10cut／海外（MONICHI）：動画2000枚・仕上1800枚・2原15cut／作監は要相談</p></div>
-        <div>
-          <h3>動画・仕上・2原・LO・作監まで、<br>まずはご相談ください。</h3>
-          <ul class="pillars">
-            <li><span class="no">01</span><div><b>アニメーション制作</b><span>第一原画・第二原画・作画監督・動画・仕上・動画検査・色彩設計・色指定検査・線撮</span></div></li>
-            <li><span class="no">02</span><div><b>アニメーター育成</b><span>現役アニメーター（業界歴20年）によるマンツーマン指導</span></div></li>
-            <li><span class="no">03</span><div><b>地域・イベント</b><span>ワークショップや出張授業で、アニメの楽しさを地域へ</span></div></li>
-          </ul>
-          <a class="btn" href="service.html">事業内容<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-        </div>
-      </div>
-
-      <div class="works" id="works">
-        <div class="works-lbl"><span class="en">Works</span><span>参加作品</span></div>
-        <div class="wrow"><ul class="wtrack">
-            <li><figure><img src="images/real/work-yaiba.jpg" alt="真･侍伝 YAIBA" loading="lazy"></figure><span>真･侍伝 YAIBA</span></li>
-            <li><figure><img src="images/real/work-honzuki.jpg" alt="本好きの下剋上 領主の養女" loading="lazy"></figure><span>本好きの下剋上 領主の養女</span></li>
-            <li><figure><img src="images/real/work-chi.jpg" alt="チ。―地球の運動について―" loading="lazy"></figure><span>チ。―地球の運動について―</span></li>
-            <li><figure><img src="images/real/work-shinchan.jpg" alt="クレヨンしんちゃん" loading="lazy"></figure><span>クレヨンしんちゃん</span></li>
-            <li><figure><img src="images/real/work-hathaway.jpg" alt="機動戦士ガンダム 閃光のハサウェイ キルケーの魔女" loading="lazy"></figure><span>機動戦士ガンダム 閃光のハサウェイ キルケーの魔女</span></li>
-            <li><figure><img src="images/real/work-chiikawa.jpg" alt="ちいかわ" loading="lazy"></figure><span>ちいかわ</span></li>
-            <li><figure><img src="images/real/work-kirio.jpg" alt="霧尾ファンクラブ" loading="lazy"></figure><span>霧尾ファンクラブ</span></li>
-          </ul></div>
-        <div class="wrow rev"><ul class="wtrack">
-            <li><figure><img src="images/real/work-ragnarok.jpg" alt="終末のワルキューレⅢ" loading="lazy"></figure><span>終末のワルキューレⅢ</span></li>
-            <li><figure><img src="images/real/work-pokemon.jpg" alt="ポケットモンスター" loading="lazy"></figure><span>ポケットモンスター</span></li>
-            <li><figure><img src="images/real/work-shunkashuto.jpg" alt="春夏秋冬代行者" loading="lazy"></figure><span>春夏秋冬代行者</span></li>
-            <li><figure><img src="images/real/work-sakamoto.jpg" alt="SAKAMOTO DAYS" loading="lazy"></figure><span>SAKAMOTO DAYS</span></li>
-            <li><figure><img src="images/real/work-hanarokusho.jpg" alt="花緑青が明ける日に" loading="lazy"></figure><span>花緑青が明ける日に</span></li>
-            <li><figure><img src="images/real/work-kozame.jpg" alt="おでかけ子ザメ" loading="lazy"></figure><span>おでかけ子ザメ</span></li>
-          </ul></div>
-        <div class="works-ft">
-          <small data-kari>※担当工程は作品により異なります</small>
-          <a class="btn" href="works.html">制作実績<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <!-- ===== 7. アニメーター育成 ===== -->
-  <article class="card sd" id="academy">
     <div class="rail"><div class="rt"><i></i><span>Academy</span></div><span>7 months</span></div>
     <div class="card-in">
-      <p class="card-name">Academy<small>アニメーター育成プロジェクト</small></p>
+      <h2 class="card-name">Academy<small>アニメーター育成プロジェクト</small></h2>
       <div class="card-body">
-        <figure><img src="images/real/photo-home-study5.jpg" alt="自宅の机で液晶タブレットに向かう受講生" loading="lazy"></figure>
+        <figure><img src="images/real/photo-home-study5.jpg" alt="自宅の作業部屋（PC・トレス台）" loading="lazy"></figure>
         <div>
-          <h3>7か月後には<br>在宅アニメーターへ</h3>
+          <h3>未経験から7か月で、<br>在宅アニメーターへ</h3>
           <ol class="points">
-            <li>業界歴20年の現役アニメーターがマンツーマン指導</li>
-            <li>紙作画から学び、デジタルへ</li>
-            <li>卒業後2年の業務委託で20万円を返還＝受講料が実質無料</li>
+            <li>業界歴20年の現役アニメーターがマンツーマンで指導</li>
+            <li>紙の作画から学び、デジタルへ</li>
+            <li>卒業後の業務委託で、受講料が返ってくる制度</li>
           </ol>
-          <div class="status"><b>CLOSED</b><span>第10期の募集は終了しました。</span><a href="academy.html" data-kari style="text-decoration:underline;text-underline-offset:3px">次期の説明会のお知らせを受け取る</a></div>
-          <a class="btn" href="academy.html">アニメーター育成<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+          <p class="status"><b>CLOSED</b><span>第10期の募集は終了しました。次の募集はお知らせと公式LINEでお知らせします。</span></p>
+          <div class="btns"><a class="btn" href="academy.html">育成プロジェクトを見る<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a><a class="btn alt" href="academy-voice.html">卒業生インタビュー（10名）<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
         </div>
       </div>
     </div>
   </article>
+</section>
 
-  <!-- ===== 8. 子育て支援 ===== -->
-  <article class="card sd" id="support">
+<!-- ===== 8. 子育て支援 ===== -->
+<section class="sec" id="support" style="padding-top:24px">
+  <article class="card sd">
     <div class="rail"><div class="rt"><i></i><span>Support</span></div><span>Work style</span></div>
     <div class="card-in">
-      <p class="card-name">Support<small>はたらき方と子育て支援</small></p>
+      <h2 class="card-name">Support<small>子育て支援</small></h2>
       <div class="card-body">
         <figure><img src="images/real/photo-park-swing.jpg" alt="公園のブランコ" loading="lazy"></figure>
         <div>
-          <h3>完全在宅で、<br>育児支援金 月2万円〜。</h3>
           <ul class="perks">
-            <li><b>育児支援金 月2万円〜</b><span>子育て中の従業員に支給（適用条件あり）</span></li>
-            <li><b>完全在宅・フルリモート</b><span>作画データはオンラインでやり取り</span></li>
-            <li><b>扶養の有無を問わず支給</b><span>支援金を保育料に充てているスタッフも</span></li>
-            <li><b>パートナーシップ契約</b><span>業務委託のフリーアニメーターも支援の対象</span></li>
+            <li><small>01</small><b>育児支援金</b><span>子育て中のスタッフに支給</span></li>
+            <li><small>02</small><b>はたらく場所</b><span>完全在宅・フルリモート</span></li>
+            <li><small>03</small><b>支給の条件</b><span>扶養の有無を問わず支給</span></li>
+            <li><small>04</small><b>契約の形</b><span>パートナーシップ契約（フリーランスも対象）</span></li>
           </ul>
           <div class="certs">
             <p>認定・宣言</p>
             <div class="chips"><span>テレワーク東京ルール 宣言企業</span><span>女性の活躍推進企業 登録</span></div>
           </div>
-          <a class="btn" href="support.html" style="margin-top:32px">子育て支援<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+          <div class="btns"><a class="btn" href="support.html">子育て支援を見る<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
         </div>
       </div>
     </div>
   </article>
 </section>
 
-<!-- ===== 9. 地域活動 ===== -->
-<section class="list-sec" id="community">
-  <div class="side sd">
-    <div>
-      <h2 class="ttl"><span class="en">Community</span><span class="ja">地域活動・イベント</span></h2>
-      <p class="desc">武蔵村山市の公民館、山梨、都内の小学校などで、子ども向けの作画体験や授業を行っています。</p>
+<!-- ===== 9. はたらくアニメーターの声 ===== -->
+<section class="sec" id="voice">
+  <div class="sec-hd sd">
+    <h2 class="ttl"><span class="en">Voice</span><span class="ja">はたらくアニメーターの声</span></h2>
+    <p class="note">育成プロジェクトを卒業し、いまラフォートで在宅アニメーターとして働いている人たちの声です。</p>
+  </div>
+  <div class="voices">
+    <a class="voice sd" href="academy-voice-01.html">
+      <span class="top"><span class="ini" aria-hidden="true">MM</span><span class="gen">1st<span>1期生</span></span></span>
+      <h3>「遅く始めた私にもチャンスをいただけた」</h3>
+      <p class="who">松井美穂さん</p>
+      <span class="more">インタビューを読む<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+    </a>
+    <a class="voice sd" href="academy-voice-08.html">
+      <span class="top"><span class="ini" aria-hidden="true">M</span><span class="gen">5th<span>5期生</span></span></span>
+      <h3>「よきご縁。よき学び」</h3>
+      <p class="who">Mさん（一児の母として子育て中）</p>
+      <span class="more">インタビューを読む<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+    </a>
+    <a class="voice sd" href="academy-voice-10.html">
+      <span class="top"><span class="ini" aria-hidden="true">Y</span><span class="gen">7th<span>7期生</span></span></span>
+      <h3>「細く長く楽しくアニメーターを続けること」</h3>
+      <p class="who">yossyさん（週1回の授業と週2回の添削をフルリモートで受講）</p>
+      <span class="more">インタビューを読む<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+    </a>
+  </div>
+  <div class="voice-ft sd"><a class="btn" href="academy-voice.html">10名のインタビューを読む<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+</section>
+
+<!-- ===== 10. 採用情報 ===== -->
+<section class="recruit" id="sec-recruit">
+  <div class="rc sd">
+    <span class="rc-bg" aria-hidden="true"><img src="images/real/photo-home-study4.jpg" alt="" loading="lazy"></span>
+    <div class="rc-in">
+      <h2 class="ttl"><span class="en">Recruit</span><span class="ja">採用情報</span></h2>
+      <div class="rc-copy">
+        <h3>デジタル作画アニメーター<br>募集中</h3>
+        <p class="tags"><span>LO</span><span>作監</span><span>原画</span><span>動画</span><span>完全在宅</span><span>経験者優遇</span></p>
+        <p>暮らしに合わせて、在宅で作画のお仕事ができます。未経験の方は、育成プロジェクトからはじめられます。</p>
+        <div class="btns"><a class="btn white" href="recruit-animator.html">募集要項を見る<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a><a class="btn line" href="recruit.html">採用情報トップ<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+      </div>
     </div>
-    <a class="btn" href="community.html">一覧をみる<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-  </div>
-  <div>
-    <ul class="rows">
-      <li class="sd"><a class="row" href="community.html"><span class="thumb"><img src="images/real/photo-kids-drawing.jpg" alt="子どもたちのアニメ作画体験" loading="lazy"></span><span class="meta"><time datetime="2026-08-06">2026.08.06</time><span class="tt">武蔵村山市 公民館「アニメ作画体験教室」</span><span class="sm">9〜18歳・無料</span></span><span class="pill">WORKSHOP</span></a></li>
-      <li class="sd"><a class="row" href="community.html"><span class="thumb"><img src="images/real/photo-ws3.jpg" alt="ワークショップの子どもたち" loading="lazy"></span><span class="meta"><time datetime="2026-07-18">2026.07.18</time><span class="tt">山梨「甲州アニメワークショップ」</span></span><span class="pill">WORKSHOP</span></a></li>
-      <li class="sd"><a class="row" href="community.html"><span class="thumb"><img src="images/real/photo-screening.jpg" alt="小学校の授業で、みんなで描いた絵を動画にして上映" loading="lazy"></span><span class="meta"><time datetime="2026-02">2026.02</time><span class="tt">東京都内の小学校で4年生向け アニメ・お絵描き授業</span></span><span class="pill">SCHOOL</span></a></li>
-    </ul>
-    <a class="btn more" href="community.html" style="display:none">一覧をみる<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
   </div>
 </section>
 
-<!-- ===== 10. メディア掲載・受賞 ===== -->
-<section class="list-sec" id="media">
-  <div class="side sd">
-    <div>
-      <h2 class="ttl"><span class="en">Media</span><span class="ja">メディア掲載・受賞</span></h2>
-    </div>
-  </div>
-  <div>
-    <ul class="rows">
-      <li class="sd"><a class="row" href="about-media.html"><span class="thumb"><img src="images/real/photo-newspaper.jpg" alt="読売新聞 多摩版の記事" loading="lazy"></span><span class="meta"><time datetime="2023-02-19">2023.02.19</time><span class="tt">読売新聞 多摩版（朝刊）で紹介されました</span></span><span class="pill">MEDIA</span></a></li>
-      <li class="sd"><a class="row" href="about-media.html"><span class="thumb"><img src="images/real/photo-award-group.jpg" alt="第20回多摩ブルー・グリーン賞 表彰式の集合写真" loading="lazy"></span><span class="meta"><time datetime="2022-12-14">2022.12.14</time><span class="tt">第20回 多摩ブルー・グリーン賞「多摩みらい賞」を受賞</span></span><span class="pill">AWARD</span></a></li>
-      <li class="sd"><a class="row" href="about-media.html"><span class="thumb"><img src="images/real/photo-jcom.jpg" alt="J:COM「つながるnews」出演のようす" loading="lazy"></span><span class="meta"><time datetime="2022-09-28">2022.09.28</time><span class="tt">J:COM TV「つながるnews」で紹介されました</span></span><span class="pill">MEDIA</span></a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== 11. お知らせ ===== -->
-<section class="list-sec" id="news">
-  <div class="side sd">
-    <div><h2 class="ttl"><span class="en">News</span><span class="ja">お知らせ</span></h2></div>
-    <a class="btn" href="news.html">一覧をみる<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-  </div>
-  <div>
-    <ul class="rows">
-      <li class="sd"><a class="row" href="news.html"><span class="thumb fit"><img src="images/real/notice-holiday.jpg" alt="9月連休のお知らせ" loading="lazy"></span><span class="meta"><time datetime="2026-09-10">2026.09.10</time><span class="tt">シルバーウィーク休業のお知らせ（9/19〜9/23）</span></span><span class="pill">INFORMATION</span></a></li>
-      <li class="sd"><a class="row" href="news.html"><span class="thumb fit"><img src="images/real/flyer-10th-recruit.jpg" alt="アニメーター育成 第10期生募集のチラシ" loading="lazy"></span><span class="meta"><time datetime="2026-09-01">2026.09.01</time><span class="tt">アニメーター育成プロジェクト 第10期の募集を開始しました（※現在は締切）</span></span><span class="pill">ACADEMY</span></a></li>
-      <li class="sd"><a class="row" href="news.html"><span class="thumb fit"><img src="images/real/flyer-musashimurayama.jpg" alt="武蔵村山 アニメ作画体験授業のチラシ" loading="lazy"></span><span class="meta"><time datetime="2026-08-06">2026.08.06</time><span class="tt">武蔵村山市でアニメ作画体験教室を開催しました</span></span><span class="pill">EVENT</span></a></li>
-      <li class="sd"><a class="row" href="news.html"><span class="thumb fit"><img src="images/real/flyer-koshu-workshop.jpg" alt="甲州アニメワークショップのチラシ" loading="lazy"></span><span class="meta"><time datetime="2026-07-18">2026.07.18</time><span class="tt">甲州アニメワークショップを開催しました</span></span><span class="pill">EVENT</span></a></li>
-    </ul>
-    <a class="btn more" href="news.html" style="display:none">一覧をみる<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-  </div>
-</section>
-
-<!-- ===== 12. 採用バナー ===== -->
-<section class="recruit" aria-label="採用情報">
-  <a class="rc sd" href="recruit-animator.html">
-    <span class="rc-bg"><img src="images/real/photo-home-study4.jpg" alt="" loading="lazy"></span>
-    <span class="rc-in">
-      <span class="rc-l">
-        <span class="ttl"><span class="en">Recruit</span><span class="ja">採用情報</span></span>
-        <span class="faces"><img src="images/real/icon-grad-matsui.jpg" alt="" loading="lazy"><img src="images/real/icon-grad-mukouyama.jpg" alt="" loading="lazy"><img src="images/real/icon-grad-buyama.jpg" alt="" loading="lazy"></span>
-      </span>
-      <span class="rc-copy">
-        <span class="big" style="display:block">デジタル作画<br>アニメーター募集中</span>
-        <span class="mid" style="display:block">LO・作監・原画・動画<br>完全在宅でお仕事を。</span>
-      </span>
-      <span class="circle" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
-    </span>
-  </a>
-</section>
-
-<!-- ===== 13. お問い合わせ ===== -->
+<!-- ===== 11. お問い合わせフォーム ===== -->
 <section class="contact" id="contact">
   <div class="ct sd">
     <div class="ct-shape" aria-hidden="true">
       <svg viewBox="0 0 1416 560" preserveAspectRatio="xMaxYMin slice">
         <circle cx="1416" cy="0" r="330" fill="#dfdad9"/>
         <circle cx="1416" cy="0" r="170" fill="#222"/>
-        <ellipse cx="760" cy="640" rx="260" ry="190" fill="#dfdad9" opacity=".14"/>
       </svg>
     </div>
     <div class="ct-in">
-      <h2 class="ttl"><span class="en">Contact</span><span class="ja">お問い合わせ</span></h2>
-      <p class="lead">制作のご相談・育成のお申し込み・<br>取材のご依頼はこちら</p>
-      <a class="btn white" href="contact.html">お問い合わせフォーム<span class="tail"><i class="dots"></i><svg class="arw" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      <h2 class="ttl"><span class="en">Contact</span><span class="ja">お問い合わせフォーム</span></h2>
+      <p class="lead" data-kari>お問い合わせの目的を選ぶと、それに合った入力欄が出ます。</p>
     </div>
-    <div class="ct-info">
-      <dl>
-        <dt>メール</dt><dd><a href="mailto:home.lulaforte@gmail.com">home.lulaforte@gmail.com</a></dd>
-        <dt>LINE</dt><dd><a href="https://lin.ee/SFvWHUC" target="_blank" rel="noopener">公式LINE</a></dd>
-        <dt>営業時間</dt><dd>平日 9:00〜23:00</dd>
-      </dl>
-    </div>
+<form class="cf" action="#" onsubmit="return false">
+<fieldset class="cf-blk">
+<legend class="cf-h">1. お問い合わせの目的 <span class="cf-req">必須</span></legend>
+<div class="cf-purpose">
+<label class="cf-opt" for="work"><input type="radio" id="work" name="purpose" value="work" checked><span class="cf-opt-b"><b>制作のご依頼</b><span>動画・仕上・2原などのご依頼、お見積り、キャパシティのご相談</span></span></label>
+<label class="cf-opt" for="academy"><input type="radio" id="academy" name="purpose" value="academy"><span class="cf-opt-b"><b>育成について</b><span>アニメーター育成プロジェクトのお申し込み・説明会・ご質問</span></span></label>
+<label class="cf-opt" for="recruit"><input type="radio" id="recruit" name="purpose" value="recruit"><span class="cf-opt-b"><b>採用への応募</b><span>デジタル作画アニメーターなどへの応募、採用についてのご質問</span></span></label>
+<label class="cf-opt" for="event"><input type="radio" id="event" name="purpose" value="event"><span class="cf-opt-b"><b>ワークショップ・取材</b><span>作画体験・出張授業のご依頼、取材・メディアのご依頼</span></span></label>
+<label class="cf-opt" for="other"><input type="radio" id="other" name="purpose" value="other"><span class="cf-opt-b"><b>その他</b><span>上記以外のお問い合わせ</span></span></label>
+</div>
+</fieldset>
+
+<div class="cf-blk">
+<h3 class="cf-h">2. お客さまの情報</h3>
+<div class="cf-rows">
+<div class="cf-row"><label class="cf-l" for="f-name">お名前 <span class="cf-req">必須</span></label><div class="cf-f"><input id="f-name" type="text" placeholder="山田 花子" autocomplete="name"></div></div>
+<div class="cf-row"><label class="cf-l" for="f-kana">ふりがな</label><div class="cf-f"><input id="f-kana" type="text" placeholder="やまだ はなこ"></div></div>
+<div class="cf-row"><label class="cf-l" for="f-org">会社名・団体名</label><div class="cf-f"><input id="f-org" type="text" placeholder="任意" autocomplete="organization"></div></div>
+<div class="cf-row"><label class="cf-l" for="f-mail">メールアドレス <span class="cf-req">必須</span></label><div class="cf-f"><input id="f-mail" type="email" placeholder="example@example.com" autocomplete="email"></div></div>
+<div class="cf-row"><label class="cf-l" for="f-tel">電話番号</label><div class="cf-f"><input id="f-tel" type="tel" placeholder="任意（制作のご依頼は必須）" autocomplete="tel"></div></div>
+</div>
+</div>
+
+<div class="cf-blk cf-cond" data-for="work">
+<h3 class="cf-h">3-A.「制作のご依頼」を選んだ場合</h3>
+<div class="cf-rows">
+<div class="cf-row"><label class="cf-l" for="a-person">ご担当者・部署</label><div class="cf-f"><input id="a-person" type="text" placeholder="制作進行 ○○"></div></div>
+<div class="cf-row"><label class="cf-l" for="a-title">作品名</label><div class="cf-f"><input id="a-title" type="text" placeholder="伏せていただいても構いません"></div></div>
+<div class="cf-row"><span class="cf-l">ご希望の工程 <span class="cf-req">必須</span></span><div class="cf-f cf-checks"><label><input type="checkbox"> LO</label><label><input type="checkbox"> 第一原画</label><label><input type="checkbox"> 第二原画</label><label><input type="checkbox"> 作画監督</label><label><input type="checkbox"> 動画</label><label><input type="checkbox"> 動画検査</label><label><input type="checkbox"> 仕上</label><label><input type="checkbox"> 色彩設計</label><label><input type="checkbox"> 色指定検査</label><label><input type="checkbox"> 線撮</label></div></div>
+<div class="cf-row"><label class="cf-l" for="a-vol">物量</label><div class="cf-f"><input id="a-vol" type="text" placeholder="例：動画○○枚／2原○○cut"></div></div>
+<div class="cf-row"><label class="cf-l" for="a-date">ご希望の納期</label><div class="cf-f"><input id="a-date" type="date"></div></div>
+<div class="cf-row"><span class="cf-l">国内・海外のご希望</span><div class="cf-f cf-checks"><label><input type="radio" name="line"> 国内</label><label><input type="radio" name="line"> 海外（MONICHI Pictures）</label><label><input type="radio" name="line"> どちらでも</label></div></div>
+<div class="cf-row"><label class="cf-l" for="a-soft">素材の形式・使用ソフト</label><div class="cf-f"><input id="a-soft" type="text" placeholder="例：CLIP STUDIO／紙 など"></div></div>
+</div>
+<p class="cf-note">1週間〜10日間の目安：国内 動画800枚・仕上1000枚・2原10cut／海外 動画2000枚・仕上1800枚・2原15cut（作監は要相談）。詳しくは<a href="service.html">事業内容</a>へ。</p>
+</div>
+
+<div class="cf-blk cf-cond" data-for="academy">
+<h3 class="cf-h">3-B.「育成について」を選んだ場合</h3>
+<div class="cf-rows">
+<div class="cf-row"><label class="cf-l" for="b-kind">ご用件</label><div class="cf-f"><select id="b-kind"><option>選択してください</option><option>説明会・体験会に参加したい</option><option>受講を申し込みたい</option><option>次回の募集を知りたい</option><option>その他の質問</option></select></div></div>
+<div class="cf-row"><label class="cf-l" for="b-exp">絵を描いた経験</label><div class="cf-f"><select id="b-exp"><option>選択してください</option><option>趣味で描いている</option><option>学校で学んだ</option><option>仕事で描いていた</option><option>ほとんどない</option></select></div></div>
+</div>
+</div>
+
+<div class="cf-blk cf-cond" data-for="recruit">
+<h3 class="cf-h">3-C.「採用への応募」を選んだ場合</h3>
+<div class="cf-rows">
+<div class="cf-row"><span class="cf-l">希望の職種</span><div class="cf-f cf-checks"><label><input type="checkbox"> LO</label><label><input type="checkbox"> 作画監督</label><label><input type="checkbox"> 原画</label><label><input type="checkbox"> 動画</label><label><input type="checkbox"> その他</label></div></div>
+<div class="cf-row"><label class="cf-l" for="c-career">簡単な略歴</label><div class="cf-f"><textarea id="c-career" rows="4" placeholder="参加作品・経験年数など"></textarea></div></div>
+<div class="cf-row"><label class="cf-l" for="c-pf">ポートフォリオ</label><div class="cf-f"><input id="c-pf" type="url" placeholder="URL（任意）"></div></div>
+</div>
+</div>
+
+<div class="cf-blk cf-cond" data-for="event">
+<h3 class="cf-h">3-D.「ワークショップ・取材」を選んだ場合</h3>
+<div class="cf-rows">
+<div class="cf-row"><label class="cf-l" for="d-kind">ご依頼の種類</label><div class="cf-f"><select id="d-kind"><option>選択してください</option><option>作画体験ワークショップ</option><option>学校での授業</option><option>取材・メディア掲載</option></select></div></div>
+<div class="cf-row"><label class="cf-l" for="d-when">ご希望の日程・場所</label><div class="cf-f"><input id="d-when" type="text" placeholder="例：○月ごろ／○○市"></div></div>
+<div class="cf-row"><label class="cf-l" for="d-who">対象・人数</label><div class="cf-f"><input id="d-who" type="text" placeholder="例：小学4年生 30名"></div></div>
+<div class="cf-row"><label class="cf-l" for="d-media">媒体名（取材の場合）</label><div class="cf-f"><input id="d-media" type="text"></div></div>
+</div>
+</div>
+
+<div class="cf-blk">
+<h3 class="cf-h">4. お問い合わせ内容</h3>
+<div class="cf-rows">
+<div class="cf-row"><label class="cf-l" for="f-body">内容 <span class="cf-req">必須</span></label><div class="cf-f"><textarea id="f-body" rows="6"></textarea></div></div>
+<div class="cf-row"><label class="cf-l" for="f-from">どこで知りましたか</label><div class="cf-f"><select id="f-from"><option>選択してください</option><option>検索</option><option>X</option><option>LINE</option><option>知人の紹介</option><option>ワークショップ・イベント</option><option>新聞・テレビ</option><option>その他</option></select></div></div>
+</div>
+</div>
+
+<p class="cf-agree"><label><input type="checkbox"> <a href="contact.html#privacy">個人情報の取り扱い</a>に同意する</label> <span class="cf-req">必須</span></p>
+<div class="cf-submit"><button class="cf-btn" type="button">確認画面へ（送信はしません）</button></div>
+</form>
+
   </div>
 </section>
 </main>
@@ -819,8 +937,8 @@ h1,h2,h3,p{margin:0}
         </div>
       </nav>
       <div class="ft-rec">
-        <a class="h" href="contact.html">お問い合わせ<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-        <div class="chips"><a href="contact.html">制作のご相談</a><a href="contact.html">育成のお申し込み</a><a href="contact.html">取材のご依頼</a><a href="https://lin.ee/SFvWHUC" target="_blank" rel="noopener">公式LINE</a></div>
+        <a class="h" href="#contact">お問い合わせ<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 5h8M5 1.5 8.5 5 5 8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        <div class="chips"><a href="#contact" data-purpose="work">制作のご相談</a><a href="#contact" data-purpose="academy">育成のお申し込み</a><a href="#contact" data-purpose="event">取材のご依頼</a><a href="https://lin.ee/SFvWHUC" target="_blank" rel="noopener">公式LINE</a></div>
       </div>
       <div class="ft-logo"><img src="images/logo-black.png" alt="Lu Laforte" width="369" height="96"></div>
     </div>
@@ -835,13 +953,10 @@ h1,h2,h3,p{margin:0}
   </div>
   <div class="ft-art" aria-hidden="true">
     <svg viewBox="0 0 1440 556" preserveAspectRatio="none">
-      <!-- L -->
       <rect x="0" y="0" width="480" height="556" fill="#dfdad9"/>
       <path d="M150 0h150v370h180v186H150Z" fill="#222"/>
-      <!-- u -->
       <rect x="480" y="0" width="480" height="556" fill="#222"/>
       <path d="M560 0h120v300a40 40 0 0 0 80 0V0h120v300a160 160 0 0 1-320 0Z" fill="#dfdad9"/>
-      <!-- L（曲線） -->
       <rect x="960" y="0" width="480" height="556" fill="#dfdad9"/>
       <circle cx="1440" cy="0" r="200" fill="#222"/>
       <path d="M1040 556V330c0-60 50-100 110-100h290v326Z" fill="#222"/>
@@ -867,35 +982,36 @@ h1,h2,h3,p{margin:0}
   setTimeout(function(){ els.forEach(show); }, 4000);
 
   /* ヘッダー：スクロール時の枠線と、黒い面の上ではロゴを白に */
-  var hd = document.getElementById('hd');
+  var hd = document.getElementById('hd'), dr = document.getElementById('drawer');
   var darks = [].slice.call(document.querySelectorAll('.rc, .ct, .ft-art'));
   function onScroll(){
     hd.classList.toggle('scrolled', scrollY > 40);
     var y = parseInt(getComputedStyle(hd).paddingTop,10) + 20, dark = false;
     darks.forEach(function(d){ var r = d.getBoundingClientRect(); if (r.top < y && r.bottom > y && r.left < 120) dark = true; });
-    if (document.getElementById('drawer').classList.contains('open')) dark = false;
+    if (dr.classList.contains('open')) dark = false;
     hd.classList.toggle('on-dark', dark);
   }
   addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
   /* メニュー開閉 */
-  var btn = document.getElementById('menuBtn'), dr = document.getElementById('drawer');
-  btn.addEventListener('click', function(){
-    var open = !dr.classList.contains('open');
+  var btn = document.getElementById('menuBtn');
+  function setMenu(open){
     dr.classList.toggle('open', open);
     dr.setAttribute('aria-hidden', open ? 'false' : 'true');
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     btn.textContent = open ? 'Close' : 'Menu';
     document.body.style.overflow = open ? 'hidden' : '';
     onScroll();
-  });
-  dr.addEventListener('click', function(e){ if (e.target.closest('a')) { dr.classList.remove('open'); document.body.style.overflow=''; btn.textContent='Menu'; btn.setAttribute('aria-expanded','false'); } });
+  }
+  btn.addEventListener('click', function(){ setMenu(!dr.classList.contains('open')); });
+  dr.addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
 
-  /* メインビジュアル：2つの構図をゆっくり切り替え（PCのみ） */
-  var mv = document.getElementById('mv'), copy = document.getElementById('mvCopy');
+  /* ファーストビュー：2つの構図をゆっくり切り替え（幅の広い画面のみ） */
+  var mv = document.getElementById('fv'), copy = document.getElementById('mvCopy');
   var scenes = mv.querySelectorAll('.scene'), cur = 0;
   if (!reduce) setInterval(function(){
-    if (document.hidden || innerWidth <= 768) return;
+    if (document.hidden || innerWidth <= 1100) return;
     copy.classList.add('fade');
     setTimeout(function(){
       scenes[cur].classList.remove('is-on');
@@ -905,6 +1021,9 @@ h1,h2,h3,p{margin:0}
       setTimeout(function(){ copy.classList.remove('fade'); }, 500);
     }, 600);
   }, 7000);
+  addEventListener('resize', function(){
+    if (innerWidth <= 1100 && cur){ scenes[1].classList.remove('is-on'); scenes[0].classList.add('is-on'); cur = 0; mv.setAttribute('data-scene','a'); copy.classList.remove('fade'); }
+  });
 
   /* 写真のループ帯：画像を複製せず、左に出たものを最後尾へ回す */
   var track = document.getElementById('strip'), x = 0, last = 0;
@@ -913,14 +1032,14 @@ h1,h2,h3,p{margin:0}
     var dt = Math.min(64, t - last); last = t;
     x -= dt * 0.04;
     var first = track.firstElementChild, w = first.getBoundingClientRect().width;
-    if (-x >= w){ track.appendChild(first); x += w; }
+    if (w && -x >= w){ track.appendChild(first); x += w; }
     track.style.transform = 'translateX(' + x + 'px)';
     requestAnimationFrame(step);
   }
   if (!reduce) requestAnimationFrame(step);
 
   /* 制作実績：バナーを複製せず、端に出たものを反対側へ回す（下の段は逆向き） */
-  var works = document.getElementById('works'), paused = false;
+  var works = document.getElementById('worksRows'), paused = false;
   works.addEventListener('mouseenter', function(){ paused = true; });
   works.addEventListener('mouseleave', function(){ paused = false; });
   [].slice.call(document.querySelectorAll('.wtrack')).forEach(function(tr){
@@ -932,7 +1051,7 @@ h1,h2,h3,p{margin:0}
         wx += (rev ? 1 : -1) * dt * 0.035;
         if (!rev){
           var f = tr.firstElementChild, fw = f.getBoundingClientRect().width;
-          if (-wx >= fw){ tr.appendChild(f); wx += fw; }
+          if (fw && -wx >= fw){ tr.appendChild(f); wx += fw; }
         } else if (wx > 0){
           var l = tr.lastElementChild; tr.insertBefore(l, tr.firstElementChild);
           wx -= l.getBoundingClientRect().width;
@@ -944,6 +1063,28 @@ h1,h2,h3,p{margin:0}
     if (!reduce) requestAnimationFrame(wstep);
   });
 })();
+/* お知らせ：カテゴリの切り替え（すべて＝新しい順に5件／カテゴリ＝最大3件） */
+(function(){
+  var L=[].slice.call(document.querySelectorAll('#news-list li')),B=[].slice.call(document.querySelectorAll('.ntab')),M=document.getElementById('news-more');
+  var A={info:'cat-info',ikusei:'cat-ikusei',event:'cat-event',media:'cat-media',feature:'cat-feature',blog:'cat-blog'},N={info:'お知らせ',ikusei:'育成',event:'イベント',media:'メディア',feature:'特集',blog:'ブログ'};
+  function show(k){
+    var n=0,max=k==='all'?5:3;
+    L.forEach(function(li){var ok=(k==='all'||li.getAttribute('data-cat')===k)&&n<max;li.hidden=!ok;if(ok)n++;});
+    B.forEach(function(b){var on=b.getAttribute('data-tab')===k;b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on?'true':'false');});
+    if(M){M.href=k==='all'?'news.html':'news.html#'+A[k];var t=M.querySelector('.t')||M;t.textContent=k==='all'?'お知らせ一覧へ':N[k]+'の一覧へ';}
+  }
+  B.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-tab'));});});
+  show('all');
+})();
+/* お問い合わせフォーム：選んだ目的の欄だけ表示 */
+(function(){
+  var R=[].slice.call(document.querySelectorAll('input[name="purpose"]')),C=[].slice.call(document.querySelectorAll('.cf-cond'));
+  function sync(){var v='';R.forEach(function(r){if(r.checked)v=r.value;});C.forEach(function(c){c.hidden=c.getAttribute('data-for')!==v;});}
+  R.forEach(function(r){r.addEventListener('change',sync);});
+  [].slice.call(document.querySelectorAll('[data-purpose]')).forEach(function(a){a.addEventListener('click',function(){var r=document.getElementById(a.getAttribute('data-purpose'));if(r){r.checked=true;sync();}});});
+  sync();
+})();
+
 </script>
 </body>
 </html>

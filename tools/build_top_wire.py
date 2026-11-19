@@ -17,8 +17,8 @@ w.NAVCAT[SLUG] = 'top-01'
 body = open(os.path.join(ROOT, 'wf-src', '_top-wire.html'), encoding='utf-8').read()
 contact = open(os.path.join(ROOT, 'wf-src', 'contact.html'), encoding='utf-8').read()
 form = re.search(r'<section class="wf-sec wf-add alt" id="form">.*?</section>', contact, re.S).group(0)
-form = (form.replace('<section class="wf-sec wf-add alt" id="form">', '<section class="wf-sec alt" id="contact">')
-            .replace('<p class="wf-en">FORM</p>', '<p class="wf-en">10　CONTACT</p>')
+form = (form.replace('<section class="wf-sec wf-add alt" id="form">', '<section class="wf-sec" id="contact">')
+            .replace('<p class="wf-en">FORM</p>', '<p class="wf-en">11　CONTACT</p>')
             .replace('href="#privacy"', 'href="contact.html#privacy"'))
 body = body.replace('@@FORM@@', form)
 
