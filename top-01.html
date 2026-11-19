@@ -317,43 +317,38 @@ h1,h2,h3,h4,p{margin:0}
 .rsplit .btns{margin-top:28px}
 .rsplit__img{width:46%;min-height:400px;object-fit:cover;flex-shrink:0}
 
-/* ===== 11. お問い合わせフォーム ===== */
+/* ===== 11. お問い合わせ（CTA） ===== */
 .contact{padding-bottom:130px}
-.contact .brush{right:-60px;top:10px;width:640px}
-.cbox{position:relative;z-index:2;background:#fff;border-radius:10px;box-shadow:var(--shadow);padding:56px 64px 60px}
-.cbox__lead{font-size:15px;line-height:1.9;margin-bottom:10px}
-.cf [hidden]{display:none!important}
-.cf-step{margin-top:44px}
-.cf-h{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font-size:20px;font-weight:700;letter-spacing:.06em;line-height:1.5;padding-bottom:14px;border-bottom:2px solid #f0effd}
-.cf-no{display:inline-grid;place-items:center;min-width:40px;height:40px;padding:0 10px;border-radius:20px;background:var(--grad);color:#fff;font-family:Montserrat,sans-serif;font-size:14px;font-weight:700;letter-spacing:.02em}
-.cf-req{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:4px;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;line-height:1.6;vertical-align:middle}
-.cf-h .cf-req{margin-left:0}
-.cf-purpose{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.cf-opt{position:relative;display:flex;gap:12px;align-items:flex-start;padding:18px 18px;border:2px solid #e8e6f5;border-radius:10px;background:#fafaff;cursor:pointer;transition:border-color .25s,background .25s,box-shadow .25s}
-.cf-opt:hover{border-color:#c9c2fb}
-.cf-opt input{flex-shrink:0;margin:4px 0 0;width:18px;height:18px;accent-color:var(--purple)}
-.cf-opt-in b{display:block;font-size:16px;letter-spacing:.05em;line-height:1.5}
-.cf-opt-in span{display:block;margin-top:4px;font-size:13px;line-height:1.7;color:#555}
-.cf-opt.is-on{border-color:var(--purple);background:#f0effd;box-shadow:0 4px 18px rgba(108,93,237,.16)}
-.cf-opt.is-on b{color:var(--purple)}
-.cf-rows{margin-top:6px}
-.cf-row{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:center;padding:16px 0;border-bottom:1px solid #eee}
-.cf-l{font-size:15px;font-weight:700;letter-spacing:.04em;line-height:1.6}
-.cf-f input[type=text],.cf-f input[type=email],.cf-f input[type=tel],.cf-f input[type=url],.cf-f input[type=date],.cf-f select,.cf-f textarea{width:100%;max-width:100%;min-height:50px;padding:10px 16px;border:1.5px solid #dcdae8;border-radius:8px;background:#fafafa;font:inherit;font-size:16px;letter-spacing:.03em;color:var(--ink);transition:border-color .25s,background .25s}
-.cf-f textarea{line-height:1.8;resize:vertical}
-.cf-f input:focus,.cf-f select:focus,.cf-f textarea:focus{outline:none;border-color:var(--purple);background:#fff;box-shadow:0 0 0 3px rgba(108,93,237,.15)}
-.cf-checks{display:flex;flex-wrap:wrap;gap:10px}
-.cf-checks label{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:20px;background:#f4f3fb;font-size:14.5px;line-height:1.5;cursor:pointer}
-.cf-checks input{width:17px;height:17px;margin:0;accent-color:var(--purple)}
-.cf-note{margin-top:14px;padding:14px 18px;border-radius:8px;background:#f6f5ff;font-size:13.5px;line-height:1.85}
-.cf-note a{color:var(--purple);text-decoration:underline;text-underline-offset:3px}
-.cf-agree{margin-top:36px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;font-size:15px}
-.cf-agree label{display:inline-flex;align-items:center;gap:10px;cursor:pointer}
-.cf-agree input{width:19px;height:19px;margin:0;accent-color:var(--purple)}
-.cf-agree a{color:var(--purple);text-decoration:underline;text-underline-offset:3px}
-.cf-submit{display:flex;justify-content:center;margin-top:26px}
-.cf-btn{display:inline-flex;align-items:center;justify-content:center;min-width:340px;height:70px;padding:0 40px;border:0;border-radius:36px;background:var(--orange);color:#fff;font:inherit;font-size:17px;font-weight:700;letter-spacing:.08em;box-shadow:var(--btnshadow);cursor:pointer;transition:transform .3s var(--ease),filter .3s}
-.cf-btn:hover{transform:translateY(-3px);filter:brightness(1.06)}
+.cta{position:relative;z-index:2;width:min(1240px,calc(100% - 40px));margin:0 auto;border-radius:10px;overflow:hidden;color:#fff;box-shadow:0 20px 60px rgba(76,90,220,.28);isolation:isolate}
+.cta__bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(125deg,rgba(98,82,232,.95) 0%,rgba(72,104,226,.9) 52%,rgba(150,84,214,.92) 100%)}
+.cta__outline{position:absolute;left:0;right:0;top:-.14em;z-index:0;margin:0;text-align:center;font-family:Montserrat,sans-serif;font-weight:500;font-size:min(17vw,250px);line-height:1;letter-spacing:-.01em;white-space:nowrap;color:transparent;-webkit-text-stroke:1.3px rgba(255,255,255,.32);pointer-events:none}
+.cta .brush{right:-120px;bottom:-140px;width:760px;opacity:1}
+.cta__in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center;padding:150px 80px 84px}
+.cta__h{display:block}
+.cta__ja{display:block;font-size:44px;font-weight:700;letter-spacing:.1em;line-height:1.5}
+.cta__en{display:block;margin-top:2px;font-family:Montserrat,sans-serif;font-weight:500;font-size:21px;letter-spacing:.05em;line-height:42px;color:#ffd9f5}
+.cta__p{margin-top:22px;font-size:16px;font-weight:500;line-height:2;letter-spacing:.05em;max-width:470px;text-wrap:pretty}
+.cta__mail{margin-top:22px;display:inline-flex;align-items:center;flex-wrap:wrap;gap:4px 12px;padding:10px 18px;border-radius:8px;background:rgba(255,255,255,.14);font-size:14px;line-height:1.7;letter-spacing:.04em}
+.cta__mail b{font-weight:700}
+.cta__mail a{font-family:Montserrat,sans-serif;font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.cta__mail a:hover{text-decoration-thickness:2px}
+.cta__hours{white-space:nowrap}
+.cta__btn{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;min-height:92px;padding:0 18px 0 40px;border-radius:50px;background:#fff;color:var(--ink);font-size:21px;font-weight:700;letter-spacing:.1em;line-height:1.4;box-shadow:0 14px 40px rgba(40,30,140,.32);overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s,color .35s}
+.cta__btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--orange);opacity:0;transition:opacity .35s var(--ease)}
+.cta__btn:hover,.cta__btn:focus-visible{transform:translateY(-3px);color:#fff;box-shadow:0 18px 44px rgba(241,54,77,.4)}
+.cta__btn:hover::before,.cta__btn:focus-visible::before{opacity:1}
+.cta__arrow{flex-shrink:0;position:relative;width:58px;height:58px;border-radius:50%;background:var(--orange);box-shadow:0 4px 14px rgba(241,54,77,.35);transition:transform .35s var(--ease),background .35s}
+.cta__arrow::after{content:"";position:absolute;left:50%;top:50%;margin:-7px 0 0 -4px;border-style:solid;border-width:7px 0 7px 10px;border-color:transparent transparent transparent #fff;transition:border-color .35s}
+.cta__btn:hover .cta__arrow,.cta__btn:focus-visible .cta__arrow{transform:translateX(4px);background:#fff}
+.cta__btn:hover .cta__arrow::after,.cta__btn:focus-visible .cta__arrow::after{border-left-color:#f1364d}
+.cta__sel{margin-top:30px;display:flex;align-items:center;gap:14px;font-size:14px;font-weight:700;letter-spacing:.1em}
+.cta__sel::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.45)}
+.cta__links{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta__links a{display:flex;align-items:center;justify-content:space-between;gap:8px;white-space:nowrap;min-height:54px;padding:8px 18px 8px 22px;border-radius:30px;border:1.5px solid rgba(255,255,255,.6);font-size:15px;font-weight:700;letter-spacing:.05em;line-height:1.4;transition:background .3s,color .3s,border-color .3s}
+.cta__links a .tri{flex-shrink:0;border-width:4px 0 4px 6px;transition:transform .3s var(--ease)}
+.cta__links a:hover,.cta__links a:focus-visible{background:#fff;border-color:#fff;color:var(--purple)}
+.cta__links a:hover .tri{transform:translateX(3px)}
 
 /* ===== footer ===== */
 .footer{position:relative;background:#fff;margin-top:0;overflow:hidden}
@@ -375,11 +370,6 @@ h1,h2,h3,h4,p{margin:0}
 .finfo dd{margin:0;color:#444}
 .finfo dd a{text-decoration:underline;text-underline-offset:3px}
 .footer__art{position:absolute;right:0;top:60px;width:min(700px,46vw);height:auto;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%);mask-image:linear-gradient(90deg,transparent 0,#000 8%)}
-.footer__cta{position:absolute;right:80px;bottom:100px;z-index:2;width:280px;background:rgba(255,255,255,.94);border-radius:10px;padding:26px 20px 22px;text-align:center;box-shadow:var(--shadow)}
-.footer__cta p{font-size:15px;font-weight:700;letter-spacing:.08em;line-height:1.6;margin-bottom:14px}
-.footer__cta .cbtn{width:100%;height:56px;margin-top:10px}
-.footer__cta .cbtn b{font-size:14px}
-.footer__cta .cbtn .tri{right:18px}
 .footer__bottom{height:60px;background:var(--grad);color:#fff;display:flex;align-items:center;padding:0 80px;font-family:Montserrat,sans-serif;font-size:11px;font-weight:600;letter-spacing:.05em}
 
 .fab{display:none}
@@ -407,10 +397,9 @@ h1,h2,h3,h4,p{margin:0}
   .gozo{width:320px}
   .gozo__i b{font-size:16px}
   .acad__body{padding:44px 40px}
+  .cta__in{padding:150px 56px 72px;gap:44px}
+  .cta__links a{padding:8px 14px 8px 18px;font-size:14px;letter-spacing:.03em}
   .rsplit__body{padding:44px 40px}
-  .cbox{padding:48px 40px}
-  .cf-purpose{grid-template-columns:1fr 1fr}
-  .cf-row{grid-template-columns:190px minmax(0,1fr)}
 }
 @media (max-width:960px){
   .visual{height:auto;max-height:none;padding:0 0 70px}
@@ -430,8 +419,9 @@ h1,h2,h3,h4,p{margin:0}
   .rsplit{flex-direction:column-reverse}
   .rsplit__img{width:100%;min-height:0;height:300px}
   .footer__art{position:relative;width:100%;margin-top:30px;-webkit-mask-image:none;mask-image:none;top:auto}
-  .footer__cta{position:relative;right:auto;bottom:auto;margin:24px auto 0;width:min(320px,90%)}
-  .footer__in{padding:60px 40px 40px;min-height:0}
+    .footer__in{padding:60px 40px 40px;min-height:0}
+  .cta__in{grid-template-columns:1fr;gap:36px;padding:130px 48px 56px}
+  .cta__p{max-width:none}
 }
 @media (max-width:768px){
   body{font-size:15px}
@@ -515,19 +505,19 @@ h1,h2,h3,h4,p{margin:0}
   .wbtn{margin-top:40px}
   .wbtn a{min-width:0;width:min(320px,100%);height:60px;font-size:15px;padding:0 24px}
   .contact{padding-bottom:84px}
-  .cbox{padding:28px 18px 34px}
-  .cbox__lead{font-size:14px}
-  .cf-step{margin-top:34px}
-  .cf-h{font-size:17px;gap:10px}
-  .cf-no{min-width:36px;height:36px;font-size:13px}
-  .cf-purpose{grid-template-columns:1fr;gap:10px}
-  .cf-opt{padding:14px}
-  .cf-row{grid-template-columns:1fr;gap:8px;padding:14px 0}
-  .cf-l{font-size:14px}
-  .cf-checks{gap:8px}
-  .cf-checks label{font-size:14px;padding:7px 12px}
-  .cf-agree{font-size:14px;justify-content:flex-start}
-  .cf-btn{min-width:0;width:100%;height:62px;font-size:15px;padding:0 16px}
+  .cta{width:calc(100% - 32px)}
+  .cta__in{padding:96px 20px 34px;gap:30px}
+  .cta__outline{font-size:20vw;top:-.1em}
+  .cta .brush{right:-260px;bottom:-60px;width:620px}
+  .cta__ja{font-size:7.4vw;letter-spacing:.08em}
+  .cta__en{font-size:3.73vw;line-height:2}
+  .cta__p{margin-top:12px;font-size:14.5px;line-height:1.9}
+  .cta__mail{margin-top:16px;display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:10px 14px;font-size:13px}
+  .cta__btn{min-height:68px;padding:0 10px 0 24px;font-size:16.5px;letter-spacing:.06em}
+  .cta__arrow{width:48px;height:48px}
+  .cta__sel{margin-top:24px;font-size:13px}
+  .cta__links{gap:8px}
+  .cta__links a{min-height:52px;padding:6px 10px 6px 14px;font-size:13px;letter-spacing:.02em}
   .footer__in{padding:50px 16px 30px}
   .fnav{grid-template-columns:1fr 1fr;gap:14px 18px;margin-top:28px}
   .fnav__col:last-child{grid-column:1/-1}
@@ -871,88 +861,28 @@ h1,h2,h3,h4,p{margin:0}
   </div>
 </section>
 
-<!-- ===== 11. お問い合わせフォーム ===== -->
+<!-- ===== 11. お問い合わせ ===== -->
 <section class="sec contact" id="contact">
-  <svg class="brush" viewBox="0 0 800 650" aria-hidden="true"><polyline pathLength="1" stroke="url(#gTeal)" points="80,620 300,190 260,600 500,120 470,600 720,150 700,520"/></svg>
-  <div class="wrap--960">
-    <h2 class="heading heading--green reveal"><span class="heading__ja">お問い合わせフォーム</span><span class="heading__en">Contact</span></h2>
-    <div class="cbox reveal">
-      <p class="cbox__lead" data-kari>お問い合わせの目的を選ぶと、それに合った入力欄が出ます（送信はしません）。</p>
-    <form class="cf" action="#" onsubmit="return false" novalidate>
-      <div class="cf-step">
-        <h3 class="cf-h"><span class="cf-no">1</span>お問い合わせの目的<span class="cf-req">必須</span></h3>
-        <div class="cf-purpose">
-          <label class="cf-opt" for="work"><input type="radio" id="work" name="purpose" value="work" checked><span class="cf-opt-in"><b>制作のご依頼</b><span>動画・仕上・2原などのご依頼、お見積り、キャパシティのご相談</span></span></label>
-          <label class="cf-opt" for="academy"><input type="radio" id="academy" name="purpose" value="academy"><span class="cf-opt-in"><b>育成について</b><span>アニメーター育成プロジェクトのお申し込み・説明会・ご質問</span></span></label>
-          <label class="cf-opt" for="recruit"><input type="radio" id="recruit" name="purpose" value="recruit"><span class="cf-opt-in"><b>採用への応募</b><span>デジタル作画アニメーターなどへの応募、採用についてのご質問</span></span></label>
-          <label class="cf-opt" for="event"><input type="radio" id="event" name="purpose" value="event"><span class="cf-opt-in"><b>ワークショップ・取材</b><span>作画体験・出張授業のご依頼、取材・メディアのご依頼</span></span></label>
-          <label class="cf-opt" for="other"><input type="radio" id="other" name="purpose" value="other"><span class="cf-opt-in"><b>その他</b><span>上記以外のお問い合わせ</span></span></label>
-        </div>
+  <div class="cta reveal">
+    <img class="cta__bg" src="images/real/photo-home-study4.jpg" alt="" loading="lazy">
+    <p class="cta__outline en" aria-hidden="true">Contact</p>
+    <svg class="brush" viewBox="0 0 800 650" aria-hidden="true"><polyline pathLength="1" stroke="#fff" stroke-opacity=".16" points="80,620 300,190 260,600 500,120 470,600 720,150 700,520"/></svg>
+    <div class="cta__in">
+      <div class="cta__head">
+        <h2 class="cta__h"><span class="cta__ja">お問い合わせ</span><span class="cta__en">Contact</span></h2>
+        <p class="cta__p" data-kari>制作のご依頼、育成プロジェクトのお申し込み、採用へのご応募、取材のご依頼など、お気軽にご相談ください。</p>
+        <p class="cta__mail"><b>メール</b><span><a href="mailto:home.lulaforte@gmail.com">home.lulaforte@gmail.com</a><span class="cta__hours">（平日9:00〜23:00）</span></span></p>
       </div>
-
-      <div class="cf-step">
-        <h3 class="cf-h"><span class="cf-no">2</span>お客さまの情報</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-name">お名前<span class="cf-req">必須</span></label><div class="cf-f"><input id="f-name" type="text" placeholder="山田 花子" autocomplete="name"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-kana">ふりがな</label><div class="cf-f"><input id="f-kana" type="text" placeholder="やまだ はなこ"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-org">会社名・団体名</label><div class="cf-f"><input id="f-org" type="text" placeholder="任意" autocomplete="organization"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-mail">メールアドレス<span class="cf-req">必須</span></label><div class="cf-f"><input id="f-mail" type="email" placeholder="example@example.com" autocomplete="email"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-tel">電話番号</label><div class="cf-f"><input id="f-tel" type="tel" placeholder="任意（制作のご依頼は必須）" autocomplete="tel"></div></div>
-        </div>
+      <div class="cta__act">
+        <a class="cta__btn" href="contact.html"><span>お問い合わせはこちら</span><i class="cta__arrow" aria-hidden="true"></i></a>
+        <p class="cta__sel">目的から選ぶ</p>
+        <ul class="cta__links">
+          <li><a href="contact.html#work">制作のご相談<i class="tri"></i></a></li>
+          <li><a href="contact.html#academy">育成のお申し込み<i class="tri"></i></a></li>
+          <li><a href="contact.html#recruit">採用への応募<i class="tri"></i></a></li>
+          <li><a href="contact.html#event">取材・イベント<i class="tri"></i></a></li>
+        </ul>
       </div>
-
-      <div class="cf-step cf-branch" data-for="work">
-        <h3 class="cf-h"><span class="cf-no">3-A</span>「制作のご依頼」を選んだ場合</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-a1">ご担当者・部署</label><div class="cf-f"><input id="f-a1" type="text" placeholder="制作進行 ○○"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-a2">作品名</label><div class="cf-f"><input id="f-a2" type="text" placeholder="伏せていただいても構いません"></div></div>
-          <div class="cf-row"><span class="cf-l">ご希望の工程<span class="cf-req">必須</span></span><div class="cf-f cf-checks"><label><input type="checkbox" name="proc" value="LO">LO</label><label><input type="checkbox" name="proc" value="第一原画">第一原画</label><label><input type="checkbox" name="proc" value="第二原画">第二原画</label><label><input type="checkbox" name="proc" value="作画監督">作画監督</label><label><input type="checkbox" name="proc" value="動画">動画</label><label><input type="checkbox" name="proc" value="動画検査">動画検査</label><label><input type="checkbox" name="proc" value="仕上">仕上</label><label><input type="checkbox" name="proc" value="色彩設計">色彩設計</label><label><input type="checkbox" name="proc" value="色指定検査">色指定検査</label><label><input type="checkbox" name="proc" value="線撮">線撮</label></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-a3">物量</label><div class="cf-f"><input id="f-a3" type="text" placeholder="例：動画○○枚／2原○○cut"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-a4">ご希望の納期</label><div class="cf-f"><input id="f-a4" type="date"></div></div>
-          <div class="cf-row"><span class="cf-l">国内・海外のご希望</span><div class="cf-f cf-checks"><label><input type="radio" name="line" value="国内">国内</label><label><input type="radio" name="line" value="海外">海外（MONICHI Pictures）</label><label><input type="radio" name="line" value="どちらでも">どちらでも</label></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-a5">素材の形式・使用ソフト</label><div class="cf-f"><input id="f-a5" type="text" placeholder="例：CLIP STUDIO／紙 など"></div></div>
-        </div>
-        <p class="cf-note">1週間〜10日間の目安：国内 動画800枚・仕上1000枚・2原10cut／海外 動画2000枚・仕上1800枚・2原15cut（作監は要相談）。詳しくは<a href="service.html">事業内容</a>へ。</p>
-      </div>
-
-      <div class="cf-step cf-branch" data-for="academy">
-        <h3 class="cf-h"><span class="cf-no">3-B</span>「育成について」を選んだ場合</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-b1">ご用件</label><div class="cf-f"><select id="f-b1"><option>選択してください</option><option>説明会・体験会に参加したい</option><option>受講を申し込みたい</option><option>次回の募集を知りたい</option><option>その他の質問</option></select></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-b2">絵を描いた経験</label><div class="cf-f"><select id="f-b2"><option>選択してください</option><option>趣味で描いている</option><option>学校で学んだ</option><option>仕事で描いていた</option><option>ほとんどない</option></select></div></div>
-        </div>
-      </div>
-
-      <div class="cf-step cf-branch" data-for="recruit">
-        <h3 class="cf-h"><span class="cf-no">3-C</span>「採用への応募」を選んだ場合</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><span class="cf-l">希望の職種</span><div class="cf-f cf-checks"><label><input type="checkbox" name="job" value="LO">LO</label><label><input type="checkbox" name="job" value="作画監督">作画監督</label><label><input type="checkbox" name="job" value="原画">原画</label><label><input type="checkbox" name="job" value="動画">動画</label><label><input type="checkbox" name="job" value="その他">その他</label></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-c1">簡単な略歴</label><div class="cf-f"><textarea id="f-c1" rows="4" placeholder="参加作品・経験年数など"></textarea></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-c2">ポートフォリオ</label><div class="cf-f"><input id="f-c2" type="url" placeholder="URL（任意）"></div></div>
-        </div>
-      </div>
-
-      <div class="cf-step cf-branch" data-for="event">
-        <h3 class="cf-h"><span class="cf-no">3-D</span>「ワークショップ・取材」を選んだ場合</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-d1">ご依頼の種類</label><div class="cf-f"><select id="f-d1"><option>選択してください</option><option>作画体験ワークショップ</option><option>学校での授業</option><option>取材・メディア掲載</option></select></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-d2">ご希望の日程・場所</label><div class="cf-f"><input id="f-d2" type="text" placeholder="例：○月ごろ／○○市"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-d3">対象・人数</label><div class="cf-f"><input id="f-d3" type="text" placeholder="例：小学4年生 30名"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-d4">媒体名（取材の場合）</label><div class="cf-f"><input id="f-d4" type="text"></div></div>
-        </div>
-      </div>
-
-      <div class="cf-step">
-        <h3 class="cf-h"><span class="cf-no">4</span>お問い合わせ内容</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-body">内容<span class="cf-req">必須</span></label><div class="cf-f"><textarea id="f-body" rows="6"></textarea></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-src">どこで知りましたか</label><div class="cf-f"><select id="f-src"><option>選択してください</option><option>検索</option><option>X</option><option>LINE</option><option>知人の紹介</option><option>ワークショップ・イベント</option><option>新聞・テレビ</option><option>その他</option></select></div></div>
-        </div>
-      </div>
-
-      <p class="cf-agree"><label><input type="checkbox" id="f-agree"><span><a href="contact.html#privacy">個人情報の取り扱い</a>に同意する</span></label><span class="cf-req">必須</span></p>
-      <div class="cf-submit"><button class="cf-btn" type="button">確認画面へ（送信はしません）</button></div>
-    </form>
     </div>
   </div>
 </section>
@@ -1001,15 +931,10 @@ h1,h2,h3,h4,p{margin:0}
     </dl>
   </div>
   <img class="footer__art" src="images/real/brand-keyvisual-banner.jpg" alt="主婦で構成されたアニメ会社 Lu Laforte の女性3人のイラスト" loading="lazy">
-  <div class="footer__cta">
-    <p>まずはお気軽に<br>ご相談ください！</p>
-    <a class="cbtn cbtn--orange" href="contact.html"><b>お問い合わせ</b><i class="tri"></i></a>
-    <a class="cbtn cbtn--line" href="https://lin.ee/SFvWHUC" target="_blank" rel="noopener"><b>LINEで相談する</b><i class="tri"></i></a>
-  </div>
   <div class="footer__bottom">© Lu Laforte Inc.</div>
 </footer>
 
-<a class="fab" href="#contact" aria-label="お問い合わせフォームへ"><span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>お問い<br>合わせ</span></a>
+<a class="fab" href="contact.html" aria-label="お問い合わせページへ"><span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>お問い<br>合わせ</span></a>
 
 <script>
 (function(){
@@ -1081,18 +1006,6 @@ h1,h2,h3,h4,p{margin:0}
     show('all');
   })();
 
-  /* お問い合わせ：選んだ目的の欄（3-A〜3-D）だけ表示 */
-  (function(){
-    var form=document.querySelector('.cf'); if(!form) return;
-    var radios=[].slice.call(form.querySelectorAll('input[name=purpose]')), branches=[].slice.call(form.querySelectorAll('.cf-branch'));
-    function update(){
-      var c=form.querySelector('input[name=purpose]:checked'), v=c?c.value:'';
-      branches.forEach(function(b){ b.hidden=(b.getAttribute('data-for')!==v); });
-      radios.forEach(function(r){ r.closest('.cf-opt').classList.toggle('is-on', r.checked); });
-    }
-    radios.forEach(function(r){ r.addEventListener('change',update); });
-    update();
-  })();
 })();
 </script>
 

@@ -279,37 +279,35 @@ section{position:relative}
 .rtags li{padding:4px 12px;border-radius:99px;background:var(--rose);color:var(--red);font-size:13px;font-weight:800;line-height:1.5}
 .rbox p{margin:14px 0 0;font-size:14.5px;line-height:1.9}
 
-/* ===== 11. CONTACT（rose） ===== */
+/* ===== 11. CONTACT（rose・CTA） ===== */
 .s-contact{background:var(--rose);padding:60px 0 0}
 .s-contact .sh{color:var(--red)}
 .follow{display:block;width:280px;height:70px;margin:0 auto}
-.fm{margin-top:24px}
-.fm__h{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:34px 0 12px;color:var(--red);font-size:17px;font-weight:800;line-height:1.5}
-.fm > .fm__h:first-child{margin-top:0}
-.req{display:inline-block;font-size:10.5px;font-weight:800;line-height:1;padding:4px 8px;border-radius:99px;background:var(--red);color:#fff;font-style:normal}
-.pp{position:relative;display:block;cursor:pointer;background:#fff;border:2.5px solid #fff;border-radius:22px;padding:13px 16px 13px 48px;margin-top:8px;transition:border-color .2s}
-.pp input{position:absolute;left:18px;top:17px;width:19px;height:19px;margin:0;accent-color:var(--red)}
-.pp b{display:block;color:var(--ink);font-size:15.5px;line-height:1.5}
-.pp span{display:block;font-size:12.5px;line-height:1.6;margin-top:3px}
-.pp:has(input:checked){border-color:var(--red)}
-.fbox{background:#fff;border-radius:26px;padding:6px 18px}
-.fr{padding:12px 0;border-bottom:1.5px dashed #f6c3c1}
-.fr:last-child{border-bottom:0}
-.fr > label,.fr > .lb{display:flex;align-items:center;gap:6px;margin-bottom:7px;color:var(--ink);font-size:13.5px;font-weight:800;line-height:1.5}
-.fm input[type=text],.fm input[type=email],.fm input[type=tel],.fm input[type=url],.fm input[type=date],.fm select,.fm textarea{display:block;width:100%;max-width:100%;font:400 16px/1.6 'LINE Seed JP',sans-serif;color:var(--ink);background:var(--paper);border:2px solid #f3d4d3;border-radius:14px;padding:10px 13px;transition:border-color .2s}
-.fm textarea{resize:vertical;min-height:110px}
-.fm input:focus,.fm select:focus,.fm textarea:focus{outline:0;border-color:var(--red)}
-.fm ::placeholder{color:#b3a9a9}
-.chk{display:flex;flex-wrap:wrap;gap:6px}
-.chk label{display:inline-flex;align-items:center;gap:6px;padding:6px 12px 6px 9px;border-radius:99px;background:var(--rose);color:var(--ink);font-size:13.5px;font-weight:700;cursor:pointer;line-height:1.4}
-.chk input{margin:0;width:16px;height:16px;accent-color:var(--red)}
-.fm__opt[hidden]{display:none}
-.fm__note{font-size:12.5px;line-height:1.8;margin:10px 4px 0}
-.fm__note a,.fm__agree a{color:var(--red);font-weight:700}
-.fm__agree{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin:26px 0 0;font-size:14.5px;font-weight:700;color:var(--ink)}
-.fm__agree label{display:inline-flex;align-items:center;gap:8px;cursor:pointer}
-.fm__agree input{width:19px;height:19px;margin:0;accent-color:var(--red)}
-.fm .pill{margin-top:20px}
+.ctc{position:relative;margin-top:34px;background:var(--blue);color:#fff;border-radius:0 36px 36px 36px;padding:26px 22px 26px;text-align:center;box-shadow:0 8px 0 rgba(22,101,204,.18)}
+.ctc__ph{width:100%;height:230px;background:#fff}
+.ctc__ph img{object-position:42% 40%}
+.ctc__stk{position:absolute;right:-12px;top:-46px;width:128px;height:128px;z-index:4;pointer-events:none}
+.ctc__stk svg.rot{width:100%;height:100%;animation:spin 18s linear infinite}
+.ctc__stk .mail{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ctc__lead{margin:22px 4px 0;font-size:15px;line-height:1.95;text-align:left}
+.ctc__btn{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;min-height:76px;margin-top:22px;padding:10px 20px 10px 14px;border-radius:100px;background:var(--lemon);color:var(--red);font-size:20px;font-weight:800;line-height:1.35;text-decoration:none;box-shadow:0 7px 0 var(--red);transition:transform .2s ease,box-shadow .2s ease,background .2s}
+.ctc__btn svg{flex:none;width:44px;height:44px;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.ctc__btn .ar{flex:none;width:28px;height:28px;border-radius:50%;background:var(--red);position:relative;margin-left:2px;transition:transform .25s}
+.ctc__btn .ar::after{content:"";position:absolute;left:8px;top:10px;width:7px;height:7px;border-top:2.5px solid var(--lemon);border-right:2.5px solid var(--lemon);transform:rotate(45deg)}
+.ctc__btn:hover{transform:translateY(4px);box-shadow:0 3px 0 var(--red);background:var(--yellow)}
+.ctc__btn:hover svg{transform:rotate(-14deg) scale(1.12)}
+.ctc__btn:hover .ar{transform:translateX(4px)}
+.ctc__btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.ctc__sel{display:flex;align-items:center;gap:10px;margin:30px 0 0;color:var(--pink);font-size:13.5px;font-weight:800;line-height:1}
+.ctc__sel::before,.ctc__sel::after{content:"";flex:1;border-top:2px dashed rgba(255,135,185,.6)}
+.ctc__purp{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ctc__purp a{display:flex;align-items:center;gap:8px;min-height:56px;padding:8px 10px 8px 8px;border-radius:0 22px 22px 22px;background:#fff;color:var(--blue);font-size:13.5px;font-weight:800;line-height:1.35;text-align:left;text-decoration:none;transition:transform .2s,background .2s}
+.ctc__purp a b{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-family:var(--en);font-weight:400;font-size:12px;color:#fff;background:var(--blue)}
+.ctc__purp li:nth-child(2) b{background:var(--green)} .ctc__purp li:nth-child(3) b{background:var(--red)} .ctc__purp li:nth-child(4) b{background:#2a9d9f}
+.ctc__purp a:hover,.ctc__purp a:focus-visible{transform:translateY(-3px);background:var(--pink-l)}
+.ctc__mail{margin:24px 0 0;padding-top:18px;border-top:2px dashed rgba(255,255,255,.35);font-size:13.5px;line-height:1.8}
+.ctc__mail a{color:#fff;font-weight:800;font-size:15px;word-break:break-all}
+.ctc__mail a:hover{color:var(--yellow)}
 
 /* ===== FOOTER（red） ===== */
 .foot{position:relative;background:var(--red);color:#fff;padding:40px 24px 26px;margin-top:150px}
@@ -392,6 +390,13 @@ section{position:relative}
   .chips button{font-size:13px;padding:8px 12px}
   .fnav{grid-template-columns:1fr}
   .fg .cols{grid-template-columns:1fr}
+  .ctc{padding:24px 18px 24px}
+  .ctc__ph{height:200px}
+  .ctc__stk{width:110px;height:110px;top:-40px;right:-8px}
+  .ctc__btn{font-size:18px;min-height:70px;gap:8px;padding:10px 14px 10px 10px}
+  .ctc__btn svg{width:34px;height:34px}
+  .ctc__purp{grid-template-columns:1fr}
+  .ctc__purp a{min-height:52px;font-size:14px;padding-left:10px;gap:10px}
 }
 @media (prefers-reduced-motion:reduce){.welcome svg.rot,.mq .row,.float{animation:none}.js .fi{opacity:1;transform:none;transition:none}}
 </style>
@@ -542,7 +547,7 @@ section{position:relative}
     <div class="dd"><div class="dd__in"><a href="recruit.html">採用情報</a><a href="recruit-animator.html">デジタル作画アニメーター募集</a><a href="support.html">子育て支援</a></div></div></div>
   <div class="ti has-sub" style="--dc:var(--blue);--dl:#e3eefc"><a class="tab t6" href="service.html"><span class="en">OTHERS</span><span class="jp">その他</span></a>
     <div class="dd dd--up"><div class="dd__in"><a href="service.html">事業内容・キャパシティ</a><a href="service-mama.html">ママクリエーターの制作体制</a><a href="service-overseas.html">海外拠点 MONICHI Pictures</a><a href="service-poster.html">ポスター制作</a><a href="community.html">地域活動・ワークショップ</a><a href="community-gourmet.html">東大和グルメ</a><a href="news.html">お知らせ</a><a href="news-visit.html">主婦がアニメスタジオに行ってみた</a><a href="news-blog.html">スタッフブログ</a><a href="about-media.html">メディア掲載・受賞</a></div></div></div>
-  <div class="ti"><a class="tab cta" href="#contact"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#i-pencil"/></svg><span class="en c">CONTACT</span><span class="jp">お問い合わせ</span></a></div>
+  <div class="ti"><a class="tab cta" href="contact.html"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#i-pencil"/></svg><span class="en c">CONTACT</span><span class="jp">お問い合わせ</span></a></div>
 </nav>
 
 <nav class="side-toc" aria-label="このページの内容">
@@ -558,11 +563,11 @@ section{position:relative}
     <li><a href="#support"><b>08</b>子育て支援</a></li>
     <li><a href="#voice"><b>09</b>はたらくアニメーターの声</a></li>
     <li><a href="#sec-recruit"><b>10</b>採用情報</a></li>
-    <li><a href="#contact"><b>11</b>お問い合わせフォーム</a></li>
+    <li><a href="#contact"><b>11</b>お問い合わせ</a></li>
   </ol>
 </nav>
 
-<a class="fab" href="#contact"><b>CONTACT</b>お問い<br>合わせ</a>
+<a class="fab" href="contact.html"><b>CONTACT</b>お問い<br>合わせ</a>
 
 <main class="main">
 
@@ -655,7 +660,7 @@ section{position:relative}
         <h3>アニメーション制作</h3>
         <div class="ph c-cloud"><img src="images/real/photo-tablet-closeup.jpg" alt="液晶タブレットで作画する手元" loading="lazy"></div>
         <p class="t">LO・第一原画・第二原画・作画監督・動画・動画検査・仕上・色指定検査・線撮の9工程に対応。国内のママクリエーターと、モンゴルの提携スタジオ MONICHI Pictures の2つの体制で受けています。</p>
-        <div class="pills"><a class="pill p-blue" href="service.html">事業内容・キャパシティ<span class="ar"></span></a><a class="pill p-white" href="#contact" data-purpose="work">制作のご相談<span class="ar"></span></a></div>
+        <div class="pills"><a class="pill p-blue" href="service.html">事業内容・キャパシティ<span class="ar"></span></a><a class="pill p-white" href="contact.html#work">制作のご相談<span class="ar"></span></a></div>
       </div>
       <div class="card fi">
         <span class="tg g">SERVICE 02</span>
@@ -803,77 +808,29 @@ section{position:relative}
   </section>
   <div class="wv" style="background:var(--rose)"></div>
 
-  <!-- 11. お問い合わせフォーム -->
+  <!-- 11. お問い合わせ（CTA） -->
   <section class="s-contact" id="contact">
+    <svg class="deco float" style="right:10px;top:-34px;width:78px;height:78px;--r:14deg" viewBox="0 0 120 120" aria-hidden="true"><use href="#i-star"/></svg>
+    <svg class="deco float" style="left:14px;top:66px;width:44px;height:44px;animation-delay:-3s" viewBox="0 0 120 120" aria-hidden="true"><use href="#i-spark"/></svg>
     <div class="in">
-      <div class="sh fi"><span class="jp-top">お問い合わせフォーム</span><h2 class="s">CONTACT</h2></div>
-      <p class="lead fi" data-kari>お問い合わせの目的を選ぶと、それに合った入力欄が出ます（送信はしません）。</p>
-      <form class="fm" action="#" onsubmit="return false">
-        <h3 class="fm__h">1. お問い合わせの目的 <span class="req">必須</span></h3>
-        <label class="pp" for="work"><input type="radio" id="work" name="purpose" value="work" checked><b>制作のご依頼</b><span>動画・仕上・2原などのご依頼、お見積り、キャパシティのご相談</span></label>
-        <label class="pp" for="academy"><input type="radio" id="academy" name="purpose" value="academy"><b>育成について</b><span>アニメーター育成プロジェクトのお申し込み・説明会・ご質問</span></label>
-        <label class="pp" for="recruit"><input type="radio" id="recruit" name="purpose" value="recruit"><b>採用への応募</b><span>デジタル作画アニメーターなどへの応募、採用についてのご質問</span></label>
-        <label class="pp" for="event"><input type="radio" id="event" name="purpose" value="event"><b>ワークショップ・取材</b><span>作画体験・出張授業のご依頼、取材・メディアのご依頼</span></label>
-        <label class="pp" for="other"><input type="radio" id="other" name="purpose" value="other"><b>その他</b><span>上記以外のお問い合わせ</span></label>
-
-        <h3 class="fm__h">2. お客さまの情報</h3>
-        <div class="fbox">
-          <div class="fr"><label for="f-name">お名前 <span class="req">必須</span></label><input type="text" id="f-name" placeholder="山田 花子" autocomplete="name"></div>
-          <div class="fr"><label for="f-kana">ふりがな</label><input type="text" id="f-kana" placeholder="やまだ はなこ"></div>
-          <div class="fr"><label for="f-org">会社名・団体名</label><input type="text" id="f-org" placeholder="任意" autocomplete="organization"></div>
-          <div class="fr"><label for="f-mail">メールアドレス <span class="req">必須</span></label><input type="email" id="f-mail" placeholder="example@example.com" autocomplete="email"></div>
-          <div class="fr"><label for="f-tel">電話番号</label><input type="tel" id="f-tel" placeholder="任意（制作のご依頼は必須）" autocomplete="tel"></div>
+      <div class="sh fi"><h2 class="s">CONTACT</h2><span class="jp">お問い合わせ</span></div>
+      <div class="ctc fi">
+        <div class="ctc__stk" aria-hidden="true">
+          <svg class="rot" viewBox="-6 -6 212 212"><use href="#scallop" fill="#ffe730"/><text font-family="Bagel Fat One" font-size="18" fill="#f1423e" letter-spacing="2"><textPath href="#circ">CONTACT ★ CONTACT ★ CONTACT ★</textPath></text></svg>
+          <span class="mail"><svg width="40" height="32" viewBox="0 0 20 16"><rect x="1" y="1" width="18" height="14" rx="2" fill="#fff" stroke="#f1423e" stroke-width="1.6"/><path d="M1 3l9 6 9-6" fill="none" stroke="#f1423e" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
         </div>
-
-        <div class="fm__opt" data-for="work">
-          <h3 class="fm__h">3-A.「制作のご依頼」を選んだ場合</h3>
-          <div class="fbox">
-            <div class="fr"><label for="w-person">ご担当者・部署</label><input type="text" id="w-person" placeholder="制作進行 ○○"></div>
-            <div class="fr"><label for="w-title">作品名</label><input type="text" id="w-title" placeholder="伏せていただいても構いません"></div>
-            <div class="fr"><span class="lb">ご希望の工程 <span class="req">必須</span></span><div class="chk"><label><input type="checkbox">LO</label><label><input type="checkbox">第一原画</label><label><input type="checkbox">第二原画</label><label><input type="checkbox">作画監督</label><label><input type="checkbox">動画</label><label><input type="checkbox">動画検査</label><label><input type="checkbox">仕上</label><label><input type="checkbox">色彩設計</label><label><input type="checkbox">色指定検査</label><label><input type="checkbox">線撮</label></div></div>
-            <div class="fr"><label for="w-vol">物量</label><input type="text" id="w-vol" placeholder="例：動画○○枚／2原○○cut"></div>
-            <div class="fr"><label for="w-date">ご希望の納期</label><input type="date" id="w-date"></div>
-            <div class="fr"><span class="lb">国内・海外のご希望</span><div class="chk"><label><input type="radio" name="line">国内</label><label><input type="radio" name="line">海外（MONICHI Pictures）</label><label><input type="radio" name="line">どちらでも</label></div></div>
-            <div class="fr"><label for="w-soft">素材の形式・使用ソフト</label><input type="text" id="w-soft" placeholder="例：CLIP STUDIO／紙 など"></div>
-          </div>
-          <p class="fm__note">1週間〜10日間の目安：国内 動画800枚・仕上1000枚・2原10cut／海外 動画2000枚・仕上1800枚・2原15cut（作監は要相談）。詳しくは<a href="service.html">事業内容</a>へ。</p>
-        </div>
-
-        <div class="fm__opt" data-for="academy" hidden>
-          <h3 class="fm__h">3-B.「育成について」を選んだ場合</h3>
-          <div class="fbox">
-            <div class="fr"><label for="a-kind">ご用件</label><select id="a-kind"><option>選択してください</option><option>説明会・体験会に参加したい</option><option>受講を申し込みたい</option><option>次回の募集を知りたい</option><option>その他の質問</option></select></div>
-            <div class="fr"><label for="a-exp">絵を描いた経験</label><select id="a-exp"><option>選択してください</option><option>趣味で描いている</option><option>学校で学んだ</option><option>仕事で描いていた</option><option>ほとんどない</option></select></div>
-          </div>
-        </div>
-
-        <div class="fm__opt" data-for="recruit" hidden>
-          <h3 class="fm__h">3-C.「採用への応募」を選んだ場合</h3>
-          <div class="fbox">
-            <div class="fr"><span class="lb">希望の職種</span><div class="chk"><label><input type="checkbox">LO</label><label><input type="checkbox">作画監督</label><label><input type="checkbox">原画</label><label><input type="checkbox">動画</label><label><input type="checkbox">その他</label></div></div>
-            <div class="fr"><label for="r-career">簡単な略歴</label><textarea id="r-career" rows="4" placeholder="参加作品・経験年数など"></textarea></div>
-            <div class="fr"><label for="r-url">ポートフォリオ</label><input type="url" id="r-url" placeholder="URL（任意）"></div>
-          </div>
-        </div>
-
-        <div class="fm__opt" data-for="event" hidden>
-          <h3 class="fm__h">3-D.「ワークショップ・取材」を選んだ場合</h3>
-          <div class="fbox">
-            <div class="fr"><label for="e-kind">ご依頼の種類</label><select id="e-kind"><option>選択してください</option><option>作画体験ワークショップ</option><option>学校での授業</option><option>取材・メディア掲載</option></select></div>
-            <div class="fr"><label for="e-when">ご希望の日程・場所</label><input type="text" id="e-when" placeholder="例：○月ごろ／○○市"></div>
-            <div class="fr"><label for="e-who">対象・人数</label><input type="text" id="e-who" placeholder="例：小学4年生 30名"></div>
-            <div class="fr"><label for="e-media">媒体名（取材の場合）</label><input type="text" id="e-media"></div>
-          </div>
-        </div>
-
-        <h3 class="fm__h">4. お問い合わせ内容</h3>
-        <div class="fbox">
-          <div class="fr"><label for="f-body">内容 <span class="req">必須</span></label><textarea id="f-body" rows="6"></textarea></div>
-          <div class="fr"><label for="f-know">どこで知りましたか</label><select id="f-know"><option>選択してください</option><option>検索</option><option>X</option><option>LINE</option><option>知人の紹介</option><option>ワークショップ・イベント</option><option>新聞・テレビ</option><option>その他</option></select></div>
-        </div>
-        <p class="fm__agree"><label><input type="checkbox"><span><a href="contact.html#privacy">個人情報の取り扱い</a>に同意する</span></label><span class="req">必須</span></p>
-        <button class="pill p-red" type="button">確認画面へ（送信はしません）<span class="ar"></span></button>
-      </form>
+        <div class="ctc__ph ph c-cloud"><img src="images/real/illust-lineart-girl.jpg" alt="両手を広げる女の子の線画（作画サンプル）" loading="lazy"></div>
+        <p class="ctc__lead" data-kari>制作のご依頼、育成プロジェクトのお申し込み、採用へのご応募、取材のご依頼など、お気軽にご相談ください。</p>
+        <a class="ctc__btn" href="contact.html"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#i-pencil"/></svg>お問い合わせはこちら<span class="ar"></span></a>
+        <p class="ctc__sel">目的から選ぶ</p>
+        <ul class="ctc__purp">
+          <li><a href="contact.html#work"><b>01</b>制作のご相談</a></li>
+          <li><a href="contact.html#academy"><b>02</b>育成のお申し込み</a></li>
+          <li><a href="contact.html#recruit"><b>03</b>採用への応募</a></li>
+          <li><a href="contact.html#event"><b>04</b>取材・イベント</a></li>
+        </ul>
+        <p class="ctc__mail">メール：<a href="mailto:home.lulaforte@gmail.com">home.lulaforte@gmail.com</a><br>（平日9:00〜23:00）</p>
+      </div>
     </div>
 
     <footer class="foot">
@@ -885,7 +842,7 @@ section{position:relative}
       <div class="wv"></div>
       <a href="top-06.html"><img class="flogo" src="images/logo-white.png" alt="Lu Laforte" width="972" height="253"></a>
       <nav class="fnav" aria-label="フッターメニュー">
-        <div class="fg"><a class="h" href="top-06.html">ホーム</a><a class="h" href="about.html">企業概要</a><a class="h" href="works.html">制作実績</a><a class="h" href="#contact">お問い合わせ</a></div>
+        <div class="fg"><a class="h" href="top-06.html">ホーム</a><a class="h" href="about.html">企業概要</a><a class="h" href="works.html">制作実績</a><a class="h" href="contact.html">お問い合わせ</a></div>
         <div class="fg"><a class="h" href="academy.html">アニメーター育成プロジェクト</a><a href="academy.html">育成プロジェクト</a><a href="academy-voice.html">卒業生インタビュー</a>
           <a class="h" href="recruit.html" style="margin-top:12px">採用情報</a><a href="recruit.html">採用情報</a><a href="recruit-animator.html">デジタル作画アニメーター募集</a><a href="support.html">子育て支援</a></div>
         <div class="fg wide"><span class="h">その他</span><div class="cols"><a href="service.html">事業内容・キャパシティ</a><a href="service-mama.html">ママクリエーターの制作体制</a><a href="service-overseas.html">海外拠点 MONICHI Pictures</a><a href="service-poster.html">ポスター制作</a><a href="community.html">地域活動・ワークショップ</a><a href="community-gourmet.html">東大和グルメ</a><a href="news.html">お知らせ</a><a href="news-visit.html">主婦がアニメスタジオに行ってみた</a><a href="news-blog.html">スタッフブログ</a><a href="about-media.html">メディア掲載・受賞</a></div></div>
@@ -964,11 +921,6 @@ section{position:relative}
     NM.href=k==='all'?'news.html':'news.html#'+NA[k];NM.firstChild.nodeValue=k==='all'?'お知らせ一覧へ':NN[k]+'の一覧へ';}
   NB.forEach(function(x){x.addEventListener('click',function(){showNews(x.getAttribute('data-tab'))})});showNews('all');
 
-  // お問い合わせフォーム：選んだ目的の欄だけ表示
-  var rs=[].slice.call(d.querySelectorAll('input[name="purpose"]')),opts=[].slice.call(d.querySelectorAll('.fm__opt'));
-  function syncForm(){var c=d.querySelector('input[name="purpose"]:checked'),v=c?c.value:'';opts.forEach(function(o){o.hidden=o.getAttribute('data-for')!==v})}
-  rs.forEach(function(r){r.addEventListener('change',syncForm)});syncForm();
-  [].forEach.call(d.querySelectorAll('[data-purpose]'),function(a){a.addEventListener('click',function(){var r=d.getElementById(a.getAttribute('data-purpose'));if(r){r.checked=true;syncForm()}})});
 })();
 </script>
 <div class="kari-note"><b>仮</b>文章・数字は仮です</div>

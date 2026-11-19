@@ -247,12 +247,6 @@ a:hover .arrow-c svg,.arrow-c:hover svg{stroke:#fff}
 .info__more{margin-top:28px;text-align:right}
 /* banner */
 
-/* ---------- 8. contact ---------- */
-.contact{position:relative;background:var(--orange) var(--noise);padding:120px 32px 200px}
-.contact::before{content:"";position:absolute;left:-15%;right:-15%;top:-80px;height:180px;border-radius:50%;background:inherit}
-.contact__inner{position:relative;max-width:1110px;margin:0 auto;display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center}
-.contact h2{font-family:var(--hand);font-weight:400;font-size:88px;line-height:1.1;letter-spacing:.04em}
-.contact__lead{margin-top:20px;font-size:18px;font-weight:700;line-height:1.7}
 
 /* ---------- footer ---------- */
 .ft{position:relative;z-index:4;background:#F8F9FB var(--noise);padding:120px 96px 80px;margin-top:-60px;overflow-x:clip}
@@ -290,7 +284,6 @@ a:hover .arrow-c svg,.arrow-c:hover svg{stroke:#fff}
   .support__pics .c2{width:330px;height:330px;right:-90px}
   .support__pics .c3{width:280px;height:280px;left:20px;top:300px}
   .ft{padding-left:48px;padding-right:48px}
-  .contact h2{font-size:72px}
 }
 @media (max-width:768px){
   body{font-size:15px}
@@ -355,11 +348,6 @@ a:hover .arrow-c svg,.arrow-c:hover svg{stroke:#fff}
   .newsbox time{grid-column:1}
   .newsbox p{grid-column:1;font-size:14px}
   .newsbox .arrow-c{grid-column:2;grid-row:1/3;width:36px;height:36px}
-  .contact{padding:80px 20px 150px}
-  .contact::before{top:-50px;height:120px}
-  .contact__inner{grid-template-columns:1fr}
-  .contact h2{font-size:52px}
-  .contact__lead{font-size:16px}
   .ft{padding:90px 22px 110px}
   .ft::before{top:-40px;height:110px}
   .ft__inner{flex-direction:column}
@@ -514,44 +502,76 @@ section[id]{scroll-margin-top:96px}
 .rec__pic{margin:0;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--green)}
 .rec__pic img{width:100%;height:100%;object-fit:cover}
 
-/* contact form */
-.contact{padding:130px 32px 200px}
-.contact__inner{display:block;max-width:1000px}
-.contact__head{position:relative;padding-right:220px}
-.contact h2{font-size:64px}
-.contact__lead{font-size:16px}
-.contact .minface{position:absolute;right:0;top:-10px;width:200px}
-.contact__panel{margin-top:40px;background:#fff;border-radius:40px;padding:48px 52px 52px}
-.cf-h{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:19px;font-weight:700;letter-spacing:.04em;line-height:1.5;margin:40px 0 14px}
-.cf-h::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--dgreen);flex:none}
-.cf>.cf-h:first-child{margin-top:0}
-.cf-req{display:inline-block;font-size:11px;font-weight:700;line-height:1;padding:5px 9px;border-radius:100px;background:#F25F7A;color:#fff;letter-spacing:.04em;white-space:nowrap}
-.cf-purpose{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.cf-opt{position:relative;display:block;background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:16px 16px 16px 46px;cursor:pointer;transition:border-color .2s,background-color .2s}
-.cf-opt input{position:absolute;left:17px;top:20px;width:18px;height:18px;margin:0;accent-color:var(--ink)}
-.cf-opt b{font-size:16px}
-.cf-opt p{font-size:13px;line-height:1.7;margin-top:4px;color:var(--gray)}
-.cf-opt:hover{border-color:var(--ink)}
-.cf-opt.is-on{border:2px solid var(--ink);background:#FBFAD8}
-.cf-tbl{border:1px solid var(--line);border-radius:22px;overflow:hidden}
-.cf-table{width:100%;border-collapse:collapse}
-.cf-table th,.cf-table td{padding:14px 18px;border-bottom:1px dashed var(--line);text-align:left;vertical-align:middle;font-size:15px}
-.cf-table tr:last-child th,.cf-table tr:last-child td{border-bottom:0}
-.cf-table th{width:220px;background:var(--bg);font-weight:700;line-height:1.5}
-.cf-table th .cf-req{margin-left:6px}
-.cf input[type=text],.cf input[type=email],.cf input[type=tel],.cf input[type=url],.cf input[type=date],.cf select,.cf textarea{width:100%;max-width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;line-height:1.5}
-.cf textarea{resize:vertical}
-.cf input:focus,.cf select:focus,.cf textarea:focus{outline:none;border-color:var(--ink)}
-.cf-chk{display:flex;flex-wrap:wrap;gap:8px 18px}
-.cf-chk label,.cf-agree label{display:inline-flex;align-items:center;gap:6px;cursor:pointer;line-height:1.6}
-.cf input[type=checkbox],.cf input[type=radio]{accent-color:var(--ink);width:17px;height:17px;margin:0}
-.cf-note{font-size:13px;line-height:1.8;margin-top:10px;color:var(--gray)}
-.cf-note a,.cf-agree a{text-decoration:underline;text-underline-offset:3px}
-.cf-branch[hidden]{display:none}
-.cf-agree{margin-top:30px;text-align:center;font-size:15px;font-weight:700}
-.cf-act{text-align:center;margin-top:22px}
-.cf-submit{position:relative;display:inline-flex;align-items:center;justify-content:center;min-width:320px;height:96px;padding:0 40px;border:0;border-radius:50%;background:var(--ink);color:#fff;font:inherit;font-size:16px;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:transform .45s var(--back)}
-.cf-submit:hover{transform:scale(1.04) rotate(-2deg)}
+/* contact CTA（お問い合わせページへ案内） */
+.contact{position:relative;background:var(--orange) var(--noise);padding:130px 32px 340px}
+.contact::before{content:"";position:absolute;left:-15%;right:-15%;top:-80px;height:180px;border-radius:50%;background:inherit}
+.cta__big{position:absolute;left:50%;bottom:128px;transform:translateX(-50%) rotate(-4deg);font-family:var(--hand);font-size:clamp(90px,14.5vw,210px);line-height:1;letter-spacing:.04em;color:transparent;-webkit-text-stroke:2px rgba(0,23,24,.17);white-space:nowrap;pointer-events:none;user-select:none}
+.cta__in{position:relative;max-width:1110px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:48px 64px;align-items:center}
+.cta__txt .pill-out{background:#fff}
+.cta__ttl{margin-top:22px;font-family:var(--hand);font-weight:400;font-size:84px;line-height:1.1;letter-spacing:.04em}
+.cta__lead{margin-top:24px;max-width:560px;font-size:17px;font-weight:700;line-height:1.9}
+.cta__main{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:18px;width:470px;max-width:100%;height:144px;margin-top:44px;padding:0 44px;border-radius:50%;background:var(--ink);color:#fff;font-size:25px;font-weight:700;letter-spacing:.06em;line-height:1.4;text-align:center;box-shadow:0 10px 0 rgba(0,23,24,.14);transition:transform .45s var(--back)}
+.cta__main::after{content:"";position:absolute;left:64px;bottom:-12px;width:46px;height:36px;background:inherit;clip-path:polygon(30% 0,100% 30%,0 100%)}
+.cta__main .arrow-c{flex:none;width:52px;height:52px;background:var(--yellow)}
+.cta__main .arrow-c svg{width:18px;height:13px;stroke:var(--ink)}
+.cta__main:hover{transform:scale(1.05) rotate(-2deg)}
+.cta__main:hover .arrow-c{background:var(--yellow)}
+.cta__main:hover .arrow-c svg{stroke:var(--ink);transform:translateX(3px)}
+.cta__main:focus-visible{outline:3px solid var(--ink);outline-offset:6px}
+.cta__pics{position:relative;height:470px}
+.cta__pics figure{position:absolute;border-radius:50%;overflow:hidden;margin:0;background:#fff}
+.cta__pics img{width:100%;height:100%;object-fit:cover}
+.cta__pics .c1{right:10px;top:20px;width:370px;height:370px}
+.cta__pics .c2{left:0;bottom:0;width:190px;height:190px;border:6px solid var(--orange)}
+.cta__ring{position:absolute;right:-8px;top:2px;width:406px;height:406px;color:var(--ink);transform:rotate(-24deg);overflow:visible}
+.cta__pics .minface{position:absolute;left:6px;top:0;width:120px;transform:rotate(-8deg)}
+.cta__sel{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding-top:30px;border-top:1.5px dashed rgba(0,23,24,.4)}
+.cta__sel-h{font-size:22px;letter-spacing:.08em;line-height:1.4}
+.cta__sel ul{display:flex;flex-wrap:wrap;gap:10px}
+.cta__sel .pill{min-height:50px;gap:10px;padding:8px 18px 8px 16px}
+.cta__sel .pill i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--dgreen)}
+.cta__sel li:nth-child(2) .pill i{background:var(--blue)}
+.cta__sel li:nth-child(3) .pill i{background:#E57A8A}
+.cta__sel li:nth-child(4) .pill i{background:#E3A400}
+.cta__mail{grid-column:1/-1;margin-top:-26px;font-size:15px;font-weight:500;line-height:1.8}
+.cta__mail a{font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.cta__mail a:hover{text-decoration-thickness:2px}
+@media (max-width:1180px){
+  .contact{padding:120px 32px 300px}
+  .cta__in{grid-template-columns:minmax(0,1fr) 340px;gap:44px 40px}
+  .cta__ttl{font-size:68px}
+  .cta__lead{font-size:16px}
+  .cta__main{width:420px;height:128px;font-size:21px;gap:14px;padding:0 34px}
+  .cta__main .arrow-c{width:46px;height:46px}
+  .cta__pics{height:380px}
+  .cta__pics .c1{width:290px;height:290px;right:8px;top:20px}
+  .cta__ring{width:320px;height:320px;right:-8px;top:4px}
+  .cta__pics .c2{width:150px;height:150px}
+  .cta__pics .minface{width:96px}
+  .cta__sel .pill{font-size:14px;padding:6px 14px 6px 14px;min-height:48px}
+}
+@media (max-width:768px){
+  .contact{padding:70px 16px 220px}
+  .cta__big{bottom:108px;font-size:21vw;-webkit-text-stroke-width:1.5px}
+  .cta__in{grid-template-columns:minmax(0,1fr);gap:36px}
+  .cta__pics{order:-1;height:270px;width:100%;max-width:340px;margin:0 auto}
+  .cta__pics .c1{width:220px;height:220px;right:12px;top:16px}
+  .cta__ring{width:244px;height:244px;right:0;top:4px}
+  .cta__pics .c2{width:120px;height:120px;left:4px;bottom:0;border-width:5px}
+  .cta__pics .minface{width:78px;left:0;top:4px}
+  .cta__ttl{margin-top:16px;font-size:48px}
+  .cta__lead{margin-top:16px;font-size:15px;line-height:1.9}
+  .cta__main{display:flex;width:100%;height:112px;margin-top:30px;padding:0 26px;font-size:19px;gap:12px;letter-spacing:.04em}
+  .cta__main::after{left:40px;bottom:-10px;width:36px;height:28px}
+  .cta__main .arrow-c{width:42px;height:42px}
+  .cta__main:hover{transform:scale(1.03) rotate(-1.5deg)}
+  .cta__sel{padding-top:24px;gap:12px}
+  .cta__sel-h{width:100%;font-size:20px}
+  .cta__sel ul{display:grid;grid-template-columns:1fr;gap:8px;width:100%}
+  .cta__sel .pill{width:100%;min-height:54px;font-size:15px;padding:8px 18px 8px 18px}
+  .cta__sel .pill span{flex:1}
+  .cta__mail{margin-top:-14px;font-size:14px}
+}
 
 @media (max-width:1300px){
   .js .hd:not(.is-solid){background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
@@ -577,9 +597,6 @@ section[id]{scroll-margin-top:96px}
   .tile__cap{font-size:13px}
   .rec__in{grid-template-columns:90px minmax(0,1fr) 280px;gap:28px}
   .rec__body h3{font-size:28px}
-  .cf-purpose{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .cf-table th{width:180px}
-  .contact__panel{padding:40px 32px 44px}
 }
 @media (max-width:768px){
   section[id]{scroll-margin-top:72px}
@@ -647,20 +664,6 @@ section[id]{scroll-margin-top:96px}
   .rec__body p{font-size:15px}
   .rec__pic{width:240px;margin:0 auto;order:-1}
   .rec__in>.vlabel{order:-2}
-  .contact{padding:80px 16px 150px}
-  .contact__head{padding-right:0}
-  .contact h2{font-size:44px}
-  .contact .minface{top:-80px;right:-4px;width:100px}
-  .contact__panel{margin-top:28px;padding:28px 14px 32px;border-radius:28px}
-  .cf-h{font-size:17px;margin-top:32px}
-  .cf-purpose{grid-template-columns:1fr;gap:8px}
-  .cf-opt{padding:13px 14px 13px 42px}
-  .cf-opt input{left:14px;top:16px}
-  .cf-table,.cf-table tbody,.cf-table tr,.cf-table th,.cf-table td{display:block;width:100%}
-  .cf-table th{padding:12px 14px 6px;border-bottom:0;background:transparent}
-  .cf-table td{padding:4px 14px 14px}
-  .cf-table td.cf-chk{display:flex}
-  .cf-submit{min-width:0;width:100%;max-width:320px;height:84px;font-size:15px}
 }
 @media (min-width:769px) and (max-width:1180px){
   .ft__inner{flex-direction:column}
@@ -1006,85 +1009,32 @@ section[id]{scroll-margin-top:96px}
     </div>
   </section>
 
-  <!-- ===== 11 お問い合わせフォーム ===== -->
+  <!-- ===== 11 お問い合わせ ===== -->
   <section class="contact" id="contact" aria-labelledby="ct-ttl">
-    <div class="contact__inner">
-      <div class="contact__head rv">
-        <h2 id="ct-ttl">お問い合わせ<br class="sp">フォーム</h2>
-        <p class="contact__lead" data-kari>お問い合わせの目的を選ぶと、それに合った入力欄が出ます。</p>
-        <svg class="minface" viewBox="0 0 200 150" aria-hidden="true"><use href="#face-s"/></svg>
+    <p class="cta__big" aria-hidden="true">CONTACT</p>
+    <div class="cta__in">
+      <div class="cta__txt rv">
+        <p class="pill-out">CONTACT</p>
+        <h2 class="cta__ttl" id="ct-ttl">お問い合わせ</h2>
+        <p class="cta__lead" data-kari>制作のご依頼、育成プロジェクトのお申し込み、採用へのご応募、取材のご依頼など、お気軽にご相談ください。</p>
+        <a class="cta__main" href="contact.html">お問い合わせはこちら<span class="arrow-c" aria-hidden="true"><svg viewBox="0 0 16 12"><use href="#arr"/></svg></span></a>
       </div>
-      <div class="contact__panel rv">
-<form class="cf" action="#" onsubmit="return false">
-
-<h3 class="cf-h">1. お問い合わせの目的 <span class="cf-req">必須</span></h3>
-<div class="cf-purpose">
-<label class="cf-opt" for="work"><input type="radio" id="work" name="purpose" value="work" checked> <b>制作のご依頼</b><p>動画・仕上・2原などのご依頼、お見積り、キャパシティのご相談</p></label>
-<label class="cf-opt" for="academy"><input type="radio" id="academy" name="purpose" value="academy"> <b>育成について</b><p>アニメーター育成プロジェクトのお申し込み・説明会・ご質問</p></label>
-<label class="cf-opt" for="recruit"><input type="radio" id="recruit" name="purpose" value="recruit"> <b>採用への応募</b><p>デジタル作画アニメーターなどへの応募、採用についてのご質問</p></label>
-<label class="cf-opt" for="event"><input type="radio" id="event" name="purpose" value="event"> <b>ワークショップ・取材</b><p>作画体験・出張授業のご依頼、取材・メディアのご依頼</p></label>
-<label class="cf-opt" for="other"><input type="radio" id="other" name="purpose" value="other"> <b>その他</b><p>上記以外のお問い合わせ</p></label>
-</div>
-
-<h3 class="cf-h">2. お客さまの情報</h3>
-<div class="cf-tbl"><table class="cf-table">
-<tr><th>お名前 <span class="cf-req">必須</span></th><td><input type="text" placeholder="山田 花子"></td></tr>
-<tr><th>ふりがな</th><td><input type="text" placeholder="やまだ はなこ"></td></tr>
-<tr><th>会社名・団体名</th><td><input type="text" placeholder="任意"></td></tr>
-<tr><th>メールアドレス <span class="cf-req">必須</span></th><td><input type="email" placeholder="example@example.com"></td></tr>
-<tr><th>電話番号</th><td><input type="tel" placeholder="任意（制作のご依頼は必須）"></td></tr>
-</table></div>
-
-<div class="cf-branch" data-for="work">
-<h3 class="cf-h">3-A.「制作のご依頼」を選んだ場合</h3>
-<div class="cf-tbl"><table class="cf-table">
-<tr><th>ご担当者・部署</th><td><input type="text" placeholder="制作進行 ○○"></td></tr>
-<tr><th>作品名</th><td><input type="text" placeholder="伏せていただいても構いません"></td></tr>
-<tr><th>ご希望の工程 <span class="cf-req">必須</span></th><td class="cf-chk"><label><input type="checkbox"> LO</label><label><input type="checkbox"> 第一原画</label><label><input type="checkbox"> 第二原画</label><label><input type="checkbox"> 作画監督</label><label><input type="checkbox"> 動画</label><label><input type="checkbox"> 動画検査</label><label><input type="checkbox"> 仕上</label><label><input type="checkbox"> 色彩設計</label><label><input type="checkbox"> 色指定検査</label><label><input type="checkbox"> 線撮</label></td></tr>
-<tr><th>物量</th><td><input type="text" placeholder="例：動画○○枚／2原○○cut"></td></tr>
-<tr><th>ご希望の納期</th><td><input type="date"></td></tr>
-<tr><th>国内・海外のご希望</th><td class="cf-chk"><label><input type="radio" name="line"> 国内</label><label><input type="radio" name="line"> 海外（MONICHI Pictures）</label><label><input type="radio" name="line"> どちらでも</label></td></tr>
-<tr><th>素材の形式・使用ソフト</th><td><input type="text" placeholder="例：CLIP STUDIO／紙 など"></td></tr>
-</table></div>
-<p class="cf-note">1週間〜10日間の目安：国内 動画800枚・仕上1000枚・2原10cut／海外 動画2000枚・仕上1800枚・2原15cut（作監は要相談）。詳しくは<a href="service.html">事業内容</a>へ。</p>
-</div>
-
-<div class="cf-branch" data-for="academy">
-<h3 class="cf-h">3-B.「育成について」を選んだ場合</h3>
-<div class="cf-tbl"><table class="cf-table">
-<tr><th>ご用件</th><td><select><option>選択してください</option><option>説明会・体験会に参加したい</option><option>受講を申し込みたい</option><option>次回の募集を知りたい</option><option>その他の質問</option></select></td></tr>
-<tr><th>絵を描いた経験</th><td><select><option>選択してください</option><option>趣味で描いている</option><option>学校で学んだ</option><option>仕事で描いていた</option><option>ほとんどない</option></select></td></tr>
-</table></div>
-</div>
-
-<div class="cf-branch" data-for="recruit">
-<h3 class="cf-h">3-C.「採用への応募」を選んだ場合</h3>
-<div class="cf-tbl"><table class="cf-table">
-<tr><th>希望の職種</th><td class="cf-chk"><label><input type="checkbox"> LO</label><label><input type="checkbox"> 作画監督</label><label><input type="checkbox"> 原画</label><label><input type="checkbox"> 動画</label><label><input type="checkbox"> その他</label></td></tr>
-<tr><th>簡単な略歴</th><td><textarea rows="4" placeholder="参加作品・経験年数など"></textarea></td></tr>
-<tr><th>ポートフォリオ</th><td><input type="url" placeholder="URL（任意）"></td></tr>
-</table></div>
-</div>
-
-<div class="cf-branch" data-for="event">
-<h3 class="cf-h">3-D.「ワークショップ・取材」を選んだ場合</h3>
-<div class="cf-tbl"><table class="cf-table">
-<tr><th>ご依頼の種類</th><td><select><option>選択してください</option><option>作画体験ワークショップ</option><option>学校での授業</option><option>取材・メディア掲載</option></select></td></tr>
-<tr><th>ご希望の日程・場所</th><td><input type="text" placeholder="例：○月ごろ／○○市"></td></tr>
-<tr><th>対象・人数</th><td><input type="text" placeholder="例：小学4年生 30名"></td></tr>
-<tr><th>媒体名（取材の場合）</th><td><input type="text"></td></tr>
-</table></div>
-</div>
-
-<h3 class="cf-h">4. お問い合わせ内容</h3>
-<div class="cf-tbl"><table class="cf-table">
-<tr><th>内容 <span class="cf-req">必須</span></th><td><textarea rows="6"></textarea></td></tr>
-<tr><th>どこで知りましたか</th><td><select><option>選択してください</option><option>検索</option><option>X</option><option>LINE</option><option>知人の紹介</option><option>ワークショップ・イベント</option><option>新聞・テレビ</option><option>その他</option></select></td></tr>
-</table></div>
-<p class="cf-agree"><label><input type="checkbox"> <a href="contact.html#privacy">個人情報の取り扱い</a>に同意する</label> <span class="cf-req">必須</span></p>
-<div class="cf-act"><button class="cf-submit" type="button">確認画面へ（送信はしません）</button></div>
-</form>
+      <div class="cta__pics rv" aria-hidden="true">
+        <figure class="c1"><img src="images/real/illust-woman-tablet.jpg" alt="" width="1280" height="1155" loading="lazy" style="object-position:58% 40%"></figure>
+        <svg class="cta__ring" viewBox="0 0 100 100"><use href="#circle-hand"/></svg>
+        <figure class="c2"><img src="images/real/photo-handshake.jpg" alt="" width="853" height="1280" loading="lazy" style="object-position:50% 60%"></figure>
+        <svg class="minface" viewBox="0 0 200 150"><use href="#face-s"/></svg>
       </div>
+      <div class="cta__sel rv">
+        <p class="cta__sel-h hand">目的から選ぶ</p>
+        <ul>
+          <li><a class="pill" href="contact.html#work"><i aria-hidden="true"></i><span>制作のご相談</span><svg aria-hidden="true"><use href="#arr"/></svg></a></li>
+          <li><a class="pill" href="contact.html#academy"><i aria-hidden="true"></i><span>育成のお申し込み</span><svg aria-hidden="true"><use href="#arr"/></svg></a></li>
+          <li><a class="pill" href="contact.html#recruit"><i aria-hidden="true"></i><span>採用への応募</span><svg aria-hidden="true"><use href="#arr"/></svg></a></li>
+          <li><a class="pill" href="contact.html#event"><i aria-hidden="true"></i><span>取材・イベント</span><svg aria-hidden="true"><use href="#arr"/></svg></a></li>
+        </ul>
+      </div>
+      <p class="cta__mail rv">メール：<a href="mailto:home.lulaforte@gmail.com">home.lulaforte@gmail.com</a><span style="white-space:nowrap">（平日9:00〜23:00）</span></p>
     </div>
   </section>
 </main>
@@ -1162,7 +1112,7 @@ section[id]{scroll-margin-top:96px}
 })();
 </script>
 <script>
-/* お知らせのカテゴリ切り替え＋お問い合わせ目的別の欄 */
+/* お知らせのカテゴリ切り替え */
 (function(){
   var L=[].slice.call(document.querySelectorAll('#news-list li')),B=[].slice.call(document.querySelectorAll('[data-tab]')),M=document.getElementById('news-more'),MT=M?M.querySelector('.nw-more-t')||M:null;
   var A={info:'cat-info',ikusei:'cat-ikusei',event:'cat-event',media:'cat-media',feature:'cat-feature',blog:'cat-blog'},N={info:'お知らせ',ikusei:'育成',event:'イベント',media:'メディア',feature:'特集',blog:'ブログ'};
@@ -1171,12 +1121,6 @@ section[id]{scroll-margin-top:96px}
     if(M){M.href=k==='all'?'news.html':'news.html#'+A[k];MT.textContent=k==='all'?'お知らせ一覧へ':N[k]+'の一覧へ';}}
   B.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-tab'));});});
   if(L.length)show('all');
-  var R=[].slice.call(document.querySelectorAll('input[name="purpose"]')),BR=[].slice.call(document.querySelectorAll('.cf-branch'));
-  function sync(){var c=document.querySelector('input[name="purpose"]:checked'),v=c?c.value:'';
-    BR.forEach(function(b){b.hidden=b.getAttribute('data-for')!==v;});
-    R.forEach(function(r){var o=r.closest('.cf-opt');if(o)o.classList.toggle('is-on',r.checked);});}
-  R.forEach(function(r){r.addEventListener('change',sync);});
-  if(R.length)sync();
 })();
 </script>
 <div class="kari-note"><b>仮</b>文章・数字は仮です</div>

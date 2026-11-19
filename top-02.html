@@ -366,41 +366,36 @@ html{scroll-padding-top:96px}
 .recruit p{margin-top:20px;max-width:600px;font-size:18px;font-weight:700;line-height:1.9}
 .recruit .c-row{margin-top:36px}
 
-/* ===== 11. contact form ===== */
-.contact{background:var(--mist);padding:130px var(--gut) 190px}
-.cbox{max-width:1000px;margin:52px auto 0;background:#fff;border-top:6px solid var(--red);box-shadow:var(--shadow);padding:56px 64px 64px}
-.cbox-lead{font-size:16px;line-height:1.9}
-.cf [hidden]{display:none!important}
-.cf-step{margin-top:48px}
-.cf-h{display:flex;align-items:center;flex-wrap:wrap;gap:14px;font-size:21px;font-weight:900;line-height:1.5;padding-bottom:14px;border-bottom:2px solid var(--ink)}
-.cf-no{font-family:var(--en);font-style:italic;font-weight:900;font-size:28px;line-height:1;color:var(--red);letter-spacing:-.01em}
-.cf-req{display:inline-block;margin-left:8px;padding:2px 8px;background:var(--red);color:#fff;font-size:12px;font-weight:700;line-height:1.5;vertical-align:middle;letter-spacing:.04em}
-.cf-h .cf-req{margin-left:0}
-.cf-purpose{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.cf-opt{display:flex;gap:12px;align-items:flex-start;padding:18px;border:2px solid #dfe3e8;background:#fff;cursor:pointer;transition:border-color .25s,background .25s}
-.cf-opt:hover{border-color:#b9c0ca}
-.cf-opt input{flex:none;margin:5px 0 0;width:18px;height:18px;accent-color:var(--red)}
-.cf-opt-in b{display:block;font-size:17px;line-height:1.5}
-.cf-opt-in span{display:block;margin-top:4px;font-size:14px;line-height:1.7;color:#4b5563}
-.cf-opt.is-on{border-color:var(--red);background:#fff5f5}
-.cf-opt.is-on b{color:var(--red)}
-.cf-row{display:grid;grid-template-columns:240px minmax(0,1fr);gap:22px;align-items:center;padding:18px 0;border-bottom:1px solid #e3e6ea}
-.cf-l{font-size:16px;font-weight:700;line-height:1.6}
-.cf-f input[type=text],.cf-f input[type=email],.cf-f input[type=tel],.cf-f input[type=url],.cf-f input[type=date],.cf-f select,.cf-f textarea{width:100%;max-width:100%;min-height:52px;padding:10px 16px;border:1.5px solid #cfd5dd;border-radius:0;background:#fff;font:inherit;font-size:16px;font-weight:500;color:var(--ink);transition:border-color .25s,box-shadow .25s}
-.cf-f textarea{line-height:1.8;resize:vertical}
-.cf-f input:focus,.cf-f select:focus,.cf-f textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(220,0,12,.12)}
-.cf-checks{display:flex;flex-wrap:wrap;gap:10px 18px}
-.cf-checks label{display:inline-flex;align-items:center;gap:8px;font-size:16px;line-height:1.5;cursor:pointer}
-.cf-checks input{width:18px;height:18px;margin:0;accent-color:var(--red)}
-.cf-note{margin-top:16px;padding:14px 18px;background:var(--gray);border-left:4px solid var(--red);font-size:14.5px;line-height:1.85}
-.cf-note a,.cf-agree a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
-.cf-agree{margin-top:40px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;font-size:16px}
-.cf-agree label{display:inline-flex;align-items:center;gap:10px;cursor:pointer}
-.cf-agree input{width:20px;height:20px;margin:0;accent-color:var(--red)}
-.cf-submit{display:flex;justify-content:center;margin-top:28px}
-.cf-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:20px;width:400px;max-width:100%;min-height:66px;padding:0 28px 0 32px;border:2px solid var(--red);border-radius:90px;background:var(--red);color:#fff;font:inherit;font-size:18px;font-weight:700;cursor:pointer;transition:background .3s,color .3s}
-.cf-btn::after{content:"";width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);flex:none}
-.cf-btn:hover{background:#fff;color:var(--red)}
+/* ===== 11. contact CTA ===== */
+.contact{position:relative;overflow:hidden;background:linear-gradient(115deg,#e3000d 0%,var(--red) 45%,#b8000a 100%);color:#fff;padding:140px var(--gut) 210px}
+.ct-big{position:absolute;left:50%;bottom:58px;z-index:0;transform:translateX(-50%);font-size:clamp(120px,21vw,330px);line-height:.8;white-space:nowrap;color:rgba(255,255,255,.09);pointer-events:none;user-select:none}
+.ct-in{position:relative;z-index:1;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:84px;align-items:center}
+.ct-photo{position:relative;height:560px;margin-left:40px;transform:skewX(-10deg);overflow:hidden;background:#7a0007}
+.ct-photo img{position:absolute;inset:0 -18%;width:136%;max-width:none;height:100%;object-fit:cover;object-position:50% 30%;transform:skewX(10deg);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ct-photo::before,.ct-photo::after{content:"";position:absolute;z-index:1;width:30px;height:30px;background:#fff}
+.ct-photo::before{left:0;top:0}
+.ct-photo::after{right:0;bottom:0}
+.contact .sec-head .en{color:#fff}
+.contact .sec-head .en::after{background:#fff}
+.contact .sec-head h2{font-size:clamp(28px,2.8vw,40px)}
+.ct-lead{margin-top:22px;max-width:640px;font-size:17px;font-weight:700;line-height:2;text-wrap:pretty}
+.ct-btn{position:relative;margin-top:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;max-width:580px;min-height:100px;padding:0 20px 0 44px;border-radius:90px;background:#fff;color:var(--ink);font-size:clamp(20px,1.8vw,25px);font-weight:900;letter-spacing:.06em;line-height:1.4;box-shadow:0 22px 50px rgba(80,0,4,.35);transition:background .35s,color .35s,transform .35s cubic-bezier(.2,.7,.2,1)}
+.ct-btn i{flex:none;position:relative;width:64px;height:64px;border-radius:50%;background:var(--red);transition:background .35s,transform .35s cubic-bezier(.2,.7,.2,1)}
+.ct-btn i::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:13px;margin:-6.5px 0 0 -9px;border-top:3px solid #fff;border-right:3px solid #fff;transform:rotate(45deg)}
+.ct-btn:hover,.ct-btn:focus-visible{background:var(--ink);color:#fff;transform:translateY(-3px)}
+.ct-btn:hover i,.ct-btn:focus-visible i{transform:translateX(6px)}
+.ct-sel{margin-top:40px;display:flex;align-items:center;gap:16px;font-size:15px;font-weight:700;letter-spacing:.08em}
+.ct-sel::before{content:"";width:12px;height:12px;background:#fff;transform:skewX(-10deg);flex:none}
+.ct-links{margin-top:6px;display:grid;grid-template-columns:1fr 1fr;column-gap:36px;max-width:580px}
+.ct-links a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;padding:8px 4px;border-bottom:2px solid rgba(255,255,255,.35);font-size:17px;font-weight:700;line-height:1.5;transition:border-color .3s,padding .3s}
+.ct-links a::after{content:"";width:8px;height:8px;border-top:2px solid #fff;border-right:2px solid #fff;transform:rotate(45deg);flex:none;transition:transform .3s}
+.ct-links a:hover,.ct-links a:focus-visible{border-color:#fff;padding-left:10px}
+.ct-links a:hover::after{transform:translateX(4px) rotate(45deg)}
+.ct-mail{margin-top:30px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;font-size:15px;font-weight:700;line-height:1.7}
+.ct-mail b{display:inline-block;padding:1px 10px;background:#fff;color:var(--red);font-size:13px;transform:skewX(-10deg)}
+.ct-mail a{font-family:var(--en);font-weight:700;font-size:16px;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.ct-mail a:hover{text-decoration-thickness:2px}
+.ct-mail span{white-space:nowrap}
 
 /* ===== responsive ===== */
 @media (max-width:1300px){
@@ -423,9 +418,8 @@ html{scroll-padding-top:96px}
   .sp:nth-child(3){border-left:0}
   .v-grid{gap:20px}
   .vcard{padding:34px 22px 30px}
-  .cbox{padding:48px 40px 56px}
-  .cf-purpose{grid-template-columns:1fr 1fr}
-  .cf-row{grid-template-columns:200px minmax(0,1fr)}
+  .ct-in{gap:56px}
+  .ct-photo{height:500px;margin-left:24px}
   .ft-grid{grid-template-columns:1fr 1fr}
   .ft-col--other ul{grid-template-columns:1fr 1fr;column-gap:20px}
   .ft-col--other li a{white-space:normal}
@@ -437,6 +431,8 @@ html{scroll-padding-top:96px}
   .st-grid{grid-template-columns:1fr;max-width:620px}
   .ac-in{grid-template-columns:minmax(0,1fr)}
   .v-grid{grid-template-columns:1fr;max-width:560px}
+  .ct-in{grid-template-columns:minmax(0,1fr);gap:56px;max-width:720px}
+  .ct-photo{height:340px;margin:0 24px}
 }
 @media (max-width:768px){
   :root{--gut:20px}
@@ -573,22 +569,22 @@ html{scroll-padding-top:96px}
   .r-tags span{font-size:13px}
   .recruit p{font-size:15px}
 
-  .contact{padding:80px 16px 130px}
-  .cbox{margin-top:36px;padding:28px 18px 36px;border-top-width:5px}
-  .cbox-lead{font-size:14.5px}
-  .cf-step{margin-top:36px}
-  .cf-h{font-size:17px;gap:10px}
-  .cf-no{font-size:24px}
-  .cf-purpose{grid-template-columns:1fr;gap:10px}
-  .cf-opt{padding:14px}
-  .cf-opt-in b{font-size:16px}
-  .cf-opt-in span{font-size:13px}
-  .cf-row{grid-template-columns:1fr;gap:8px;padding:14px 0}
-  .cf-l{font-size:14.5px}
-  .cf-checks{gap:10px 16px}
-  .cf-checks label{font-size:15px}
-  .cf-agree{font-size:14.5px;justify-content:flex-start}
-  .cf-btn{width:100%;font-size:16px;min-height:62px;padding:0 22px}
+  .contact{padding:80px 20px 150px}
+  .ct-big{bottom:70px;font-size:23vw}
+  .ct-in{gap:40px}
+  .ct-photo{height:220px;margin:0 14px;transform:skewX(-8deg)}
+  .ct-photo img{transform:skewX(8deg);object-position:50% 62%}
+  .ct-photo::before,.ct-photo::after{width:20px;height:20px}
+  .contact .sec-head h2{font-size:24px}
+  .ct-lead{margin-top:16px;font-size:15px;line-height:1.9}
+  .ct-btn{margin-top:28px;min-height:72px;padding:0 12px 0 26px;font-size:18px;letter-spacing:.04em}
+  .ct-btn i{width:50px;height:50px}
+  .ct-btn i::after{width:11px;height:11px;margin:-5.5px 0 0 -8px}
+  .ct-sel{margin-top:30px;font-size:14px}
+  .ct-links{grid-template-columns:1fr;column-gap:0}
+  .ct-links a{min-height:54px;font-size:15.5px}
+  .ct-mail{margin-top:24px;font-size:14px;gap:6px 12px}
+  .ct-mail a{font-size:15px}
 
   .ft{margin-top:-60px;border-radius:44px 44px 0 0;padding:56px 20px 0}
   .ft-logo{width:190px}
@@ -891,86 +887,26 @@ html{scroll-padding-top:96px}
   </div>
 </section>
 
-<!-- ===== 11. お問い合わせフォーム ===== -->
+<!-- ===== 11. お問い合わせ ===== -->
 <section class="contact" id="contact" aria-labelledby="ctTtl">
-  <div class="sec-head fx"><p class="en">Contact</p><h2 id="ctTtl">お問い合わせフォーム</h2></div>
-  <div class="cbox">
-    <p class="cbox-lead" data-kari>お問い合わせの目的を選ぶと、それに合った入力欄が出ます（送信はしません）。</p>
-    <form class="cf" action="#" onsubmit="return false" novalidate>
-      <div class="cf-step">
-        <h3 class="cf-h"><span class="cf-no">1</span>お問い合わせの目的<span class="cf-req">必須</span></h3>
-        <div class="cf-purpose">
-          <label class="cf-opt" for="work"><input type="radio" id="work" name="purpose" value="work" checked><span class="cf-opt-in"><b>制作のご依頼</b><span>動画・仕上・2原などのご依頼、お見積り、キャパシティのご相談</span></span></label>
-          <label class="cf-opt" for="academy"><input type="radio" id="academy" name="purpose" value="academy"><span class="cf-opt-in"><b>育成について</b><span>アニメーター育成プロジェクトのお申し込み・説明会・ご質問</span></span></label>
-          <label class="cf-opt" for="recruit"><input type="radio" id="recruit" name="purpose" value="recruit"><span class="cf-opt-in"><b>採用への応募</b><span>デジタル作画アニメーターなどへの応募、採用についてのご質問</span></span></label>
-          <label class="cf-opt" for="event"><input type="radio" id="event" name="purpose" value="event"><span class="cf-opt-in"><b>ワークショップ・取材</b><span>作画体験・出張授業のご依頼、取材・メディアのご依頼</span></span></label>
-          <label class="cf-opt" for="other"><input type="radio" id="other" name="purpose" value="other"><span class="cf-opt-in"><b>その他</b><span>上記以外のお問い合わせ</span></span></label>
-        </div>
+  <p class="ct-big en" aria-hidden="true">Contact</p>
+  <div class="ct-in">
+    <div class="fx"><div class="ct-photo"><img src="images/real/photo-mom-working.jpg" alt="" loading="lazy"></div></div>
+    <div class="ct-body">
+      <div class="sec-head is-left fx"><p class="en">Contact</p><h2 id="ctTtl">お問い合わせ</h2></div>
+      <p class="ct-lead fx" data-kari>制作のご依頼、育成プロジェクトのお申し込み、採用へのご応募、取材のご依頼など、お気軽にご相談ください。</p>
+      <div class="fx fx-d1"><a class="ct-btn" href="contact.html"><span>お問い合わせはこちら</span><i aria-hidden="true"></i></a></div>
+      <div class="fx fx-d2">
+        <p class="ct-sel">目的から選ぶ</p>
+        <ul class="ct-links">
+          <li><a href="contact.html#work">制作のご相談</a></li>
+          <li><a href="contact.html#academy">育成のお申し込み</a></li>
+          <li><a href="contact.html#recruit">採用への応募</a></li>
+          <li><a href="contact.html#event">取材・イベント</a></li>
+        </ul>
+        <p class="ct-mail"><b>メール</b><a href="mailto:home.lulaforte@gmail.com">home.lulaforte@gmail.com</a><span>（平日9:00〜23:00）</span></p>
       </div>
-
-      <div class="cf-step">
-        <h3 class="cf-h"><span class="cf-no">2</span>お客さまの情報</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-name">お名前<span class="cf-req">必須</span></label><div class="cf-f"><input id="f-name" type="text" placeholder="山田 花子" autocomplete="name"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-kana">ふりがな</label><div class="cf-f"><input id="f-kana" type="text" placeholder="やまだ はなこ"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-org">会社名・団体名</label><div class="cf-f"><input id="f-org" type="text" placeholder="任意" autocomplete="organization"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-mail">メールアドレス<span class="cf-req">必須</span></label><div class="cf-f"><input id="f-mail" type="email" placeholder="example@example.com" autocomplete="email"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-tel">電話番号</label><div class="cf-f"><input id="f-tel" type="tel" placeholder="任意（制作のご依頼は必須）" autocomplete="tel"></div></div>
-        </div>
-      </div>
-
-      <div class="cf-step cf-branch" data-for="work">
-        <h3 class="cf-h"><span class="cf-no">3-A</span>「制作のご依頼」を選んだ場合</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-a1">ご担当者・部署</label><div class="cf-f"><input id="f-a1" type="text" placeholder="制作進行 ○○"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-a2">作品名</label><div class="cf-f"><input id="f-a2" type="text" placeholder="伏せていただいても構いません"></div></div>
-          <div class="cf-row"><span class="cf-l">ご希望の工程<span class="cf-req">必須</span></span><div class="cf-f cf-checks"><label><input type="checkbox" name="proc" value="LO">LO</label><label><input type="checkbox" name="proc" value="第一原画">第一原画</label><label><input type="checkbox" name="proc" value="第二原画">第二原画</label><label><input type="checkbox" name="proc" value="作画監督">作画監督</label><label><input type="checkbox" name="proc" value="動画">動画</label><label><input type="checkbox" name="proc" value="動画検査">動画検査</label><label><input type="checkbox" name="proc" value="仕上">仕上</label><label><input type="checkbox" name="proc" value="色彩設計">色彩設計</label><label><input type="checkbox" name="proc" value="色指定検査">色指定検査</label><label><input type="checkbox" name="proc" value="線撮">線撮</label></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-a3">物量</label><div class="cf-f"><input id="f-a3" type="text" placeholder="例：動画○○枚／2原○○cut"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-a4">ご希望の納期</label><div class="cf-f"><input id="f-a4" type="date"></div></div>
-          <div class="cf-row"><span class="cf-l">国内・海外のご希望</span><div class="cf-f cf-checks"><label><input type="radio" name="line" value="国内">国内</label><label><input type="radio" name="line" value="海外">海外（MONICHI Pictures）</label><label><input type="radio" name="line" value="どちらでも">どちらでも</label></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-a5">素材の形式・使用ソフト</label><div class="cf-f"><input id="f-a5" type="text" placeholder="例：CLIP STUDIO／紙 など"></div></div>
-        </div>
-        <p class="cf-note">1週間〜10日間の目安：国内 動画800枚・仕上1000枚・2原10cut／海外 動画2000枚・仕上1800枚・2原15cut（作監は要相談）。詳しくは<a href="service.html">事業内容</a>へ。</p>
-      </div>
-
-      <div class="cf-step cf-branch" data-for="academy">
-        <h3 class="cf-h"><span class="cf-no">3-B</span>「育成について」を選んだ場合</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-b1">ご用件</label><div class="cf-f"><select id="f-b1"><option>選択してください</option><option>説明会・体験会に参加したい</option><option>受講を申し込みたい</option><option>次回の募集を知りたい</option><option>その他の質問</option></select></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-b2">絵を描いた経験</label><div class="cf-f"><select id="f-b2"><option>選択してください</option><option>趣味で描いている</option><option>学校で学んだ</option><option>仕事で描いていた</option><option>ほとんどない</option></select></div></div>
-        </div>
-      </div>
-
-      <div class="cf-step cf-branch" data-for="recruit">
-        <h3 class="cf-h"><span class="cf-no">3-C</span>「採用への応募」を選んだ場合</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><span class="cf-l">希望の職種</span><div class="cf-f cf-checks"><label><input type="checkbox" name="job" value="LO">LO</label><label><input type="checkbox" name="job" value="作画監督">作画監督</label><label><input type="checkbox" name="job" value="原画">原画</label><label><input type="checkbox" name="job" value="動画">動画</label><label><input type="checkbox" name="job" value="その他">その他</label></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-c1">簡単な略歴</label><div class="cf-f"><textarea id="f-c1" rows="4" placeholder="参加作品・経験年数など"></textarea></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-c2">ポートフォリオ</label><div class="cf-f"><input id="f-c2" type="url" placeholder="URL（任意）"></div></div>
-        </div>
-      </div>
-
-      <div class="cf-step cf-branch" data-for="event">
-        <h3 class="cf-h"><span class="cf-no">3-D</span>「ワークショップ・取材」を選んだ場合</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-d1">ご依頼の種類</label><div class="cf-f"><select id="f-d1"><option>選択してください</option><option>作画体験ワークショップ</option><option>学校での授業</option><option>取材・メディア掲載</option></select></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-d2">ご希望の日程・場所</label><div class="cf-f"><input id="f-d2" type="text" placeholder="例：○月ごろ／○○市"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-d3">対象・人数</label><div class="cf-f"><input id="f-d3" type="text" placeholder="例：小学4年生 30名"></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-d4">媒体名（取材の場合）</label><div class="cf-f"><input id="f-d4" type="text"></div></div>
-        </div>
-      </div>
-
-      <div class="cf-step">
-        <h3 class="cf-h"><span class="cf-no">4</span>お問い合わせ内容</h3>
-        <div class="cf-rows">
-          <div class="cf-row"><label class="cf-l" for="f-body">内容<span class="cf-req">必須</span></label><div class="cf-f"><textarea id="f-body" rows="6"></textarea></div></div>
-          <div class="cf-row"><label class="cf-l" for="f-src">どこで知りましたか</label><div class="cf-f"><select id="f-src"><option>選択してください</option><option>検索</option><option>X</option><option>LINE</option><option>知人の紹介</option><option>ワークショップ・イベント</option><option>新聞・テレビ</option><option>その他</option></select></div></div>
-        </div>
-      </div>
-
-      <p class="cf-agree"><label><input type="checkbox" id="f-agree"><span><a href="contact.html#privacy">個人情報の取り扱い</a>に同意する</span></label><span class="cf-req">必須</span></p>
-      <div class="cf-submit"><button class="cf-btn" type="button">確認画面へ（送信はしません）</button></div>
-    </form>
+    </div>
   </div>
 </section>
 </main>
@@ -1032,7 +968,7 @@ html{scroll-padding-top:96px}
 </footer>
 
 <a class="pagetop" id="pagetop" href="#hero" aria-label="ページの先頭へ"></a>
-<a class="fab" href="#contact" aria-label="お問い合わせフォームへ"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>お問い<br>合わせ</a>
+<a class="fab" href="contact.html" aria-label="お問い合わせページへ"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>お問い<br>合わせ</a>
 
 <script>
 (function(){
@@ -1119,18 +1055,6 @@ html{scroll-padding-top:96px}
     show('all');
   })();
 
-  /* お問い合わせ：選んだ目的の欄（3-A〜3-D）だけ表示 */
-  (function(){
-    var form=document.querySelector('.cf'); if(!form) return;
-    var radios=[].slice.call(form.querySelectorAll('input[name=purpose]')), branches=[].slice.call(form.querySelectorAll('.cf-branch'));
-    function update(){
-      var c=form.querySelector('input[name=purpose]:checked'), v=c?c.value:'';
-      branches.forEach(function(b){ b.hidden=(b.getAttribute('data-for')!==v); });
-      radios.forEach(function(r){ r.closest('.cf-opt').classList.toggle('is-on', r.checked); });
-    }
-    radios.forEach(function(r){ r.addEventListener('change',update); });
-    update();
-  })();
 })();
 </script>
 <div class="kari-note"><b>仮</b>文章・数字は仮です</div>
